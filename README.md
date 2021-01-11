@@ -1,3 +1,3 @@
 # platformer
 
-https://github.com/RedDarkS/platformer/main.html
+https://github.com/RedDarkS/platformer/index.html
