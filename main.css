@@ -1,0 +1,17 @@
+body{
+    /* centre le jeu dans l'écran */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+}
+
+#game{
+    background-color: #111;
+    --w:896px;
+    --h:448px;
+}
+
+
