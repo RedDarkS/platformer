@@ -1,5 +1,5 @@
 # platformer
 
-https://github.com/RedDarkS/platformer/index.html
+https://github.github.io/RedDarkS/platformer/
 
 http://localhost/platformer/
