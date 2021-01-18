@@ -1,15 +1,17 @@
-class Tableau01 extends Tableau00{
+class Tableau01 extends Tableau00
+{
 
-    preload() {
+    preload() 
+    {
         super.preload();
-        this.load.image('star', 'assets/star.png');
         this.load.image('ground', 'assets/platform.png');
     }
-    create() {
+    create() 
+    {
         super.create();
 
         //la plateforme rouge
-        let rouge=this.physics.add.sprite(10,200,"ground");
+        let rouge = this.physics.add.sprite(10,200,"ground");
         rouge.setDisplaySize(250,50)//taille de l'objet
         rouge.setTintFill(0xFF0000);//applique une couleur rouge
         rouge.setOrigin(0,0);//pour positionner plus facilement
@@ -32,7 +34,8 @@ class Tableau01 extends Tableau00{
         groupeVert.create(700, 300, 'ground');
 
         //pour chacun des enfants du groupe
-        groupeVert.children.iterate(function (child) {
+        groupeVert.children.iterate(function (child) 
+        {
             child.setTintFill(0x00FF00); //applique une couleur verte
             child.setDisplaySize(40,50);//taille de l'objet
             child.setOrigin(0,0);//pour positionner plus facilement

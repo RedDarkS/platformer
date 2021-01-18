@@ -6,9 +6,11 @@ let config = {
     type: Phaser.AUTO,
 
 
-    physics: {
+    physics: 
+    {
         default: 'arcade',
-        arcade: {
+        arcade: 
+        {
             gravity: { y: 100*3 },
             debug: true,
         }
@@ -29,17 +31,20 @@ let config = {
     ],
     width: width,
     height: height,
-    scale: {
+    scale: 
+    {
         mode: Phaser.Scale.FIT,
         orientation:Phaser.Scale.LANDSCAPE,
         parent: 'game',
         width: width,
         height: height,
-        min: {
+        min: 
+        {
             width: 0,
             height: 0
         },
-        max: {
+        max: 
+        {
             width: width*1.5,
             height: height*1.5
         },
@@ -49,7 +54,8 @@ let config = {
     autoRound: false
 };
 let game;
-function resize() {
+function resize() 
+{
     /*
     var canvas = document.querySelector("canvas");
     var windowWidth = window.innerWidth;
@@ -73,7 +79,8 @@ function resize() {
      */
 
 }
-window.onload = function() {
+window.onload = function() 
+{
     game=new Phaser.Game(config);
     window.addEventListener("resize", resize, false);
     window.addEventListener("scroll", resize, false);

@@ -1,15 +1,18 @@
-class Tableau05 extends Tableau04{
+class Tableau05 extends Tableau04
+{
 
-    preload() {
+    preload() 
+    {
         super.preload();
         this.load.image('sky-2', 'assets/sky-2.jpg');
 
     }
-    create() {
+    create() 
+    {
         super.create();
 
         //on change de ciel, on fait une tileSprite ce qui permet d'avoir une image qui se répète
-        this.sky=this.add.tileSprite(
+        this.sky = this.add.tileSprite(
             0,
             0,
             this.sys.canvas.width,
@@ -18,22 +21,24 @@ class Tableau05 extends Tableau04{
         );
         this.sky.setOrigin(0,0);
         //fait passer les éléments devant le ciel
-        this.platforms.setDepth(10)
-        this.stars.setDepth(10)
-        this.player.setDepth(10)
+        this.platforms.setDepth(10);
+        this.stars.setDepth(10);
+        this.player.setDepth(10);
 
 
 
         //modifie les plateformes
-        this.platforms.children.iterate(function (child) {
+        this.platforms.children.iterate(function (child) 
+        {
             child.setDisplaySize(64,32);
             child.setX(child.x+28);
             child.setBounce(1);
         });
 
         //modifie les étoiles
-        let me=this;
-        this.stars.children.iterate(function(child){
+        let me = this;
+        this.stars.children.iterate(function(child)
+        {
             me.tweens.add(
                 {
                     targets:child,
@@ -45,7 +50,8 @@ class Tableau05 extends Tableau04{
         })
 
     }
-    update(){
+    update()
+    {
         super.update();
         this.sky.tilePositionX++;
     }

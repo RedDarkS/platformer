@@ -1,20 +1,24 @@
-class Tableau06 extends Tableau{
+class Tableau06 extends Tableau
+{
 
-    preload() {
+    preload() 
+    {
         super.preload();
-        this.load.image('star', 'assets/star.png');
         this.load.image('monster-violet', 'assets/monster-violet.png');
 
     }
-    create() {
+    create() 
+    {
         super.create();
         //quelques étoiles
-        let largeur=64*2;
-        this.stars=this.physics.add.group();
-        for(let posX=largeur/2;posX<largeur*7;posX+=largeur){
+        let largeur = 64 * 2;
+        this.stars = this.physics.add.group();
+        for(let posX = largeur / 2; posX < largeur * 7; posX += largeur)
+        {
             this.stars.create(posX ,0,"star");
         }
-        this.stars.children.iterate(function (child) {
+        this.stars.children.iterate(function (child) 
+        {
             child.setBounce(1);
             child.setGravity(1);
             child.setCollideWorldBounds(true);
@@ -24,7 +28,7 @@ class Tableau06 extends Tableau{
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
 
         //notre monstre
-        this.monstre=this.physics.add.sprite(300,this.sys.canvas.height-70,"monster-violet");
+        this.monstre = this.physics.add.sprite(300,this.sys.canvas.height - 70,"monster-violet");
         this.monstre.setOrigin(0,0);
         this.monstre.setDisplaySize(64,64);
         this.monstre.setCollideWorldBounds(true);

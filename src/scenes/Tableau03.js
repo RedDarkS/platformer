@@ -1,15 +1,17 @@
-class Tableau03 extends Tableau{
+class Tableau03 extends Tableau
+{
 
-    preload() {
+    preload() 
+    {
         super.preload();
-        this.load.image('star', 'assets/star.png');
         this.load.image('ground', 'assets/platform.png');
     }
-    create() {
+    create() 
+    {
         super.create();
 
         //un groupe d'étoiles
-        this.stars=this.physics.add.group();
+        this.stars = this.physics.add.group();
         this.stars.create(100,0,"star");
         this.stars.create(200,0,"star");
         this.stars.create(300,0,"star");
@@ -17,7 +19,8 @@ class Tableau03 extends Tableau{
         this.stars.create(500,0,"star");
         this.stars.create(600,0,"star");
         this.stars.create(700,0,"star");
-        this.stars.children.iterate(function (child) {
+        this.stars.children.iterate(function (child) 
+        {
             child.setCollideWorldBounds(true);
             child.setBounce(0.9);
         });
@@ -26,11 +29,12 @@ class Tableau03 extends Tableau{
 
         //des plateformes dans un groupe
         this.platforms = this.physics.add.group();
-        this.platforms.create(200, 150, 'ground')
-        this.platforms.create(300, 250, 'ground')
-        this.platforms.create(500, 350, 'ground')
+        this.platforms.create(200, 150, 'ground');
+        this.platforms.create(300, 250, 'ground');
+        this.platforms.create(500, 350, 'ground');
 
-        this.platforms.children.iterate(function (child) {
+        this.platforms.children.iterate(function (child) 
+        {
             child.setImmovable(true);
             child.body.allowGravity=false;
             child.setVelocityX(100);
@@ -46,7 +50,8 @@ class Tableau03 extends Tableau{
 
     }
 
-    update() {
+    update() 
+    {
         super.update();
     }
 

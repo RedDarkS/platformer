@@ -1,15 +1,17 @@
-class Tableau02 extends Tableau{
+class Tableau02 extends Tableau
+{
 
-    preload() {
+    preload() 
+    {
         super.preload();
-        this.load.image('star', 'assets/star.png');
         this.load.image('ground', 'assets/platform.png');
     }
-    create() {
+    create() 
+    {
         super.create();
 
         //un groupe d'étoiles
-        this.stars=this.physics.add.group();
+        this.stars = this.physics.add.group();
         this.stars.create(100,0,"star").setCollideWorldBounds(true).setBounce(0.4);
         this.stars.create(200,0,"star").setCollideWorldBounds(true).setBounce(0.5);
         this.stars.create(300,0,"star").setCollideWorldBounds(true).setBounce(0.6);
