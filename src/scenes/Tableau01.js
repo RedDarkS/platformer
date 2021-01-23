@@ -42,10 +42,10 @@ class Tableau01 extends Tableau00
             child.refreshBody();//dit au groupe d'appliquer les changements
         });
 
-        this.physics.add.collider(this.player, groupeVert);//le joueur rebondit sur les plateformes du goupe vert
-        this.physics.add.collider(this.star1, groupeVert);//l'étoile1 rebondit sur les plateformes du goupe vert
-        this.physics.add.collider(this.star2, groupeVert);//l'étoile1 rebondit sur les plateformes du goupe vert
-        this.physics.add.collider(this.star3, groupeVert);//l'étoile1 rebondit sur les plateformes du goupe vert
+        this.physics.add.collider(this.player, groupeVert);//le joueur rebondit sur les plateformes du groupe vert
+        this.physics.add.collider(this.star1, groupeVert);//l'étoile1 rebondit sur les plateformes du groupe vert
+        this.physics.add.collider(this.star2, groupeVert);//l'étoile1 rebondit sur les plateformes du groupe vert
+        this.physics.add.collider(this.star3, groupeVert);//l'étoile1 rebondit sur les plateformes du groupe vert
 
     }
 

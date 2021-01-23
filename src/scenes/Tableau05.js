@@ -5,7 +5,6 @@ class Tableau05 extends Tableau04
     {
         super.preload();
         this.load.image('sky-2', 'assets/sky-2.jpg');
-
     }
     create() 
     {

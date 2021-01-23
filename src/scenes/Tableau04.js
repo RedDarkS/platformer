@@ -20,6 +20,7 @@ class Tableau04 extends Tableau
             this.platforms.create(i*largeur ,Phaser.Math.Between(100,200),"ground");
             this.stars.create(i*largeur+largeur/2 ,0,"star");
         }
+        
         this.platforms.children.iterate(function (child) 
         {
             child.setDisplaySize (largeur,10);
@@ -29,6 +30,7 @@ class Tableau04 extends Tableau
             child.setImmovable(true)
             child.setMaxVelocity(0,500);
         });
+
         this.stars.children.iterate(function (child) 
         {
             child.setCollideWorldBounds(true);
