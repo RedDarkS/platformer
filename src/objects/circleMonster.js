@@ -1,4 +1,4 @@
-class testMonstre extends ObjetEnnemi
+class circleMonster extends ObjetEnnemi
 {
     /**
      *
@@ -37,14 +37,12 @@ class testMonstre extends ObjetEnnemi
         this.alpha=0;
         let me=this;
 
-        this.follower = { t: 0, vec: new Phaser.Math.Vector2() };
-
         //on fait apparaitre notre objet avec un petit delay, puis on lance l'animation
         //ceci a pour effet de décaler les animations pour ce même objet
         scene.tweens.add({
-                targets:this,
+                targets: this,
                 duration:200,
-                delay:Math.random()*2000,
+                delay:Math.random()*1000,
                 alpha:{
                     startDelay:Math.random()*5000,
                     from:0,
@@ -54,12 +52,11 @@ class testMonstre extends ObjetEnnemi
                     me.start();
                 }
             })
-
     }
 
     start(){
         this.scene.tweens.add({
-            targets: this.follower,
+            targets: this,
             t: 1,
             ease: 'Sine.easeInOut',
             duration: 4000,

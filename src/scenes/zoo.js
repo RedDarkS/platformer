@@ -5,6 +5,7 @@ class zoo extends Tableau
         super.preload();
         this.load.image('monster-violet', 'assets/monster-violet.png');
         this.load.image('monster-fly', 'assets/monster-fly.png');
+        this.load.image('spike', 'assets/spike.png');
     }
     create() 
     {
@@ -35,7 +36,9 @@ class zoo extends Tableau
         this.monstre.setVelocityX(50);
         this.physics.add.overlap(this.player, this.monstre, this.hitSpike, null, this);
 
-        new testMonstre(this,400,100);
+        new cruchMonstre(this,400,100);
+
+        new testMonstre(this,500,100);
         
     }
 }
