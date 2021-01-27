@@ -25,6 +25,8 @@ class Tableau extends Phaser.Scene
             'assets/player.png',
             { frameWidth: 32, frameHeight: 48  }
         );
+
+        this.load.audio('mort', 'assets/son/mort.wav');
     }
     create()
     {
@@ -89,6 +91,7 @@ class Tableau extends Phaser.Scene
     hitSpike (player, spike)
     {
         this.physics.pause();
+        this.sound.play('mort');
         player.setTint(0xff0000);
         player.anims.play('turn');
         this.scene.restart();

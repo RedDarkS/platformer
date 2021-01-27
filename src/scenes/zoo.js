@@ -53,8 +53,9 @@ class zoo extends Tableau
 
         //diagonale
         new testMonstre2(this,500,463);
+        
+        //this.sound.play('reve_bleu');
 
-        this.sound.play('reve_bleu');
 
         //Z
         new testMonstre3(this,600,100);
