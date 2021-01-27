@@ -8,16 +8,16 @@ class testMonstre2 extends ObjetEnnemi
      */
     constructor(scene, x, y) 
     {
-        super(scene, x, y, "monster-violet");
+        super(scene, x, y, "Thug");
         //pas de gravité
         this.body.allowGravity=false;
 
         //gestion de la taille
-        this.setDisplaySize(64,64);
+        this.setDisplaySize(70,90);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-400,this.body.height-400);
-        this.setOffset(150, 250);
+        this.setBodySize(this.body.width-100,this.body.height-100);
+        this.setOffset(50,50);
 
         //définir les propriété que l'on va utiliser dans notre animation
 
@@ -58,24 +58,16 @@ class testMonstre2 extends ObjetEnnemi
     start(){
         this.scene.tweens.add({
             targets: this,
-            //diagonale
-           x: {
+            //horizontale
+            x: {
                 from: this.minX,
                 to:this.maxX,
-                duration: 2000,
-                ease: 'easeInOut',
+                duration: 2500,
+                ease: 'linear',
                 yoyo: -1,
                 repeat:-1,
                 flipX:true,
             },
-            y: {
-                from: this.minY,
-                to:this.maxY,
-                duration: 2000,
-                ease: 'easeInOut',
-                yoyo: -1,
-                repeat:-1
-            }
         });
     }
 

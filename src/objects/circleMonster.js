@@ -8,7 +8,7 @@ class circleMonster extends ObjetEnnemi
      */
     constructor(scene, x, y) 
     {
-        super(scene, x, y, "monster-violet");
+        super(scene, x, y, "Soul");
         //pas de gravité
         this.body.allowGravity=false;
 
@@ -16,8 +16,8 @@ class circleMonster extends ObjetEnnemi
         this.setDisplaySize(64,64);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-400,this.body.height-400);
-        this.setOffset(150, 250);
+        this.setBodySize(this.body.width-300,this.body.height-300);
+        this.setOffset(150, 150);
 
         //définir les propriété que l'on va utiliser dans notre animation
 
@@ -57,11 +57,24 @@ class circleMonster extends ObjetEnnemi
     start(){
         this.scene.tweens.add({
             targets: this,
-            t: 1,
-            ease: 'Sine.easeInOut',
-            duration: 4000,
-            yoyo: true,
-            repeat: -1
+            //Z
+           x: {
+                from: this.minX,
+                to: this.maxX,
+                duration: 2000,
+                ease: 'Circ.easeInOut',
+                yoyo: 1,
+                repeat:-1,
+                flipX:true,
+            },
+            y: {
+                from: this.minY,
+                to:this.maxY,
+                duration: 3000,
+                ease: 'Circ.easeInOut',
+                yoyo: 1,
+                repeat:-1
+            }
         });
     }
 

@@ -1,4 +1,4 @@
-class testMonstre extends ObjetEnnemi
+class testMonstre3 extends ObjetEnnemi
 {
     /**
      *
@@ -8,16 +8,16 @@ class testMonstre extends ObjetEnnemi
      */
     constructor(scene, x, y) 
     {
-        super(scene, x, y, "Tengu");
+        super(scene, x, y, "FallenAngel");
         //pas de gravité
-        this.body.allowGravity = false;
+        this.body.allowGravity=false;
 
         //gestion de la taille
-        this.setDisplaySize(80,80);
+        this.setDisplaySize(128,128);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-200,this.body.height-200);
-        this.setOffset(100, 100);
+        this.setBodySize(this.body.width-100,this.body.height-100);
+        this.setOffset(50,50);
 
         //définir les propriété que l'on va utiliser dans notre animation
 
@@ -31,7 +31,7 @@ class testMonstre extends ObjetEnnemi
         this.minY=y-50;
         this.maxY=height-32;
 
-        // on applique les propriétés du début de l'animation
+        // on applique les propriété du début de l'animation
         this.x=this.minX;
         this.y=this.minY;
         this.alpha=0;
@@ -58,21 +58,21 @@ class testMonstre extends ObjetEnnemi
     start(){
         this.scene.tweens.add({
             targets: this,
-            //trajectoire chelou
-            x: {
+            //Z
+           x: {
                 from: this.minX,
-                to:this.maxX,
-                duration: 2000,
-                ease: 'Circ.easeIn',
-                yoyo: -1,
+                to: this.maxX,
+                duration: 1000,
+                ease: 'Circ.easeInOut',
+                yoyo:- 1,
                 repeat:-1,
                 flipX:true,
             },
             y: {
                 from: this.minY,
                 to:this.maxY,
-                duration: 5000,
-                ease: 'Circ.easeIn',
+                duration: 3000,
+                ease: 'Circ.easeInOut',
                 yoyo: -1,
                 repeat:-1
             }

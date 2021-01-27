@@ -3,9 +3,11 @@ class zoo extends Tableau
     preload() 
     {
         super.preload();
-        this.load.image('monster-violet', 'assets/monster-violet.png');
-        this.load.image('monster-fly', 'assets/monster-fly.png');
-        this.load.image('spike', 'assets/spike.png');
+        this.load.image('Tengu', 'assets/Tengu.png');
+        this.load.image('FallenAngel', 'assets/FallenAngel.png');
+        this.load.image('Genbu', 'assets/Genbu.png');
+        this.load.image('Soul', 'assets/Soul.png');
+        this.load.image('Thug', 'assets/Thug.png');
     }
     create() 
     {
@@ -39,10 +41,20 @@ class zoo extends Tableau
         this.physics.add.overlap(this.player, this.monstre, this.hitSpike, null, this);
         */
 
+        //haut bas
         new cruchMonstre(this,400,100);
 
-        new testMonstre(this,500,300);
-        new testMonstre2(this,500,150);
+        //trajectoire cheloue
+        new testMonstre(this,300,100);
+
+        //diagonale
+        new testMonstre2(this,500,463);
+
+        //Z
+        new testMonstre3(this,600,100);
+
+        //diagonale
+        new circleMonster(this,500,100);
         
     }
 }
