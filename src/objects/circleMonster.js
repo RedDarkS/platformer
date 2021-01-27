@@ -57,7 +57,7 @@ class circleMonster extends ObjetEnnemi
     start(){
         this.scene.tweens.add({
             targets: this,
-            //Z
+            //pas un cercle mais bon
            x: {
                 from: this.minX,
                 to: this.maxX,

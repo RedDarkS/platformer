@@ -8,6 +8,10 @@ class zoo extends Tableau
         this.load.image('Genbu', 'assets/Genbu.png');
         this.load.image('Soul', 'assets/Soul.png');
         this.load.image('Thug', 'assets/Thug.png');
+
+        this.load.audio('hanna_lapin', 'assets/son/hanna_lapin.mp3');
+        this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
+        
     }
     create() 
     {
@@ -49,6 +53,8 @@ class zoo extends Tableau
 
         //diagonale
         new testMonstre2(this,500,463);
+
+        this.sound.play('reve_bleu');
 
         //Z
         new testMonstre3(this,600,100);
