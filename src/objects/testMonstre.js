@@ -37,8 +37,6 @@ class testMonstre extends ObjetEnnemi
         this.alpha=0;
         let me=this;
 
-        this.follower = { t: 0, vec: new Phaser.Math.Vector2() };
-
         //on fait apparaitre notre objet avec un petit delay, puis on lance l'animation
         //ceci a pour effet de décaler les animations pour ce même objet
         scene.tweens.add({
@@ -59,12 +57,24 @@ class testMonstre extends ObjetEnnemi
 
     start(){
         this.scene.tweens.add({
-            targets: this.follower,
-            t: 1,
-            ease: 'Sine.easeInOut',
-            duration: 4000,
-            yoyo: true,
-            repeat: -1
+            targets: this,
+            x: {
+                from: this.minX,
+                to:this.maxX,
+                duration: 2000,
+                ease: 'Circ.easeIn',
+                yoyo: -1,
+                repeat:-1,
+                flipX:true,
+            },
+            y: {
+                from: this.minY,
+                to:this.maxY,
+                duration: 5000,
+                ease: 'Circ.easeIn',
+                yoyo: -1,
+                repeat:-1
+            }
         });
     }
 

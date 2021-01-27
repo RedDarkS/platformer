@@ -1,4 +1,4 @@
-class cruchMonstre extends ObjetEnnemi
+class testMonstre2 extends ObjetEnnemi
 {
     /**
      *
@@ -58,14 +58,23 @@ class cruchMonstre extends ObjetEnnemi
     start(){
         this.scene.tweens.add({
             targets: this,
+            //diagonale
+           x: {
+                from: this.minX,
+                to:this.maxX,
+                duration: 2000,
+                ease: 'easeInOut',
+                yoyo: -1,
+                repeat:-1,
+                flipX:true,
+            },
             y: {
                 from: this.minY,
                 to:this.maxY,
-                duration: 1200,
-                ease: 'Back.easeIn',
+                duration: 2000,
+                ease: 'easeInOut',
                 yoyo: -1,
-                repeat:-1,
-                flipX:false,
+                repeat:-1
             }
         });
     }

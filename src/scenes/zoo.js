@@ -20,6 +20,7 @@ class zoo extends Tableau
         this.physics.add.overlap(this.player, this.star1, this.ramasserEtoile, null, this);
 
         //nos monstres
+        /*
         this.monstre = this.physics.add.sprite(100,this.sys.canvas.height - 70,"monster-violet");
         this.monstre.setOrigin(0,0);
         this.monstre.setDisplaySize(64,64);
@@ -28,6 +29,7 @@ class zoo extends Tableau
         this.monstre.setVelocityX(50);
         this.physics.add.overlap(this.player, this.monstre, this.hitSpike, null, this);
 
+        //mob plus petit
         this.monstre = this.physics.add.sprite(200,this.sys.canvas.height - 70,"monster-violet");
         this.monstre.setOrigin(0,0);
         this.monstre.setDisplaySize(32,32);
@@ -35,10 +37,12 @@ class zoo extends Tableau
         this.monstre.setBounce(1);
         this.monstre.setVelocityX(50);
         this.physics.add.overlap(this.player, this.monstre, this.hitSpike, null, this);
+        */
 
         new cruchMonstre(this,400,100);
 
-        new testMonstre(this,500,100);
+        new testMonstre(this,500,300);
+        new testMonstre2(this,500,150);
         
     }
 }
