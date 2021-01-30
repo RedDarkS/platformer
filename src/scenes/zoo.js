@@ -9,6 +9,7 @@ class zoo extends Tableau
         this.load.image('Soul', 'assets/Soul.png');
         this.load.image('Thug', 'assets/Thug.png');
 
+        //des petits sons pour le lol
         this.load.audio('hanna_lapin', 'assets/son/hanna_lapin.mp3');
         this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
         

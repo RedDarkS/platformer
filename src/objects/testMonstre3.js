@@ -64,7 +64,7 @@ class testMonstre3 extends ObjetEnnemi
                 to: this.maxX,
                 duration: 1000,
                 ease: 'Circ.easeInOut',
-                yoyo:- 1,
+                yoyo: -1,
                 repeat:-1,
                 flipX:true,
             },
