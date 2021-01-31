@@ -11,7 +11,7 @@ class zoo extends Tableau
 
         //des petits sons pour le lol
         this.load.audio('hanna_lapin', 'assets/son/hanna_lapin.mp3');
-        this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
+        this.hannaLapin = this.sound.add("hanna_lapin");
         
     }
     create() 
@@ -55,7 +55,7 @@ class zoo extends Tableau
         //diagonale
         new testMonstre2(this,500,463);
         
-        //this.sound.play('reve_bleu');
+        //this.sound.play('reveBleu');
 
 
         //Z

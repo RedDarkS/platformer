@@ -29,10 +29,27 @@ class Tableau extends Phaser.Scene
 
         //des petits sons pour le lol
         this.load.audio('mort', 'assets/son/mort.wav');
+        this.mort = this.sound.add('mort');
+
+        this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
+        this.reveBleu = this.sound.add('reve_bleu');
+
+        var musicConfig = {
+            mute : false,
+            volume : 1,
+            rate : 1,
+            detune : 0,
+            seek : 0,
+            loop : false,
+            delay : 0
+        }
     }
     create()
     {
         Tableau.current=this;
+
+        this.reveBleu.play(musicConfig);
+        
         this.sys.scene.scale.lockOrientation("landscape")
         console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
         /**
@@ -120,7 +137,6 @@ class Tableau extends Phaser.Scene
     hitSpike (player, spike)
     {
         this.physics.pause();
-        this.sound.play('mort');
         player.setTint(0xff0000);
         player.anims.play('turn');
         this.scene.restart();
@@ -153,6 +169,10 @@ class Tableau extends Phaser.Scene
             }else{
                 //le joueur est mort
                 if(!me.player.isDead){
+
+                    this.reveBleu.stop();
+                    this.mort.play();
+
                     me.player.isDead=true;
                     me.player.visible=false;
                     //ça saigne...
