@@ -170,9 +170,9 @@ class Tableau extends Phaser.Scene
             }else{
                 //le joueur est mort
                 if(!me.player.isDead){
-
-                    this.reveBleu.stop();
+                    
                     this.mort.play();
+                    this.reveBleu.stop();
 
                     me.player.isDead=true;
                     me.player.visible=false;
