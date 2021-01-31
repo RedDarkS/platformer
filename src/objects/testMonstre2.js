@@ -1,5 +1,6 @@
 class testMonstre2 extends ObjetEnnemi
-{
+{   
+
     /**
      *
      * @param {Tableau} scene
@@ -9,6 +10,7 @@ class testMonstre2 extends ObjetEnnemi
     constructor(scene, x, y) 
     {
         super(scene, x, y, "Thug");
+
         //pas de gravité
         this.body.allowGravity=false;
 
@@ -49,6 +51,7 @@ class testMonstre2 extends ObjetEnnemi
                     to:1,
                 },
                 onComplete: function () {
+                    this.hannaLapin.play();
                     me.start();
                 }
             })

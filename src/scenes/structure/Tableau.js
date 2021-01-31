@@ -49,6 +49,7 @@ class Tableau extends Phaser.Scene
             loop : false,
             delay : 0
         }
+        
         this.reveBleu.play(musicConfig);
         
         this.sys.scene.scale.lockOrientation("landscape")
@@ -218,6 +219,9 @@ class Tableau extends Phaser.Scene
     {
         let ceSeraLaSuivante = false;
         let nextScene = null;
+        
+        this.reveBleu.stop();
+
         if(Tableau.current)
         {
             for(let sc of game.scene.scenes)

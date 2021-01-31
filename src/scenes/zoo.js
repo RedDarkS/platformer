@@ -53,13 +53,13 @@ class zoo extends Tableau
         //trajectoire cheloue
         new testMonstre(this,300,100);
 
-        //diagonale
+        //horizontale
         new testMonstre2(this,500,463);
 
         //Z
         new testMonstre3(this,600,100);
 
-        //diagonale
+        //faux cercle
         new circleMonster(this,500,100);
         
     }
