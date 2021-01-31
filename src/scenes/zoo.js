@@ -11,12 +11,13 @@ class zoo extends Tableau
 
         //des petits sons pour le lol
         this.load.audio('hanna_lapin', 'assets/son/hanna_lapin.mp3');
-        this.hannaLapin = this.sound.add("hanna_lapin");
         
     }
     create() 
     {
         super.create();
+
+        this.hannaLapin = this.sound.add("hanna_lapin");
 
         //des étoiles
         this.star1 = this.physics.add.sprite(900,100,"star");
@@ -54,9 +55,6 @@ class zoo extends Tableau
 
         //diagonale
         new testMonstre2(this,500,463);
-        
-        //this.sound.play('reveBleu');
-
 
         //Z
         new testMonstre3(this,600,100);

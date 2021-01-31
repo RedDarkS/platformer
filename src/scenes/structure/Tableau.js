@@ -29,9 +29,15 @@ class Tableau extends Phaser.Scene
 
         //des petits sons pour le lol
         this.load.audio('mort', 'assets/son/mort.wav');
-        this.mort = this.sound.add('mort');
 
         this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
+        
+    }
+    create()
+    {
+        Tableau.current=this;
+
+        this.mort = this.sound.add('mort');
         this.reveBleu = this.sound.add('reve_bleu');
 
         var musicConfig = {
@@ -43,11 +49,6 @@ class Tableau extends Phaser.Scene
             loop : false,
             delay : 0
         }
-    }
-    create()
-    {
-        Tableau.current=this;
-
         this.reveBleu.play(musicConfig);
         
         this.sys.scene.scale.lockOrientation("landscape")
