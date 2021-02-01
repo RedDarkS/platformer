@@ -1,6 +1,5 @@
 class testMonstre2 extends ObjetEnnemi
 {   
-
     /**
      *
      * @param {Tableau} scene

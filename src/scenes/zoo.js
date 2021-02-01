@@ -21,43 +21,24 @@ class zoo extends Tableau
 
         //des étoiles
         this.star1 = this.physics.add.sprite(900,100,"star");
+        this.star1.setDisplaySize(80,80);
         this.star1.setCollideWorldBounds(true);
         this.star1.setBounce(0);
 
         //quand le joueur touche une étoile on appelle la fonction ramasserEtoile
         this.physics.add.overlap(this.player, this.star1, this.ramasserEtoile, null, this);
 
-        //nos monstres
-        /*
-        this.monstre = this.physics.add.sprite(100,this.sys.canvas.height - 70,"monster-violet");
-        this.monstre.setOrigin(0,0);
-        this.monstre.setDisplaySize(64,64);
-        this.monstre.setCollideWorldBounds(true);
-        this.monstre.setBounce(1);
-        this.monstre.setVelocityX(50);
-        this.physics.add.overlap(this.player, this.monstre, this.hitSpike, null, this);
-
-        //mob plus petit
-        this.monstre = this.physics.add.sprite(200,this.sys.canvas.height - 70,"monster-violet");
-        this.monstre.setOrigin(0,0);
-        this.monstre.setDisplaySize(32,32);
-        this.monstre.setCollideWorldBounds(true);
-        this.monstre.setBounce(1);
-        this.monstre.setVelocityX(50);
-        this.physics.add.overlap(this.player, this.monstre, this.hitSpike, null, this);
-        */
-
         //haut bas
-        new cruchMonstre(this,400,100);
+        //new cruchMonstre(this,400,100);
 
         //trajectoire cheloue
-        new testMonstre(this,300,100);
+        //new testMonstre(this,300,100);
 
         //horizontale
-        new testMonstre2(this,500,463);
+        //new testMonstre2(this,500,463);
 
         //Z
-        new testMonstre3(this,600,100);
+        //new testMonstre3(this,600,100);
 
         //faux cercle
         new circleMonster(this,500,100);

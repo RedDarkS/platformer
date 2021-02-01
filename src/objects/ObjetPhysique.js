@@ -6,8 +6,9 @@ class ObjetPhysique extends Phaser.Physics.Arcade.Sprite{
      * @param {Number} y
      * @param {string} image
      */
-    constructor(scene, x, y,image) {
-        super(scene, x, y,image);
+    constructor(scene, x, y, image) 
+    {
+        super(scene, x, y, image);
         /**
          *
          * @type {Tableau}

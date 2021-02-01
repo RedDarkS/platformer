@@ -46,7 +46,7 @@ class Tableau extends Phaser.Scene
             rate : 1,
             detune : 0,
             seek : 0,
-            loop : false,
+            loop : true,
             delay : 0
         }
         
@@ -84,7 +84,8 @@ class Tableau extends Phaser.Scene
      * @param {Sprite} object Objet qui saigne
      * @param {function} onComplete Fonction à appeler quand l'anim est finie
      */
-    saigne(object,onComplete){
+    saigne(object, onComplete)
+    {
         let me=this;
         me.blood.visible=true;
         me.blood.rotation = Phaser.Math.Between(0,6);
@@ -93,7 +94,8 @@ class Tableau extends Phaser.Scene
         me.tweens.add({
             targets:me.blood,
             duration:200,
-            displayHeight:{
+            displayHeight:
+            {
                 from:40,
                 to:70,
             },
@@ -101,7 +103,8 @@ class Tableau extends Phaser.Scene
                 from:40,
                 to:70,
             },
-            onComplete: function () {
+            onComplete: function () 
+            {
                 me.blood.visible=false;
                 onComplete();
             }
@@ -210,6 +213,7 @@ class Tableau extends Phaser.Scene
     win()
     {
         Tableau.suivant();
+        this.reveBleu.stop();
     }
 
     /**
@@ -219,8 +223,6 @@ class Tableau extends Phaser.Scene
     {
         let ceSeraLaSuivante = false;
         let nextScene = null;
-        
-        this.reveBleu.stop();
 
         if(Tableau.current)
         {

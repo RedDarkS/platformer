@@ -6,8 +6,9 @@ class ObjetEnnemi extends ObjetPhysique{
      * @param {Number} y
      * @param {string} image
      */
-    constructor(scene, x, y,image) {
-        super(scene, x, y,image);
+    constructor(scene, x, y, image) 
+    {
+        super(scene, x, y, image);
         scene.physics.add.overlap(
             scene.player,
             this,
