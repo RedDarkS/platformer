@@ -51,7 +51,6 @@ class testMonstre2 extends ObjetEnnemi
                     to:1,
                 },
                 onComplete: function () {
-                    this.hannaLapin.play();
                     me.start();
                 }
             })

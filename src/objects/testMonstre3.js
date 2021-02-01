@@ -19,7 +19,7 @@ class testMonstre3 extends ObjetEnnemi
         this.setBodySize(this.body.width-100,this.body.height-100);
         this.setOffset(50,50);
 
-        //définir les propriété que l'on va utiliser dans notre animation
+        //définir les propriétés que l'on va utiliser dans notre animation
 
         // X
         this.originalX=x;
