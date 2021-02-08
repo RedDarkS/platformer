@@ -23,8 +23,8 @@ class Tableau extends Phaser.Scene
         this.load.image('blood', 'assets/blood.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.spritesheet('player',
-            'assets/player.png',
-            { frameWidth: 32, frameHeight: 48  }
+            'assets/DA_player_platformer.png',
+            { frameWidth: 37.5, frameHeight: 45  }
         );
 
         //des petits sons pour le lol
