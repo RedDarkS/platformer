@@ -16,10 +16,10 @@ class circleMonster extends ObjetEnnemi
         this.setDisplaySize(64,64);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-20,this.body.height-20);
-        this.setOffset(10, 10);
+        this.setBodySize(this.body.width-60,this.body.height-60);
+        this.setOffset(30, 30);
 
-        //définir les propriété que l'on va utiliser dans notre animation
+        //définir les propriétés que l'on va utiliser dans notre animation
 
         // X
         this.originalX=x;
@@ -31,7 +31,7 @@ class circleMonster extends ObjetEnnemi
         this.minY=y-50;
         this.maxY=height-32;
 
-        // on applique les propriété du début de l'animation
+        // on applique les propriétés du début de l'animation
         this.x=this.minX;
         this.y=this.minY;
         this.alpha=0;
