@@ -29,16 +29,16 @@ class zoo extends Tableau
         this.physics.add.overlap(this.player, this.star1, this.ramasserEtoile, null, this);
 
         //haut bas
-        //new cruchMonstre(this,400,100);
+        new cruchMonstre(this,400,100);
 
         //trajectoire cheloue
-        //new testMonstre(this,300,100);
+        new testMonstre(this,300,100);
 
         //horizontale
-        //new testMonstre2(this,500,463);
+        new testMonstre2(this,500,463);
 
         //Z
-        //new testMonstre3(this,600,100);
+        new testMonstre3(this,600,100);
 
         //faux cercle
         new circleMonster(this,500,100);
