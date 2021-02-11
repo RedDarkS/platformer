@@ -11,23 +11,24 @@ let config = {
         default: 'arcade',
         arcade: 
         {
-            gravity: { y: 100*3 },
+            gravity: { y: 100*9 },
             debug: true,
         }
     },
     scene: [
         new Ui(),
 
-        new zoo("5 sur 5, 5 sur 5"),
-        new Tableau00("Des étoiles"),
-        new Tableau01("Des plateformes"),
-        new Tableau02("Plein d'étoiles"),
-        new Tableau03("Des plateformes qui bougent"),
-        new Tableau04("Jouer avec les groupes"),
-        new Tableau05("Extend un tableau"),
-        new Tableau06("Un monstre!"),
-        new Tableau07("Un monstre volant!"),
-        new Tableau08("Un plateau qui sort du cadre"),
+        new Niveau1("La finale finalité, bientôt..."),
+        // new zoo("5 sur 5, 5 sur 5"),
+        // new Tableau00("Des étoiles"),
+        // new Tableau01("Des plateformes"),
+        // new Tableau02("Plein d'étoiles"),
+        // new Tableau03("Des plateformes qui bougent"),
+        // new Tableau04("Jouer avec les groupes"),
+        // new Tableau05("Extend un tableau"),
+        // new Tableau06("Un monstre!"),
+        // new Tableau07("Un monstre volant!"),
+        // new Tableau08("Un plateau qui sort du cadre"),
 
     ],
     width: width,
@@ -54,30 +55,29 @@ let config = {
     },
     autoRound: false
 };
+
 let game;
 function resize() 
 {
-    /*
-    var canvas = document.querySelector("canvas");
-    var windowWidth = window.innerWidth;
-    var windowHeight = window.innerHeight;
-    var windowRatio = windowWidth / windowHeight;
-    var gameRatio = game.config.width / game.config.height;
-    if(windowWidth<width || windowHeight<height){
-        if(windowRatio < gameRatio){
-            canvas.style.width = windowWidth + "px";
-            canvas.style.height = (windowWidth / gameRatio) + "px";
-        }
-        else {
-            canvas.style.width = (windowHeight * gameRatio) + "px";
-            canvas.style.height = windowHeight + "px";
-        }
-    }else{
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
-    }
-
-     */
+    
+    // var canvas = document.querySelector("canvas");
+    // var windowWidth = window.innerWidth;
+    // var windowHeight = window.innerHeight;
+    // var windowRatio = windowWidth / windowHeight;
+    // var gameRatio = game.config.width / game.config.height;
+    // if(windowWidth<width || windowHeight<height){
+    //     if(windowRatio < gameRatio){
+    //         canvas.style.width = windowWidth + "px";
+    //         canvas.style.height = (windowWidth / gameRatio) + "px";
+    //     }
+    //     else {
+    //         canvas.style.width = (windowHeight * gameRatio) + "px";
+    //         canvas.style.height = windowHeight + "px";
+    //     }
+    // }else{
+    //     canvas.style.width = width + "px";
+    //     canvas.style.height = height + "px";
+    // }
 
 }
 window.onload = function() 

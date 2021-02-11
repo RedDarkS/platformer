@@ -36,6 +36,8 @@ class Tableau extends Phaser.Scene
     {
         Tableau.current=this;
 
+        //set up musique
+
         this.mort = this.sound.add('mort');
         this.reveBleu = this.sound.add('reve_bleu');
 
@@ -58,18 +60,19 @@ class Tableau extends Phaser.Scene
          * @type {Phaser.GameObjects.Image}
          */
         this.sky = this.add.image(0, 0, 'sky').setOrigin(0,0);
-        this.sky.displayWidth=14*64;
+        this.sky.displayWidth = 14*64;
         this.sky.setScrollFactor(0,0);
+
         /**
          * Le joueur
          * @type {Player}
          */
-        this.player=new Player(this,0,0);
+        this.player=new Player(this,10,600);
 
-        this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
-        this.blood.displayWidth=64;
-        this.blood.displayHeight=64;
-        this.blood.visible=false;
+        this.blood = this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
+        this.blood.displayWidth = 64;
+        this.blood.displayHeight = 64;
+        this.blood.visible = false;
 
     }
     update()
