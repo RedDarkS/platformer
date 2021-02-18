@@ -21,8 +21,8 @@ class Niveau1 extends Tableau
         super.create();
 
         //on définit la taille du tableau
-        let largeurDuTableau  = 4000;
-        let hauteurDuTableau = 448;
+        let largeurDuTableau  = 6*896;
+        let hauteurDuTableau = 1*448;
 
         //on gère la caméra
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
@@ -31,7 +31,7 @@ class Niveau1 extends Tableau
         this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
         //des étoiles, une en fait...
-        this.star1 = this.physics.add.sprite(900,100,"star");
+        this.star1 = this.physics.add.sprite(5370,100,"star");
         this.star1.setDisplaySize(40,40);
         this.star1.setCollideWorldBounds(true);
         this.star1.setBounce(0);
@@ -41,19 +41,20 @@ class Niveau1 extends Tableau
 
         // LES MONSTRES //
         //haut bas
-        this.cruch = new cruchMonstre(this,400,100);
+        this.cruch1 = new cruchMonstre(this,1120,100);
+        this.cruch2 = new cruchMonstre(this,1568,100);
 
         //trajectoire cheloue
-        this.eF = new testMonstre(this,300,100);
+        this.eF = new testMonstre(this,3808,100);
 
         //horizontale
-        this.razMoquette = new testMonstre2(this,500,463);
+        this.razMoquette = new testMonstre2(this,2616,465);
 
         //Z
-        this.Zed = new testMonstre3(this,600,100);
+        this.Zed = new testMonstre3(this,4704,100);
 
         //faux cercle
-        this.fauxCercle = new circleMonster(this,500,100);
+        this.fauxCercle = new circleMonster(this,2912,100);
 
         //on change de ciel, on fait une tileSprite ce qui permet d'avoir une image qui se répète
         this.sky = this.add.tileSprite(
@@ -109,7 +110,8 @@ class Niveau1 extends Tableau
         this.player.setDepth(10);
         //this.sol.setDepth(10);
 
-        this.cruch.setDepth(10);
+        this.cruch1.setDepth(10);
+        this.cruch2.setDepth(10);
         this.eF.setDepth(10);
         this.razMoquette.setDepth(10);
         this.Zed.setDepth(10);
