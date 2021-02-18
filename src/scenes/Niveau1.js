@@ -10,8 +10,8 @@ class Niveau1 extends Tableau
         this.load.image('Thug', 'assets/Thug.png');
         
         //d'autres trucs pour le décors
-        this.load.image('ground', 'assets/platform.png');
-        this.load.image('sky-2', 'assets/sky-2.jpg');
+        // this.load.image('ground', 'assets/platform.png');
+        // this.load.image('sky-2', 'assets/sky-2.jpg');
         this.load.image('premierPlan', 'assets/premier-plan.png');
         this.load.image('secondPlan', 'assets/second-plan.png');
         this.load.image('dernierPlan', 'assets/dernier-plan.png');
@@ -41,20 +41,20 @@ class Niveau1 extends Tableau
 
         // LES MONSTRES //
         //haut bas
-        this.cruch1 = new cruchMonstre(this,1120,100);
-        this.cruch2 = new cruchMonstre(this,1568,100);
+        this.cruch1 = new cruchMonstre(this,896+224, 100);
+        this.cruch2 = new cruchMonstre(this,(2*896)-224, 100);
 
         //trajectoire cheloue
-        this.eF = new testMonstre(this,3808,100);
+        this.eF = new testMonstre(this,(4*896)+224, 100);
 
         //horizontale
-        this.razMoquette = new testMonstre2(this,2616,465);
+        this.razMoquette = new testMonstre2(this,(2*896)+224, 465);
 
         //Z
-        this.Zed = new testMonstre3(this,4704,100);
+        this.Zed = new testMonstre3(this,(5*896)+224, 100);
 
         //faux cercle
-        this.fauxCercle = new circleMonster(this,2912,100);
+        this.fauxCercle = new circleMonster(this,(3*896)+224, 100);
 
         //on change de ciel, on fait une tileSprite ce qui permet d'avoir une image qui se répète
         this.sky = this.add.tileSprite(
@@ -77,7 +77,6 @@ class Niveau1 extends Tableau
         );
         this.sky2.setScrollFactor(0);
         this.sky2.setOrigin(0,0);
-        //this.sky2.alpha=0.2;
         //this.sky.tileScaleX=this.sky.tileScaleY=0.8;
 
         this.sky = this.add.tileSprite(
