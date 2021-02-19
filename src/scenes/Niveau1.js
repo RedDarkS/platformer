@@ -31,7 +31,7 @@ class Niveau1 extends Tableau
         this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
         //des étoiles, une en fait...
-        this.star1 = this.physics.add.sprite(5370,100,"star");
+        this.star1 = this.physics.add.sprite((6*896)-6,100,"star");
         this.star1.setDisplaySize(40,40);
         this.star1.setCollideWorldBounds(true);
         this.star1.setBounce(0);
@@ -126,7 +126,7 @@ class Niveau1 extends Tableau
             this.sky.tilePositionY = this.cameras.main.scrollY * 0.2;
 
             //le deuxième ciel se déplace moins vite pour accentuer l'effet
-            this.sky2.tilePositionX = this.cameras.main.scrollX * 0.3 + 500;
-            this.sky2.tilePositionY = this.cameras.main.scrollY * 0.1 + 30;
+            this.sky2.tilePositionX = this.cameras.main.scrollX * 0.3;
+            this.sky2.tilePositionY = this.cameras.main.scrollY * 0.1;
         }
 }
