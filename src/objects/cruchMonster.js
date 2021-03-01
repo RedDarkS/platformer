@@ -61,7 +61,7 @@ class cruchMonstre extends ObjetEnnemi
             y: {
                 from: this.minY,
                 to:this.maxY,
-                duration: 1200,
+                duration: 2500,
                 ease: 'Back.easeIn',
                 yoyo: -1,
                 repeat:-1,

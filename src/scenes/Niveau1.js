@@ -79,15 +79,15 @@ class Niveau1 extends Tableau
         this.sky2.setOrigin(0,0);
         //this.sky.tileScaleX=this.sky.tileScaleY=0.8;
 
-        this.sky = this.add.tileSprite(
+        this.sky3 = this.add.tileSprite(
             0,
             0,
             this.sys.canvas.width,
             this.sys.canvas.height,
             'premierPlan'
         );
-        this.sky.setOrigin(0,0);
-        this.sky.setScrollFactor(0);
+        this.sky3.setOrigin(0,0);
+        this.sky3.setScrollFactor(0);
 
         //le sol
         // this.sol = this.physics.add.sprite(0,417, null);
@@ -121,12 +121,16 @@ class Niveau1 extends Tableau
     update()
         {
             super.update();
-            //le ciel se déplace moins vite que la caméra pour donner un effet paralax
-            this.sky.tilePositionX = this.cameras.main.scrollX * 0.6;
-            this.sky.tilePositionY = this.cameras.main.scrollY * 0.2;
+            //le fond se déplace moins vite que la caméra pour donner un effet paralax
+            this.sky.tilePositionX = this.cameras.main.scrollX * 0.4;
+            this.sky.tilePositionY = this.cameras.main.scrollY * 0.15;
 
-            //le deuxième ciel se déplace moins vite pour accentuer l'effet
+            //le second plan se déplace moins vite pour accentuer l'effet
             this.sky2.tilePositionX = this.cameras.main.scrollX * 0.3;
             this.sky2.tilePositionY = this.cameras.main.scrollY * 0.1;
+
+            //le premier plan se déplace moins vite pour accentuer l'effet
+            this.sky2.tilePositionX = this.cameras.main.scrollX * 0.15;
+            this.sky2.tilePositionY = this.cameras.main.scrollY * 0.05;
         }
 }
