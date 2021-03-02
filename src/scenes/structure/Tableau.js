@@ -51,7 +51,7 @@ class Tableau extends Phaser.Scene
             delay : 0
         }
         
-        this.reveBleu.play(musicConfig);
+        //this.reveBleu.play(musicConfig);
         
         this.sys.scene.scale.lockOrientation("landscape")
         console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
@@ -90,6 +90,9 @@ class Tableau extends Phaser.Scene
     {
         let me=this;
         me.blood.visible=true;
+
+        me.blood.setDepth(10);
+        
         me.blood.rotation = Phaser.Math.Between(0,6);
         me.blood.x=object.x;
         me.blood.y=object.y;
