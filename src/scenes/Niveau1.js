@@ -7,7 +7,7 @@ class Niveau1 extends Tableau
         this.load.image('FallenAngel', 'assets/FallenAngel.png');
         this.load.image('Genbu', 'assets/Genbu.png');
         this.load.image('Soul', 'assets/Soul.png');
-        this.load.image('Thug', 'assets/Thug.png');
+        this.load.image('Ennemi1', 'assets/Ennemi1.png');
         
         //d'autres trucs pour le décors
         this.load.image('plafond', 'assets/plafond.png');
