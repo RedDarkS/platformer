@@ -8,7 +8,7 @@ class testMonstre2 extends ObjetEnnemi
      */
     constructor(scene, x, y) 
     {
-        super(scene, x, y, "Thug");
+        super(scene, x, y, "Ennemi1");
 
         //pas de gravité
         this.body.allowGravity=false;
