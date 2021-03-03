@@ -14,11 +14,11 @@ class testMonstre2 extends ObjetEnnemi
         this.body.allowGravity=false;
 
         //gestion de la taille
-        this.setDisplaySize(70,90);
+        this.setDisplaySize(50,70);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width-100,this.body.height-100);
-        this.setOffset(50,50);
+        this.setBodySize(this.body.width,this.body.height);
+        this.setOffset(0,0);
 
         //définir les propriété que l'on va utiliser dans notre animation
 
