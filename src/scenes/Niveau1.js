@@ -115,6 +115,16 @@ class Niveau1 extends Tableau
         //this.physics.add.collider(this.Zed, this.sol);
         //this.physics.add.collider(this.fauxCercle, this.sol);
 
+        //var pointLight = scene.add.pointlight(x, y, color (r 0~1, g 0~1, b 0~1), radius, intensity 0~1, attenuation 0~1);
+        this.pointLight = this.add.pointlight(200, 200, (0, 0, 0), 100, 0.15, 0.1);
+        this.pointLight.color.r = 255;
+        this.pointLight.color.g = 215;
+        this.pointLight.color.b = 0;
+
+        // this.pointLight.color.r = 220;
+        // this.pointLight.color.g = 20;
+        // this.pointLight.color.b = 60;
+
         //fait passer les éléments devant le ciel
         this.starFin.setDepth(10);
         this.player.setDepth(10);
@@ -127,6 +137,7 @@ class Niveau1 extends Tableau
         this.Zed.setDepth(10);
         this.fauxCercle.setDepth(10);
         
+        this.pointLight.setDepth(10);
     }
 
     update()
