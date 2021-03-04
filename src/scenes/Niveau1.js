@@ -101,7 +101,7 @@ class Niveau1 extends Tableau
         
         //le sol physique
         this.sol = this.physics.add.sprite(0,417,null);
-        this.sol.setDisplaySize(4000,30);//taille de l'objet
+        this.sol.setDisplaySize(6*896,30);//taille de l'objet
         this.sol.setOrigin(0,0);//pour positionner plus facilement
         this.sol.body.allowGravity = 0; //la gravité n'a pas d'effet ici
         this.sol.setImmovable(true); //ne bouge pas quand on rentre dedans
@@ -132,19 +132,19 @@ class Niveau1 extends Tableau
     update()
         {
             super.update();
-            //le fond se déplace moins vite que la caméra pour donner un effet paralax
-            this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.4;
-            this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.15;
+            // //le fond se déplace moins vite que la caméra pour donner un effet paralax
+            // this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.4;
+            // this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.15;
 
             //le second plan se déplace moins vite pour accentuer l'effet
-            this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.3;
-            this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
+            this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.1;
+            this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
 
             //le premier plan se déplace moins vite pour accentuer l'effet
             this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
-            this.plafond.tilePositionY = this.cameras.main.scrollY * 0.05;
+            this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
 
             this.bas.tilePositionX = this.cameras.main.scrollX * 0.2;
-            this.bas.tilePositionY = this.cameras.main.scrollY * 0.05;
+            this.bas.tilePositionY = this.cameras.main.scrollY * 0.1;
         }
 }
