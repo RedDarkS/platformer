@@ -20,7 +20,7 @@ class Niveau1 extends Tableau
         super.create();
 
         //on définit la taille du tableau
-        let largeurDuTableau  = 6*896;
+        let largeurDuTableau  = 6*896; //5376
         let hauteurDuTableau = 1*448;
 
         //on gère la caméra
@@ -38,6 +38,32 @@ class Niveau1 extends Tableau
         //quand le joueur touche une étoile on appelle la fonction ramasserEtoile
         this.physics.add.overlap(this.player, this.star1, this.ramasserEtoile, null, this);
 
+        this.initMonstre();
+        this.initDecor();
+        this.initProfondeur();
+    }
+
+    update()
+    {
+         super.update();
+        // //le fond se déplace moins vite que la caméra pour donner un effet paralax
+        // this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.4;
+        // this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.15;
+
+        //le second plan se déplace moins vite pour accentuer l'effet
+        this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.2;
+        this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
+
+        //le premier plan se déplace moins vite pour accentuer l'effet
+        this.plafond.tilePositionX = this.cameras.main.scrollX * 0.3;
+        this.plafond.tilePositionY = this.cameras.main.scrollY * 0.2;
+
+        this.bas.tilePositionX = this.cameras.main.scrollX * 0.3;
+        this.bas.tilePositionY = this.cameras.main.scrollY * 0.2;
+    }
+
+    initMonstre()
+    {
         // LES MONSTRES //
         //haut bas
         this.cruch1 = new cruchMonstre(this,896+224, 100);
@@ -54,7 +80,10 @@ class Niveau1 extends Tableau
 
         //faux cercle
         this.fauxCercle = new circleMonster(this,(3*896)+224, 100);
+    }
 
+    initDecor()
+    {
         //on change de ciel, on fait une tileSprite ce qui permet d'avoir une image qui se répète
         this.dernierPlan = this.add.tileSprite(
             0,
@@ -124,7 +153,10 @@ class Niveau1 extends Tableau
         // this.pointLight.color.r = 220;
         // this.pointLight.color.g = 20;
         // this.pointLight.color.b = 60;
+    }
 
+    initProfondeur()
+    {
         //fait passer les éléments devant le ciel
         this.starFin.setDepth(10);
         this.player.setDepth(10);
@@ -139,23 +171,4 @@ class Niveau1 extends Tableau
         
         this.pointLight.setDepth(10);
     }
-
-    update()
-        {
-            super.update();
-            // //le fond se déplace moins vite que la caméra pour donner un effet paralax
-            // this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.4;
-            // this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.15;
-
-            //le second plan se déplace moins vite pour accentuer l'effet
-            this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.1;
-            this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
-
-            //le premier plan se déplace moins vite pour accentuer l'effet
-            this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
-            this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
-
-            this.bas.tilePositionX = this.cameras.main.scrollX * 0.2;
-            this.bas.tilePositionY = this.cameras.main.scrollY * 0.1;
-        }
 }
