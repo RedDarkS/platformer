@@ -79,9 +79,6 @@ class Tableau extends Phaser.Scene
     {
         super.update();
         this.player.move();
-
-        // console.log("X du joueur " + this.player.x);
-        // console.log("Y du joueur " + this.player.y);
     }
 
     /**

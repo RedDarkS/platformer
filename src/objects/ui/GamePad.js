@@ -41,6 +41,10 @@ class GamePad extends Phaser.GameObjects.Container{
                 case "ArrowDown":
                     Tableau.current.player.directionY=1;
                     break;
+                case "Control":
+                    console.log("X du joueur " + (Tableau.current.player.x - 50));
+                    console.log("Y du joueur " + Tableau.current.player.y);
+                    break;
             }
         });
         scene.input.keyboard.on('keyup', function(kevent){
