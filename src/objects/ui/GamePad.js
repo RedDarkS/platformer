@@ -1,8 +1,10 @@
 /**
  * Un objet qui écoute les touches du clavier et mouvements sur le pad et qui influent le déplacement du joueur
  */
-class GamePad extends Phaser.GameObjects.Container{
-    constructor(scene, x, y,size=100) {
+class GamePad extends Phaser.GameObjects.Container
+{
+    constructor(scene, x, y,size=100) 
+    {
         super(scene, x, y)
         scene.add.existing(this);
 
@@ -24,8 +26,10 @@ class GamePad extends Phaser.GameObjects.Container{
 
         this.cursors = scene.input.keyboard.createCursorKeys();
 
-        scene.input.keyboard.on('keydown', function(kevent){
-            switch (kevent.key){
+        scene.input.keyboard.on('keydown', function(kevent)
+        {
+            switch (kevent.key)
+            {
                 case "ArrowRight":
                     Tableau.current.player.directionX=1;
                     break;
@@ -41,14 +45,17 @@ class GamePad extends Phaser.GameObjects.Container{
                 case "ArrowDown":
                     Tableau.current.player.directionY=1;
                     break;
+
                 case "Control":
                     console.log("X du joueur " + Tableau.current.player.x);
                     console.log("Y du joueur " + Tableau.current.player.y);
                     break;
             }
         });
-        scene.input.keyboard.on('keyup', function(kevent){
-            switch (kevent.key){
+        scene.input.keyboard.on('keyup', function(kevent)
+        {
+            switch (kevent.key)
+            {
                 case "ArrowRight":
                     Tableau.current.player.directionX=0;
                     break;
@@ -67,28 +74,36 @@ class GamePad extends Phaser.GameObjects.Container{
             }
         });
 
-        circleDrag.on('drag', (pointer, dragX, dragY) => {
+        circleDrag.on('drag', (pointer, dragX, dragY) => 
+        {
             circleDrag.x = dragX
             circleDrag.y = dragY
             circleDrag.x=Phaser.Math.Clamp(dragX,-w/2,w/2);
             circleDrag.y=Phaser.Math.Clamp(dragY,-w/2,w/2);
-            if(dragX < -w / 4){
+            if(dragX < -w / 4)
+            {
                 Tableau.current.player.directionX=-1;
-            }else if(dragX > w / 4){
+            }else if(dragX > w / 4)
+            {
                 Tableau.current.player.directionX=1;
-            }else{
+            }else
+            {
                 Tableau.current.player.directionX=0;
             }
-            if(dragY < -w / 4){
+            if(dragY < -w / 4)
+            {
                 Tableau.current.player.directionY=-1;
-            }else if(dragY > w / 4){
+            }else if(dragY > w / 4)
+            {
                 Tableau.current.player.directionY=1;
-            }else{
+            }else
+            {
                 Tableau.current.player.directionY=0;
             }
 
         });
-        circleDrag.on('dragend', (pointer, dragX, dragY) => {
+        circleDrag.on('dragend', (pointer, dragX, dragY) => 
+        {
             circleDrag.x = 0;
             circleDrag.y = 0;
             Tableau.current.player.directionX=0;
