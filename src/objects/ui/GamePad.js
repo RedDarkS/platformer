@@ -42,7 +42,7 @@ class GamePad extends Phaser.GameObjects.Container{
                     Tableau.current.player.directionY=1;
                     break;
                 case "Control":
-                    console.log("X du joueur " + (Tableau.current.player.x - 50));
+                    console.log("X du joueur " + Tableau.current.player.x);
                     console.log("Y du joueur " + Tableau.current.player.y);
                     break;
             }
