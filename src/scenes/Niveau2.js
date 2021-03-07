@@ -17,14 +17,20 @@ class Niveau2 extends Tableau
         super.create();
 
         //on définit la taille du tableau
-        let largeurDuTableau  = 896;
-        let hauteurDuTableau = 448;
+        let largeurDuTableau  = 896*2;
+        let hauteurDuTableau = 448*2;
+
+        //on gère la caméra
+        this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
+        this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
+
+        this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
         this.initDecor();
         this.initProfondeur();
 
         //des étoiles, une en fait...
-        this.starFin = this.physics.add.sprite((896)-6,100,"star");
+        this.starFin = this.physics.add.sprite((896*2)-6,100,"star");
         this.starFin.setDisplaySize(60,60);
         this.starFin.setCollideWorldBounds(true);
         this.starFin.setBounce(0);
