@@ -21,7 +21,7 @@ class zoo extends Tableau
 
         //des étoiles
         this.star1 = this.physics.add.sprite(900,100,"star");
-        this.star1.setDisplaySize(80,80);
+        this.star1.setDisplaySize(60,60);
         this.star1.setCollideWorldBounds(true);
         this.star1.setBounce(0);
 

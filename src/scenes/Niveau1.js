@@ -31,7 +31,7 @@ class Niveau1 extends Tableau
 
         //des étoiles, une en fait...
         this.starFin = this.physics.add.sprite((6*896)-6,100,"star");
-        this.starFin.setDisplaySize(30,30);
+        this.starFin.setDisplaySize(60,60);
         this.starFin.setCollideWorldBounds(true);
         this.starFin.setBounce(0);
 

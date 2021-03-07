@@ -18,7 +18,7 @@ class Tableau extends Phaser.Scene
      */
     preload()
     {
-        this.load.image('star', 'assets/star.png');
+        this.load.image('star', 'assets/coffre.png');
         this.load.image('sky', 'assets/sky.png');
         this.load.image('blood', 'assets/blood.png');
         this.load.spritesheet('player',
@@ -36,6 +36,11 @@ class Tableau extends Phaser.Scene
     {
         Tableau.current=this;
 
+        this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
+
+        this.sys.scene.scale.lockOrientation("landscape")
+        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
+
         //set up musique
 
         this.mort = this.sound.add('mort');
@@ -51,10 +56,8 @@ class Tableau extends Phaser.Scene
             delay : 0
         }
         
-        //this.reveBleu.play(musicConfig);
+        this.reveBleu.play(musicConfig);
         
-        this.sys.scene.scale.lockOrientation("landscape")
-        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
         /**
          * Le ciel en fond
          * @type {Phaser.GameObjects.Image}
