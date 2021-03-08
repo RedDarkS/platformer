@@ -29,21 +29,22 @@ class Niveau2 extends Tableau
         this.initDecor();
         this.initProfondeur();
 
-        //des étoiles, une en fait...
-        this.starFin = this.physics.add.sprite((896*2)-6,100,"star");
-        this.starFin.setDisplaySize(60,60);
-        this.starFin.setCollideWorldBounds(true);
-        this.starFin.setBounce(0);
+        //ETOILES
 
-        //quand le joueur touche une étoile on appelle la fonction ramasserEtoile
-        this.physics.add.overlap(this.player, this.starFin, this.ramasserEtoile, null, this);
-
-        this.map = this.make.tilemap({ key: 'map' });
-        this.tileset = this.map.addTilesetImage('tileSheet', 'tiles');
-        this.platforms = this.map.createStaticLayer('level', this.tileset, 0, 0);
-        this.platforms.setCollisionByExclusion(-1, true);
-        this.physics.add.collider(this.player, this.platforms);
-        this.physics.add.collider(this.starFin, this.platforms);
+        // c'est un peu plus compliqué, mais ça permet de maîtriser plus de choses...
+        this.stars = this.physics.add.group({
+            allowGravity: true,
+            immovable: false,
+            bounceY:0
+        });
+        this.starsObjects = this.map.getObjectLayer('stars')['objects'];
+        // On crée des étoiles pour chaque objet rencontré
+        this.starsObjects.forEach(starObject => {
+            // Pour chaque étoile on la positionne pour que ça colle bien car les étoiles ne font pas 64x64
+            let star = this.stars.create(starObject.x+32, starObject.y-64, 'star');
+            this.physics.add.collider(this.stars, this.platforms);
+            this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
+        });
         
     }
 
@@ -97,6 +98,16 @@ class Niveau2 extends Tableau
         );
         this.plafond.setOrigin(0,0);
         this.plafond.setScrollFactor(0);
+        
+        //TILED
+
+        this.map = this.make.tilemap({ key: 'map' });
+        this.tileset = this.map.addTilesetImage('tileSheet', 'tiles');
+
+        this.platforms = this.map.createStaticLayer('level', this.tileset, 0, 0);
+
+        this.platforms.setCollisionByExclusion(-1, true);
+        this.physics.add.collider(this.player, this.platforms);
     }
 
     initProfondeur()
