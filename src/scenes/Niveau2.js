@@ -45,6 +45,16 @@ class Niveau2 extends Tableau
             this.physics.add.collider(this.stars, this.platforms);
             this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
         });
+
+        //MONSTRES
+
+        let monstersContainer=this.add.container();
+        this.MonstersObjects = this.map.getObjectLayer('mob_crush')['objects'];
+        // On crée des montres volants pour chaque objet rencontré
+        this.MonstersObjects.forEach(monsterObject => {
+            let monster=new cruchMonstre(this,monsterObject.x+256,monsterObject.y);
+            monstersContainer.add(monster);
+        });
         
     }
 
