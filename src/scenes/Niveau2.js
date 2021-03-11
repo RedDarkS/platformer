@@ -117,7 +117,7 @@ class Niveau2 extends Tableau
         this.map = this.make.tilemap({ key: 'map' });
         this.tileset = this.map.addTilesetImage('tileSheet', 'tiles');
 
-        this.platforms = this.map.createStaticLayer('level', this.tileset, 0, 0);
+        this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
 
         this.platforms.setCollisionByExclusion(-1, true);
         this.physics.add.collider(this.player, this.platforms);

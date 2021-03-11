@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/objects/Chevalier.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/monster-fly.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/monster-violet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/platform.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/player.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/spike.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/testTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/testTiled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/circleMonster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/circleMonster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +52,8 @@
       <workItem from="1610977085434" duration="110000" />
       <workItem from="1610977206008" duration="230000" />
       <workItem from="1615368017252" duration="1479000" />
-      <workItem from="1615481990784" duration="4811000" />
+      <workItem from="1615481990784" duration="5077000" />
+      <workItem from="1615492819963" duration="671000" />
     </task>
     <servers />
   </component>
