@@ -20,6 +20,9 @@ class Niveau2 extends Tableau
         let largeurDuTableau  = 896*2;
         let hauteurDuTableau = 448*2;
 
+        // let largeurDuTableau=this.map.widthInPixels;
+        // let hauteurDuTableau=this.map.heightInPixels;
+
         //on gère la caméra
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
         this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
@@ -52,10 +55,10 @@ class Niveau2 extends Tableau
         this.MonstersObjects = this.map.getObjectLayer('mob_crush')['objects'];
         // On crée des montres volants pour chaque objet rencontré
         this.MonstersObjects.forEach(monsterObject => {
-            let monster=new cruchMonstre(this,monsterObject.x+256,monsterObject.y);
+            let monster = new Chevalier(this,monsterObject.x,monsterObject.y);
             monstersContainer.add(monster);
         });
-        
+
     }
 
     update()
@@ -118,6 +121,7 @@ class Niveau2 extends Tableau
 
         this.platforms.setCollisionByExclusion(-1, true);
         this.physics.add.collider(this.player, this.platforms);
+
     }
 
     initProfondeur()

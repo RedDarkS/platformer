@@ -73,7 +73,7 @@ class Niveau1 extends Tableau
         this.eF = new testMonstre(this,(4*896)+224, 100);
 
         //horizontale
-        this.razMoquette = new testMonstre2(this,(2*896)+224, 437);
+        this.chevalier = new Chevalier(this,(2*896)+224, 437);
 
         //Z
         this.Zed = new testMonstre3(this,(5*896)+224, 100);
@@ -165,7 +165,7 @@ class Niveau1 extends Tableau
         this.cruch1.setDepth(10);
         this.cruch2.setDepth(10);
         this.eF.setDepth(10);
-        this.razMoquette.setDepth(10);
+        this.chevalier.setDepth(10);
         this.Zed.setDepth(10);
         this.fauxCercle.setDepth(10);
         

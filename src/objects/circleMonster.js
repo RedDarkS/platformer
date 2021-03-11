@@ -48,14 +48,17 @@ class circleMonster extends ObjetEnnemi
                     from:0,
                     to:1,
                 },
-                onComplete: function () {
+                onComplete: function ()
+                {
                     me.start();
                 }
             })
     }
 
-    start(){
-        this.scene.tweens.add({
+    start()
+    {
+        this.scene.tweens.add(
+            {
             targets: this,
             //pas un cercle mais bon
            x: {

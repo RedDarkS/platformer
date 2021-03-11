@@ -19,7 +19,6 @@ class Tableau extends Phaser.Scene
     preload()
     {
         this.load.image('star', 'assets/coffre.png');
-        this.load.image('sky', 'assets/sky.png');
         this.load.image('blood', 'assets/blood.png');
         this.load.spritesheet('player',
             'assets/DA_player_platformer.png',
@@ -28,7 +27,6 @@ class Tableau extends Phaser.Scene
 
         //des petits sons pour le lol
         this.load.audio('mort', 'assets/son/mort.wav');
-
         this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
         
     }
@@ -62,9 +60,9 @@ class Tableau extends Phaser.Scene
          * Le ciel en fond
          * @type {Phaser.GameObjects.Image}
          */
-        this.sky = this.add.image(0, 0, 'sky').setOrigin(0,0);
-        this.sky.displayWidth = 14*64;
-        this.sky.setScrollFactor(0,0);
+        // this.sky = this.add.image(0, 0, 'sky').setOrigin(0,0);
+        // this.sky.displayWidth = 14*64;
+        // this.sky.setScrollFactor(0,0);
 
         /**
          * Le joueur
@@ -161,7 +159,8 @@ class Tableau extends Phaser.Scene
      * @param {Player} player
      * @param {Phaser.Physics.Arcade.Sprite} monster
      */
-    hitMonster(player, monster){
+    hitMonster(player, monster)
+    {
         let me=this;
         if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
             if(
@@ -174,35 +173,34 @@ class Tableau extends Phaser.Scene
                 ui.gagne();
                 monster.isDead=true; //ok le monstre est mort
                 monster.visible=false;
-                this.saigne(monster,function(){
+                this.saigne(monster,function()
+                {
                     //à la fin de la petite anim...ben il se passe rien :)
                 })
                 //notre joueur rebondit sur le monstre
                 player.directionY=500;
-            }else{
+            }
+            else {
                 //le joueur est mort
-                if(!me.player.isDead){
-                    
+                if(!me.player.isDead)
+                {
                     this.mort.play();
                     this.reveBleu.stop();
 
                     me.player.isDead=true;
                     me.player.visible=false;
                     //ça saigne...
-                    me.saigne(me.player,function(){
+                    me.saigne(me.player,function()
+                    {
                         //à la fin de la petite anim, on relance le jeu
                         me.blood.visible=false;
                         me.player.anims.play('turn');
                         me.player.isDead=false;
                         me.scene.restart();
                     })
-
                 }
-
-
             }
         }
-
     }
 
     /**
