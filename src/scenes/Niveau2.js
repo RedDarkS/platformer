@@ -9,6 +9,8 @@ class Niveau2 extends Tableau
         this.load.image('secondPlan', 'assets/second-plan.png');
         this.load.image('dernierPlan', 'assets/dernier-plan.png');
 
+        this.load.image('star', 'assets/coffre.png');
+
         this.load.image('tiles', 'assets/tileSheet.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/testTiled.json');
     }
