@@ -23,20 +23,151 @@
         }, 
         {
          "draworder":"topdown",
-         "id":9,
-         "name":"mob_crush",
+         "id":10,
+         "name":"torches",
          "objects":[
                 {
                  "gid":87,
                  "height":64,
-                 "id":11,
+                 "id":13,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":576,
-                 "y":704
+                 "x":161.5,
+                 "y":836
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":14,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":1503.5,
+                 "y":836.5
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":15,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":734.5,
+                 "y":708
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":16,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":1634.5,
+                 "y":388.5
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":17,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":1056.5,
+                 "y":196
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":18,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":801,
+                 "y":196
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":19,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":417,
+                 "y":260
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":20,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":98,
+                 "y":388
+                }, 
+                {
+                 "gid":87,
+                 "height":64,
+                 "id":21,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":1184.5,
+                 "y":644.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":9,
+         "name":"mob_crush",
+         "objects":[
+                {
+                 "gid":88,
+                 "height":64,
+                 "id":12,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":578,
+                 "y":706
+                }, 
+                {
+                 "gid":88,
+                 "height":64,
+                 "id":22,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":747,
+                 "y":196
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -71,7 +202,7 @@
                  "visible":true,
                  "width":64,
                  "x":924,
-                 "y":190
+                 "y":191.5
                 }, 
                 {
                  "gid":85,
@@ -115,8 +246,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":12,
+ "nextlayerid":11,
+ "nextobjectid":23,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

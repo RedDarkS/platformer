@@ -32,7 +32,6 @@ class Niveau2 extends Tableau
         this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
         this.initDecor();
-        this.initProfondeur();
 
         //ETOILES
 
@@ -53,14 +52,25 @@ class Niveau2 extends Tableau
 
         //MONSTRES
 
-        let monstersContainer=this.add.container();
+        this.monstersContainer=this.add.container();
         this.MonstersObjects = this.map.getObjectLayer('mob_crush')['objects'];
         // On crée des montres volants pour chaque objet rencontré
         this.MonstersObjects.forEach(monsterObject => {
             let monster = new Chevalier(this,monsterObject.x,monsterObject.y);
-            monstersContainer.add(monster);
+            this.monstersContainer.add(monster);
         });
 
+        //TORCHES
+
+        this.torchesContainer=this.add.container();
+        this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
+        // On crée des montres volants pour chaque objet rencontré
+        this.torcheObjects.forEach(torcheObject => {
+            let torche = new Torche(this,torcheObject.x,torcheObject.y-30);
+            this.torchesContainer.add(torche);
+        });
+
+        this.initProfondeur();
     }
 
     update()
@@ -128,6 +138,13 @@ class Niveau2 extends Tableau
 
     initProfondeur()
     {
-        this.player.setDepth(10);
+        let z=1000; //niveau Z qui a chaque fois est décrémenté.
+        this.blood.setDepth(z--);
+        this.platforms.setDepth(z--);
+        this.monstersContainer.setDepth(z--);
+        this.stars.setDepth(z--);
+        this.player.setDepth(z--);
+        this.torchesContainer.setDepth(z--);
+
     }
 }

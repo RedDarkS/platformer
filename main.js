@@ -18,8 +18,8 @@ let config = {
     scene: [
         new Ui(),
 
-        new Niveau1("La finale finalité, bientôt..."),
         new Niveau2("Tiled"),
+        new Niveau1("La finale finalité, bientôt..."),
         // new zoo("5 sur 5, 5 sur 5"),
         // new Tableau00("Des étoiles"),
         // new Tableau01("Des plateformes"),
