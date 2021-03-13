@@ -19,7 +19,7 @@ class Tableau extends Phaser.Scene
     preload()
     {
         //SPRITES
-        this.load.image('star', 'assets/coffre.png');
+        this.load.image('star', 'assets/Coffre.png');
         this.load.image('blood', 'assets/blood.png');
 
         //SPRITES ENTITES
