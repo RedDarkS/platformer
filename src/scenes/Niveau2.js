@@ -34,27 +34,73 @@ class Niveau2 extends Tableau
         this.initDecor();
 
         //ETOILES
-
-        // c'est un peu plus compliqué, mais ça permet de maîtriser plus de choses...
+        /**
+         *
+         * @type {Phaser.Physics.Arcade.Group}
+         */
         this.stars = this.physics.add.group({
-            allowGravity: true,
+            allowGravity: false,
             immovable: false,
             bounceY:0
         });
         this.starsObjects = this.map.getObjectLayer('stars')['objects'];
         // On crée des étoiles pour chaque objet rencontré
         this.starsObjects.forEach(starObject => {
+            console.log(starObject);
             // Pour chaque étoile on la positionne pour que ça colle bien car les étoiles ne font pas 64x64
-            let star = this.stars.create(starObject.x+32, starObject.y-64, 'star');
-            this.physics.add.collider(this.stars, this.platforms);
-            this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
+            let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
+        });
+        this.physics.add.collider(this.stars, this.platforms);
+        this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
+
+        //Particules étoiles
+
+        this.starsFxContainer=this.add.container();
+        this.starsFxContainer.x = 16;
+        this.starsFxContainer.y = -16;
+        let ici = this;
+        this.stars.children.iterate(function(etoile) {
+            let particles = ici.add.particles("star");
+            let emmiter = particles.createEmitter({
+                frequency:100,
+                lifespan: 2000,
+                quantity:5,
+                x:{min:-32,max:32},
+                y:{min:-32,max:32},
+                tint:[  0xFF0000,0x00FF00,0x0000FF,0x8800FF ],
+                rotate: {min:0,max:360},
+                scale: {start: 0.8, end: 0.5},
+                alpha: { start: 1, end: 0 },
+                blendMode: Phaser.BlendModes.ADD,
+                speed:40
+            });
+            let immiter = particles.createEmitter({
+                frequency:100,
+                lifespan: 6000,
+                quantity:2,
+                x:{min:32,max:32},
+                y:{min:-32,max:-32},
+                tint:[  0xFF0000,0x00FF00,0x0000FF,0x8800FF ],
+                rotate: {min:0,max:180},
+                scale: {start: 0.5, end: 0.3},
+                alpha: { start: 1, end: 0 },
+                blendMode: Phaser.BlendModes.HARD_LIGHT,
+                speed:40
+            })
+            etoile.on("disabled",function(){
+                emmiter.on=false;
+                immiter.on=false;
+            })
+            emmiter.startFollow(etoile);
+            immiter.startFollow(etoile);
+            ici.starsFxContainer.add(particles);
+
         });
 
         //MONSTRES
 
         this.monstersContainer=this.add.container();
         this.MonstersObjects = this.map.getObjectLayer('mob_crush')['objects'];
-        // On crée des montres volants pour chaque objet rencontré
         this.MonstersObjects.forEach(monsterObject => {
             let monster = new Chevalier(this,monsterObject.x,monsterObject.y);
             this.monstersContainer.add(monster);
@@ -139,12 +185,17 @@ class Niveau2 extends Tableau
     initProfondeur()
     {
         let z=1000; //niveau Z qui a chaque fois est décrémenté.
+        //devant
         this.blood.setDepth(z--);
         this.platforms.setDepth(z--);
+
+        this.player.setDepth(z--);
+
         this.monstersContainer.setDepth(z--);
         this.stars.setDepth(z--);
-        this.player.setDepth(z--);
-        this.torchesContainer.setDepth(z--);
+        this.starsFxContainer.setDepth(z--);
 
+        this.torchesContainer.setDepth(z--);
+        //derrière
     }
 }

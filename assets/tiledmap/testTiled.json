@@ -237,8 +237,43 @@
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":714,
-                 "y":706
+                 "x":0,
+                 "y":64
+                }, 
+                {
+                 "gid":85,
+                 "height":64,
+                 "id":23,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":0,
+                 "y":832
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"point",
+         "objects":[
+                {
+                 "height":0,
+                 "id":25,
+                 "name":"Player",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":94.6666666666667,
+                 "y":817.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -246,10 +281,10 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":23,
+ "nextlayerid":12,
+ "nextobjectid":26,
  "orientation":"orthogonal",
- "renderorder":"right-down",
+ "renderorder":"left-up",
  "tiledversion":"1.4.3",
  "tileheight":64,
  "tilesets":[
