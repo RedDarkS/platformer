@@ -10,6 +10,7 @@ class Niveau2 extends Tableau
         this.load.image('dernierPlan', 'assets/dernier-plan.png');
 
         this.load.image('star', 'assets/Coffre.png');
+        this.load.image('pixel', 'assets/pixel.png');
 
         this.load.image('tiles', 'assets/tileSheet.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/testTiled.json');
@@ -53,6 +54,11 @@ class Niveau2 extends Tableau
         this.physics.add.collider(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
 
+        const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
+        // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
+        this.player.x = spawnPoint.x;
+        this.player.y = spawnPoint.y;
+
         //Particules étoiles
 
         this.starsFxContainer=this.add.container();
@@ -60,7 +66,7 @@ class Niveau2 extends Tableau
         this.starsFxContainer.y = -16;
         let ici = this;
         this.stars.children.iterate(function(etoile) {
-            let particles = ici.add.particles("star");
+            let particles = ici.add.particles("pixel");
             let emmiter = particles.createEmitter({
                 frequency:100,
                 lifespan: 2000,
@@ -69,7 +75,7 @@ class Niveau2 extends Tableau
                 y:{min:-32,max:32},
                 tint:[  0xFF0000,0x00FF00,0x0000FF,0x8800FF ],
                 rotate: {min:0,max:360},
-                scale: {start: 0.8, end: 0.5},
+                scale: {start: 0.2, end: 0.1},
                 alpha: { start: 1, end: 0 },
                 blendMode: Phaser.BlendModes.ADD,
                 speed:40
@@ -82,7 +88,7 @@ class Niveau2 extends Tableau
                 y:{min:-32,max:-32},
                 tint:[  0xFF0000,0x00FF00,0x0000FF,0x8800FF ],
                 rotate: {min:0,max:180},
-                scale: {start: 0.5, end: 0.3},
+                scale: {start: 0.3, end: 0.1},
                 alpha: { start: 1, end: 0 },
                 blendMode: Phaser.BlendModes.HARD_LIGHT,
                 speed:40
@@ -177,7 +183,8 @@ class Niveau2 extends Tableau
 
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
 
-        this.platforms.setCollisionByExclusion(-1, true);
+        this.platforms.setCollisionByProperty({collides: true});
+        //this.platforms.setCollisionByExclusion(-1, true);
         this.physics.add.collider(this.player, this.platforms);
 
     }
