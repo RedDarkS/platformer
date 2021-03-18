@@ -152,7 +152,7 @@ class Niveau2 extends Tableau
             'dernierPlan'
         );
         this.dernierPlan.setOrigin(0,0);
-        this.dernierPlan.setScrollFactor(0);//fait en sorte que le ciel ne suive pas la caméra
+        this.dernierPlan.setScrollFactor(0);
 
         //on ajoute une deuxième couche de ciel
         this.secondPlan=this.add.tileSprite(
