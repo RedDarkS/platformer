@@ -2,7 +2,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 {
     constructor(scene, x, y) 
     {
-        super(scene, x, y, "player")
+        super(scene, x, y, "player_plus")
         scene.add.existing(this)
         scene.physics.add.existing(this)
 
@@ -11,29 +11,32 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setGravityY(600)
         this.setFriction(1,1);
 
-        this.setBodySize(this.body.width,this.body.height);
-        this.setOffset(0, 0);
+        this.setBodySize(this.body.width - 350,this.body.height -20);
+        this.setOffset(150, 10);
+
+        this.displayWidth = 107;
+        this.displayHeight = 64;
 
         this.anims.create(
             {
             key: 'left',
-            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
-            frameRate: 10,
+            frames: this.anims.generateFrameNumbers('player_plus', { start: 0, end: 20 }),
+            frameRate: 24,
             repeat: -1
         });
 
         this.anims.create(
             {
             key: 'right',
-            frames: this.anims.generateFrameNumbers('player', { start: 5, end: 8 }),
-            frameRate: 10,
+            frames: this.anims.generateFrameNumbers('player_plus', { start: 0, end: 20 }),
+            frameRate: 24,
             repeat: -1
         });
         this.anims.create(
             {
             key: 'turn',
-            frames: [ { key: 'player', frame: 4 } ],
-            frameRate: 20
+            frames: [ { key: 'player_plus', frame: 7 } ],
+            frameRate: 24
         });
 
         this._directionX=0;
@@ -71,13 +74,15 @@ class Player extends Phaser.Physics.Arcade.Sprite
         switch (true)
         {
             case this._directionX < 0:
-                this.setVelocityX(-250);
+                this.setVelocityX(-450);
                 this.anims.play('left', true);
+                this.setFlipX(true);
                 break;
 
             case this._directionX > 0:
-                this.setVelocityX(250);
+                this.setVelocityX(450);
                 this.anims.play('right', true);
+                this.setFlipX(false);
                 break;
 
             default:
