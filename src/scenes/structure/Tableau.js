@@ -23,17 +23,10 @@ class Tableau extends Phaser.Scene
         this.load.image('blood', 'assets/blood.png');
 
         //SPRITES ENTITES
-        this.load.spritesheet('player',
-            'assets/DA_player_platformer.png',
-            { frameWidth: 37.5, frameHeight: 45  }
-        );
-        this.load.spritesheet('player_plus',
-            'assets/anime_file.png',
-            { frameWidth: 567, frameHeight: 338  }
-        );
-
-        this.load.spritesheet('torche', 'assets/torche-sheet.png',
-            {frameHeight : 64, frameWidth : 64});
+        this.load.spritesheet('player', 'assets/DA_player_platformer.png', {frameWidth: 37.5, frameHeight: 45});
+        this.load.spritesheet('player_plus','assets/anime_file.png', {frameWidth: 567, frameHeight: 338});
+        this.load.spritesheet('torche', 'assets/torche-sheet.png', {frameHeight : 64, frameWidth : 64});
+    
         this.load.image('Ennemi1', 'assets/ennemi1.png');
 
         //des petits sons pour le lol

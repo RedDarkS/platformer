@@ -8,6 +8,7 @@ class Niveau2 extends Tableau
         this.load.image('plafond', 'assets/plafond.png');
         this.load.image('secondPlan', 'assets/second-plan.png');
         this.load.image('dernierPlan', 'assets/dernier-plan.png');
+        this.load.image('sky-2', 'assets/sky-2.jpg');
 
         this.load.image('star', 'assets/Coffre.png');
         this.load.image('pixel', 'assets/pixel.png');
@@ -129,21 +130,30 @@ class Niveau2 extends Tableau
     {
          super.update();
         // //le fond se déplace moins vite que la caméra pour donner un effet paralax
-        // this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.4;
-        // this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.15;
+        this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.1;
+        this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         //le second plan se déplace moins vite pour accentuer l'effet
-        this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.2;
-        this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
+        this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.15;
+        this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
 
         //le premier plan se déplace moins vite pour accentuer l'effet
-        this.plafond.tilePositionX = this.cameras.main.scrollX * 0.3;
-        this.plafond.tilePositionY = this.cameras.main.scrollY * 0.2;
+        this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
+        this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
     }
 
     initDecor()
     {
-        //on change de ciel, on fait une tileSprite ce qui permet d'avoir une image qui se répète
+        this.sky = this.add.tileSprite(
+            0,
+            0,
+            this.sys.canvas.width,
+            this.sys.canvas.height,
+            'sky-2'
+        );
+        this.sky.setOrigin(0,0);
+        this.sky.setScrollFactor(0);
+
         this.dernierPlan = this.add.tileSprite(
             0,
             0,
@@ -164,7 +174,6 @@ class Niveau2 extends Tableau
         );
         this.secondPlan.setScrollFactor(0);
         this.secondPlan.setOrigin(0,0);
-        //this.sky.tileScaleX=this.sky.tileScaleY=0.8;
 
         this.plafond=this.add.tileSprite(
             0,
