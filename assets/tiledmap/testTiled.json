@@ -182,8 +182,8 @@
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":1715.27272727273,
-                 "y":383.636363636364
+                 "x":1715.27,
+                 "y":383.636
                 }, 
                 {
                  "gid":85,
@@ -253,24 +253,47 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":94.6666666666667,
-                 "y":817.333333333333
-                }, 
+                 "x":94.6667,
+                 "y":817.333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"ckps",
+         "objects":[
                 {
                  "height":0,
-                 "id":26,
+                 "id":29,
                  "name":"ckp1",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":926.666666666667,
+                 "x":893.333333333333,
                  "y":696
                 }, 
                 {
                  "height":0,
-                 "id":27,
+                 "id":30,
+                 "name":"ckp2",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1408,
+                 "y":314.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":31,
                  "name":"ckp3",
                  "point":true,
                  "rotation":0,
@@ -279,18 +302,6 @@
                  "width":0,
                  "x":532,
                  "y":248
-                }, 
-                {
-                 "height":0,
-                 "id":28,
-                 "name":"ckp2",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1442.66666666667,
-                 "y":310.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -298,8 +309,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":29,
+ "nextlayerid":13,
+ "nextobjectid":32,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.2",

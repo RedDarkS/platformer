@@ -1,9 +1,9 @@
 class Niveau2 extends Tableau
 {
-    preload() 
+    preload()
     {
         super.preload();
-        
+
         //d'autres trucs pour le décors
         this.load.image('plafond', 'assets/plafond.png');
         this.load.image('secondPlan', 'assets/second-plan.png');
@@ -16,20 +16,23 @@ class Niveau2 extends Tableau
         this.load.image('tiles', 'assets/tileSheet.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/testTiled.json');
     }
-    create() 
+
+    create()
     {
         super.create();
 
+        let ici = this;
+
         //on définit la taille du tableau
-        let largeurDuTableau  = 896*2;
-        let hauteurDuTableau = 448*2;
+        let largeurDuTableau = 896 * 2;
+        let hauteurDuTableau = 448 * 2;
 
         // let largeurDuTableau=this.map.widthInPixels;
         // let hauteurDuTableau=this.map.heightInPixels;
 
         //on gère la caméra
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
-        this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
+        this.physics.world.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
 
         this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
@@ -43,7 +46,7 @@ class Niveau2 extends Tableau
         this.stars = this.physics.add.group({
             allowGravity: false,
             immovable: false,
-            bounceY:0
+            bounceY: 0
         });
         this.starsObjects = this.map.getObjectLayer('stars')['objects'];
         // On crée des étoiles pour chaque objet rencontré
@@ -62,41 +65,40 @@ class Niveau2 extends Tableau
 
         //Particules étoiles
 
-        this.starsFxContainer=this.add.container();
+        this.starsFxContainer = this.add.container();
         this.starsFxContainer.x = 16;
         this.starsFxContainer.y = -16;
-        let ici = this;
-        this.stars.children.iterate(function(etoile) {
+        this.stars.children.iterate(function (etoile) {
             let particles = ici.add.particles("pixel");
             let emmiter = particles.createEmitter({
-                frequency:100,
+                frequency: 100,
                 lifespan: 2000,
-                quantity:5,
-                x:{min:-32,max:32},
-                y:{min:-32,max:32},
-                tint:[  0xFF0000,0x00FF00,0x0000FF,0x8800FF ],
-                rotate: {min:0,max:360},
+                quantity: 5,
+                x: {min: -32, max: 32},
+                y: {min: -32, max: 32},
+                tint: [0xFF0000, 0x00FF00, 0x0000FF, 0x8800FF],
+                rotate: {min: 0, max: 360},
                 scale: {start: 0.2, end: 0.1},
-                alpha: { start: 1, end: 0 },
+                alpha: {start: 1, end: 0},
                 blendMode: Phaser.BlendModes.ADD,
-                speed:40
+                speed: 40
             });
             let immiter = particles.createEmitter({
-                frequency:100,
+                frequency: 100,
                 lifespan: 6000,
-                quantity:2,
-                x:{min:32,max:32},
-                y:{min:-32,max:-32},
-                tint:[  0xFF0000,0x00FF00,0x0000FF,0x8800FF ],
-                rotate: {min:0,max:180},
+                quantity: 2,
+                x: {min: 32, max: 32},
+                y: {min: -32, max: -32},
+                tint: [0xFF0000, 0x00FF00, 0x0000FF, 0x8800FF],
+                rotate: {min: 0, max: 180},
                 scale: {start: 0.3, end: 0.1},
-                alpha: { start: 1, end: 0 },
+                alpha: {start: 1, end: 0},
                 blendMode: Phaser.BlendModes.HARD_LIGHT,
-                speed:40
+                speed: 40
             })
-            etoile.on("disabled",function(){
-                emmiter.on=false;
-                immiter.on=false;
+            etoile.on("disabled", function () {
+                emmiter.on = false;
+                immiter.on = false;
             })
             emmiter.startFollow(etoile);
             immiter.startFollow(etoile);
@@ -106,41 +108,55 @@ class Niveau2 extends Tableau
 
         //MONSTRES
 
-        this.monstersContainer=this.add.container();
+        this.monstersContainer = this.add.container();
         this.MonstersObjects = this.map.getObjectLayer('mob_crush')['objects'];
         this.MonstersObjects.forEach(monsterObject => {
-            let monster = new Chevalier(this,monsterObject.x,monsterObject.y);
+            let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
             this.monstersContainer.add(monster);
         });
 
         //TORCHES
 
-        this.torchesContainer=this.add.container();
+        this.torchesContainer = this.add.container();
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
         // On crée des montres volants pour chaque objet rencontré
         this.torcheObjects.forEach(torcheObject => {
-            let torche = new Torche(this,torcheObject.x,torcheObject.y-30);
+            let torche = new Torche(this, torcheObject.x, torcheObject.y - 30);
             this.torchesContainer.add(torche);
         });
 
         this.initProfondeur();
     }
 
-    update()
+    /*optimizeDisplay()
     {
-         super.update();
-        // //le fond se déplace moins vite que la caméra pour donner un effet paralax
-        this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.1;
-        this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
+        //return;
+        let world = this.cameras.main.worldView; // le rectangle de la caméra, (les coordonnées de la zone visible)
 
-        //le second plan se déplace moins vite pour accentuer l'effet
-        this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.15;
-        this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
-
-        //le premier plan se déplace moins vite pour accentuer l'effet
-        this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
-        this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
-    }
+        // on va activer / désactiver les particules de lave
+        for (let particule of this.torchesContainer.getAll())
+        { // parcours toutes les particules de lave
+            if (Phaser.Geom.Rectangle.Overlaps(world, particule.rectangle))
+            {
+                //si le rectangle de la particule est dans le rectangle de la caméra
+                if (!particule.visible)
+                {
+                    //on active les particules
+                    particule.resume();
+                    particule.visible = true;
+                }
+            }
+            else {
+                //si le rectangle de la particule n'est PAS dans le rectangle de la caméra
+                if (particule.visible)
+                {
+                    //on désactive les particules
+                    particule.pause();
+                    particule.visible = false;
+                }
+            }
+        }
+    }*/
 
     initDecor()
     {
@@ -151,7 +167,7 @@ class Niveau2 extends Tableau
             this.sys.canvas.height,
             'sky-2'
         );
-        this.sky.setOrigin(0,0);
+        this.sky.setOrigin(0, 0);
         this.sky.setScrollFactor(0);
 
         this.dernierPlan = this.add.tileSprite(
@@ -161,11 +177,11 @@ class Niveau2 extends Tableau
             this.sys.canvas.height,
             'dernierPlan'
         );
-        this.dernierPlan.setOrigin(0,0);
+        this.dernierPlan.setOrigin(0, 0);
         this.dernierPlan.setScrollFactor(0);
 
         //on ajoute une deuxième couche de ciel
-        this.secondPlan=this.add.tileSprite(
+        this.secondPlan = this.add.tileSprite(
             0,
             0,
             this.sys.canvas.width,
@@ -173,21 +189,21 @@ class Niveau2 extends Tableau
             'secondPlan'
         );
         this.secondPlan.setScrollFactor(0);
-        this.secondPlan.setOrigin(0,0);
+        this.secondPlan.setOrigin(0, 0);
 
-        this.plafond=this.add.tileSprite(
+        this.plafond = this.add.tileSprite(
             0,
             0,
             this.sys.canvas.width,
             0,
             'plafond'
         );
-        this.plafond.setOrigin(0,0);
+        this.plafond.setOrigin(0, 0);
         this.plafond.setScrollFactor(0);
-        
+
         //TILED
 
-        this.map = this.make.tilemap({ key: 'map' });
+        this.map = this.make.tilemap({key: 'map'});
         this.tileset = this.map.addTilesetImage('tileSheet', 'tiles');
 
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
@@ -200,7 +216,7 @@ class Niveau2 extends Tableau
 
     initProfondeur()
     {
-        let z=1000; //niveau Z qui a chaque fois est décrémenté.
+        let z = 1000; //niveau Z qui a chaque fois est décrémenté.
         //devant
         this.blood.setDepth(z--);
         this.platforms.setDepth(z--);
@@ -209,9 +225,37 @@ class Niveau2 extends Tableau
 
         this.monstersContainer.setDepth(z--);
         this.stars.setDepth(z--);
-        this.starsFxContainer.setDepth(z--);
 
+        this.starsFxContainer.setDepth(z--);
         this.torchesContainer.setDepth(z--);
         //derrière
     }
+
+    update()
+    {
+        super.update();
+        // le fond se déplace moins vite que la caméra pour donner un effet paralax
+        this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.1;
+        this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
+
+        //le second plan se déplace moins vite pour accentuer l'effet
+        this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.15;
+        this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
+
+        //le premier plan se déplace moins vite pour accentuer l'effet
+        this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
+        this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
+
+        //optimisation
+        //teste si la caméra a bougé
+        /*let actualPosition = JSON.stringify(this.cameras.main.worldView);
+        if (
+            !this.previousPosition
+            || this.previousPosition !== actualPosition
+        ) {
+            this.previousPosition = actualPosition;
+            this.optimizeDisplay();
+        }*/
+    }
+
 }
