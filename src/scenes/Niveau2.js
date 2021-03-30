@@ -59,9 +59,10 @@ class Niveau2 extends Tableau
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
 
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
+
+        //Joueur au spawn
         // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
-        this.player.x = spawnPoint.x;
-        this.player.y = spawnPoint.y;
+        this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
         //Particules étoiles
 
@@ -124,6 +125,39 @@ class Niveau2 extends Tableau
             let torche = new Torche(this, torcheObject.x, torcheObject.y - 30);
             this.torchesContainer.add(torche);
         });
+
+        //Checkpoints
+
+        let playerPos;
+        this.checkPoint = this.physics.add.group({
+            allowGravity: false,
+            immovable:false
+        });
+
+        this.checkPointsObjects = this.map.getObjectLayer('ckps')['objects'];
+        this.checkPointsObjects.forEach(checkPointsObject => {
+            console.log(checkPointsObject.properties[0].value);
+            let cP = new checkPoint(
+                this,
+                checkPointsObject.x,
+                checkPointsObject.y,
+                'pixel',
+                checkPointsObject.properties[0].value
+            );
+            this.physics.add.overlap(this.player, cP, function()
+            {
+                cP.savePos();
+            });
+
+            let playerPos = cP.loadPos();
+
+            if(playerPos)
+            {
+                ici.player.setPosition(playerPos.x, playerPos.y - 64);
+            }
+            console.log(playerPos);
+
+        })
 
         this.initProfondeur();
     }
