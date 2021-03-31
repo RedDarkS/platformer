@@ -1,3 +1,7 @@
+window.MyEvents = {
+    SAUTE : "saute",
+    DESACTIVE : "desactive",
+}
 
 let width=14*64; //896;
 let height=7*64; //448;

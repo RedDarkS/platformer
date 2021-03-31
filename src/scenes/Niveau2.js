@@ -23,6 +23,10 @@ class Niveau2 extends Tableau
 
         let ici = this;
 
+        this.player.on(MyEvents.SAUTE, function(){
+            console.log("yipi");
+        });
+
         //on définit la taille du tableau
         let largeurDuTableau = 896 * 2;
         let hauteurDuTableau = 448 * 2;
@@ -58,9 +62,10 @@ class Niveau2 extends Tableau
         this.physics.add.collider(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
 
+        //Joueur au spawn
+
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
 
-        //Joueur au spawn
         // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
         this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
@@ -69,6 +74,7 @@ class Niveau2 extends Tableau
         this.starsFxContainer = this.add.container();
         this.starsFxContainer.x = 16;
         this.starsFxContainer.y = -16;
+
         this.stars.children.iterate(function (etoile) {
             let particles = ici.add.particles("pixel");
             let emmiter = particles.createEmitter({
@@ -97,12 +103,14 @@ class Niveau2 extends Tableau
                 blendMode: Phaser.BlendModes.HARD_LIGHT,
                 speed: 40
             })
-            etoile.on("disabled", function () {
-                emmiter.on = false;
-                immiter.on = false;
+
+            etoile.on(MyEvents.DESACTIVE, function () {
+                emmiter.startFollow(etoile);
+                immiter.startFollow(etoile);
+
+                // emmiter.on = false;
+                // immiter.on = false;
             })
-            emmiter.startFollow(etoile);
-            immiter.startFollow(etoile);
             ici.starsFxContainer.add(particles);
 
         });
@@ -110,7 +118,7 @@ class Niveau2 extends Tableau
         //MONSTRES
 
         this.monstersContainer = this.add.container();
-        this.MonstersObjects = this.map.getObjectLayer('mob_crush')['objects'];
+        this.MonstersObjects = this.map.getObjectLayer('mob')['objects'];
         this.MonstersObjects.forEach(monsterObject => {
             let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
             this.monstersContainer.add(monster);
@@ -137,19 +145,19 @@ class Niveau2 extends Tableau
         this.checkPointsObjects = this.map.getObjectLayer('ckps')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
             console.log(checkPointsObject.properties[0].value);
-            let cP = new checkPoint(
+            let ckp = new checkPoint(
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
                 'pixel',
                 checkPointsObject.properties[0].value
             );
-            this.physics.add.overlap(this.player, cP, function()
+            this.physics.add.overlap(this.player, ckp, function()
             {
-                cP.savePos();
+                ckp.savePos();
             });
 
-            let playerPos = cP.loadPos();
+            let playerPos = ckp.loadPos();
 
             if(playerPos)
             {

@@ -126,7 +126,9 @@ class Tableau extends Phaser.Scene
     ramasserEtoile (player, star)
     {
         star.disableBody(true, true);
-        star.emit("disabled");
+
+        star.emit(MyEvents.DESACTIVE);
+
         ui.gagne();
 
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives

@@ -70,7 +70,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
      */
     move()
     {
-
         switch (true)
         {
             case this._directionX < 0:
@@ -90,16 +89,17 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.anims.play('turn');
         }
 
+        //TODO gérer sauts muraux
+
+        //saut
         if(this._directionY < 0)
         {
             if(this.body.blocked.down || this.body.touching.down)
             {
                 this.setVelocityY(-550);
+                this.emit(MyEvents.SAUTE);
             }
         }
-
-
     }
-
 
 }
