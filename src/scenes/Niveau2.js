@@ -105,8 +105,8 @@ class Niveau2 extends Tableau
             })
 
             etoile.on(MyEvents.DESACTIVE, function () {
-                emmiter.startFollow(etoile);
-                immiter.startFollow(etoile);
+                // emmiter.startFollow(etoile);
+                // immiter.startFollow(etoile);
 
                 // emmiter.on = false;
                 // immiter.on = false;
