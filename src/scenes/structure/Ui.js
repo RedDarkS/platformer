@@ -17,7 +17,7 @@ class Ui extends Phaser.Scene{
          * @private
          */
         this._scoreText = this.add.text(16, 16, '...', {
-            font:'32px "Hanalei Fill"',
+            font:'32px "Comic Sans MS"',
             fill: '#fff'
         });
 
@@ -27,7 +27,7 @@ class Ui extends Phaser.Scene{
          * @private
          */
         this._tableauText = this.add.text(this.sys.canvas.width-16, 16, '...', {
-            font:'32px "Hanalei Fill"',
+            font:'32px "Comic Sans MS"',
             align: 'right',
             fill: '#fff'
         })
@@ -38,7 +38,7 @@ class Ui extends Phaser.Scene{
          * @private
          */
         this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, '...', {
-            font:'24px "Hanalei Fill"',
+            font:'24px "Comic Sans MS"',
             align: 'right',
             fill: '#fff',
         }).setAlpha(0.5)
