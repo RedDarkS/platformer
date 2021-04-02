@@ -14,7 +14,7 @@ class Niveau1 extends Tableau
         this.load.image('pixel', 'assets/pixel.png');
 
         this.load.image('tiles', 'assets/tileSheet.png');
-        this.load.tilemapTiledJSON('map', 'assets/tiledmap/testTiled.json');
+        this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1.json');
     }
 
     create()
@@ -28,8 +28,8 @@ class Niveau1 extends Tableau
         });
 
         //on définit la taille du tableau
-        let largeurDuTableau = 896 * 2;
-        let hauteurDuTableau = 448 * 2;
+        let largeurDuTableau = 896 * 16;
+        let hauteurDuTableau = 448 * 6;
 
         // let largeurDuTableau=this.map.widthInPixels;
         // let hauteurDuTableau=this.map.heightInPixels;
@@ -38,9 +38,16 @@ class Niveau1 extends Tableau
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
         this.physics.world.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
 
-        this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
+        this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 0);
 
         this.initDecor();
+
+        //Joueur au spawn
+
+        const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
+
+        // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
+        this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
         //ETOILES
         /**
@@ -57,15 +64,8 @@ class Niveau1 extends Tableau
             // console.log(starObject);
             let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
         });
-        this.physics.add.collider(this.stars, this.platforms);
+        this.physics.add.overlap(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
-
-        //Joueur au spawn
-
-        const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
-
-        // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
-        this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
         //Particules étoiles
 
@@ -143,7 +143,7 @@ class Niveau1 extends Tableau
             let ckp = new checkPoint(
                 this,
                 checkPointsObject.x,
-                checkPointsObject.y,
+                checkPointsObject.y - 10,
                 'pixel',
                 checkPointsObject.properties[0].value
             );
