@@ -94,7 +94,9 @@ class Player extends Phaser.Physics.Arcade.Sprite
         //saut
         if(this._directionY < 0)
         {
-            if(this.body.blocked.down || this.body.touching.down)
+            if(this.body.blocked.down || this.body.touching.down
+                || this.body.blocked.right || this.body.touching.right
+                || this.body.blocked.left || this.body.touching.left)
             {
                 this.setVelocityY(-550);
                 this.emit(MyEvents.SAUTE);

@@ -8,7 +8,6 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
         scene.physics.add.existing(this);
         this.valuePos = value;
         this.body.allowGravity=false;
-        console.log(this.valuePos);
     }
 
     savePos()
@@ -19,7 +18,7 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
 
     loadPos()
     {
-        if (localStorage.getItem('cP') == this.valuePos)
+        if (localStorage.getItem('cP') === this.valuePos)
         {
             return{
                 x : this.x,
