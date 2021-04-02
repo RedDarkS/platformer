@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/testTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/testTiled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/testTiled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/testTiled.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +77,9 @@
       <workItem from="1617192419038" duration="6842000" />
       <workItem from="1617199982443" duration="1950000" />
       <workItem from="1617351244830" duration="8629000" />
+      <workItem from="1617366210788" duration="322000" />
+      <workItem from="1617366602775" duration="261000" />
+      <workItem from="1617368096859" duration="887000" />
     </task>
     <servers />
   </component>
