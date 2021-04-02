@@ -30,8 +30,8 @@ class Tableau extends Phaser.Scene
         this.load.image('Ennemi1', 'assets/ennemi1.png');
 
         //des petits sons pour le lol
-        this.load.audio('mort', 'assets/son/mort.wav');
-        this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
+        // this.load.audio('mort', 'assets/son/mort.wav');
+        // this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
         
     }
     create()
@@ -45,20 +45,20 @@ class Tableau extends Phaser.Scene
 
         //set up musique
 
-        this.mort = this.sound.add('mort');
-        this.reveBleu = this.sound.add('reve_bleu');
-
-        var musicConfig = {
-            mute : false,
-            volume : 1,
-            rate : 1,
-            detune : 0,
-            seek : 0,
-            loop : true,
-            delay : 0
-        }
-        
-        this.reveBleu.play(musicConfig);
+        // this.mort = this.sound.add('mort');
+        // this.reveBleu = this.sound.add('reve_bleu');
+        //
+        // var musicConfig = {
+        //     mute : false,
+        //     volume : 1,
+        //     rate : 1,
+        //     detune : 0,
+        //     seek : 0,
+        //     loop : true,
+        //     delay : 0
+        // }
+        //
+        // this.reveBleu.play(musicConfig);
         
         /**
          * Le ciel en fond
@@ -74,7 +74,7 @@ class Tableau extends Phaser.Scene
          */
         this.player=new Player(this,10,(448*2)-128);
 
-        this.player.setMaxVelocity(800, 800);
+        this.player.setMaxVelocity(600, 800);
 
         this.blood = this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
         this.blood.displayWidth = 64;
@@ -143,10 +143,10 @@ class Tableau extends Phaser.Scene
                 }
             }
         }
-        if(totalActive === 0)
-        {
-            this.win();
-        }
+        // if(totalActive === 0)
+        // {
+        //     this.win();
+        // }
     }
 
     /**
@@ -193,8 +193,8 @@ class Tableau extends Phaser.Scene
                 //le joueur est mort
                 if(!me.player.isDead)
                 {
-                    this.mort.play();
-                    this.reveBleu.stop();
+                    // this.mort.play();
+                    // this.reveBleu.stop();
 
                     me.player.isDead=true;
                     me.player.visible=false;
@@ -228,7 +228,7 @@ class Tableau extends Phaser.Scene
     win()
     {
         Tableau.suivant();
-        this.reveBleu.stop();
+        // this.reveBleu.stop();
     }
 
     /**
