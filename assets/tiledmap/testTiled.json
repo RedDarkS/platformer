@@ -3,8 +3,7 @@
     {
      "export":
         {
-         "format":"json",
-         "target":"niveau1.json"
+         "target":"."
         }
     },
  "height":14,
@@ -144,7 +143,7 @@
         {
          "draworder":"topdown",
          "id":9,
-         "name":"mob_crush",
+         "name":"mob",
          "objects":[
                 {
                  "gid":88,
@@ -280,11 +279,17 @@
                  "id":29,
                  "name":"ckp1",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"checkPoint",
+                         "type":"int",
+                         "value":1
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":893.333,
+                 "x":893.333333333333,
                  "y":696
                 }, 
                 {
@@ -292,18 +297,30 @@
                  "id":30,
                  "name":"ckp2",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"checkPoint",
+                         "type":"int",
+                         "value":2
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
                  "x":1408,
-                 "y":314.667
+                 "y":314.666666666667
                 }, 
                 {
                  "height":0,
                  "id":31,
                  "name":"ckp3",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"checkPoint",
+                         "type":"int",
+                         "value":3
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -321,7 +338,7 @@
  "nextobjectid":32,
  "orientation":"orthogonal",
  "renderorder":"left-up",
- "tiledversion":"1.4.2",
+ "tiledversion":"1.4.3",
  "tileheight":64,
  "tilesets":[
         {

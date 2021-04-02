@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/testTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/testTiled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/testTiled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/testTiled.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/checkPoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoint.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau00.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau01.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau02.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau03.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau04.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau05.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau06.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau07.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Tableau08.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/zoo.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +60,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,7 +90,7 @@
       <workItem from="1617118710798" duration="42000" />
       <workItem from="1617192419038" duration="6842000" />
       <workItem from="1617199982443" duration="1950000" />
-      <workItem from="1617351244830" duration="8629000" />
+      <workItem from="1617351244830" duration="929000" />
     </task>
     <servers />
   </component>
