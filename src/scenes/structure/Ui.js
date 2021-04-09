@@ -26,30 +26,30 @@ class Ui extends Phaser.Scene{
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._tableauText = this.add.text(this.sys.canvas.width-16, 16, '...', {
-            font:'32px "Comic Sans MS"',
-            align: 'right',
-            fill: '#fff'
-        })
+        // this._tableauText = this.add.text(this.sys.canvas.width-16, 16, '...', {
+        //     font:'32px "Comic Sans MS"',
+        //     align: 'right',
+        //     fill: '#fff'
+        // })
 
         /**
          * Le champ texte avec la classe du tableau
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, '...', {
-            font:'24px "Comic Sans MS"',
-            align: 'right',
-            fill: '#fff',
-        }).setAlpha(0.5)
+        // this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, '...', {
+        //     font:'24px "Comic Sans MS"',
+        //     align: 'right',
+        //     fill: '#fff',
+        // }).setAlpha(0.5)
 
-        this._tableauText.originX=1;
-        this._tableauTextClass.originX=1;
+        // this._tableauText.originX=1;
+        // this._tableauTextClass.originX=1;
 
-        this._tableauText.setInteractive();
-        this._tableauText.on('pointerdown', function () {
-            Tableau.suivant();
-        })
+        // this._tableauText.setInteractive();
+        // this._tableauText.on('pointerdown', function () {
+        //     Tableau.suivant();
+        // })
 
         //met l'ui au dessus du tableau
         this.scene.bringToTop();
@@ -97,9 +97,9 @@ class Ui extends Phaser.Scene{
         this._scoreText.setText('Score: ' + this.score);
     }
     update(){
-        if(Tableau.current){
-            this._tableauText.setText(Tableau.current.scene.key);
-            this._tableauTextClass.setText(Tableau.current.constructor.name);
-        }
+        // if(Tableau.current){
+        //     this._tableauText.setText(Tableau.current.scene.key);
+        //     this._tableauTextClass.setText(Tableau.current.constructor.name);
+        // }
     }
 }
