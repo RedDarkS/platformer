@@ -12,6 +12,7 @@ class Niveau1 extends Tableau
 
         this.load.image('star', 'assets/Coffre.png');
         this.load.image('pixel', 'assets/pixel.png');
+        this.load.image('planche', 'assets/planche.png');
 
         this.load.image('tiles', 'assets/tileSheet.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1.json');
@@ -60,9 +61,9 @@ class Niveau1 extends Tableau
             bounceY: 0
         });
         this.starsObjects = this.map.getObjectLayer('stars')['objects'];
+
         this.starsObjects.forEach(starObject => {
-            // console.log(starObject);
-            let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
+            let star = this.stars.create(starObject.x +20, starObject.y, 'star').setOrigin(0, 1);
         });
         this.physics.add.overlap(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
@@ -115,6 +116,7 @@ class Niveau1 extends Tableau
 
         this.monstersContainer = this.add.container();
         this.MonstersObjects = this.map.getObjectLayer('mob')['objects'];
+
         this.MonstersObjects.forEach(monsterObject => {
             let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
             this.monstersContainer.add(monster);
@@ -124,11 +126,27 @@ class Niveau1 extends Tableau
 
         this.torchesContainer = this.add.container();
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
-        // On crée des montres volants pour chaque objet rencontré
+
         this.torcheObjects.forEach(torcheObject => {
             let torche = new Torche(this, torcheObject.x, torcheObject.y - 30);
             this.torchesContainer.add(torche);
         });
+
+        //Planches
+
+        this.planches = this.physics.add.group({
+            allowGravity: false,
+            immovable: true,
+            bounceY: 0
+        });
+        this.plancheObjects = this.map.getObjectLayer('planches')['objects'];
+
+        this.plancheObjects.forEach(plancheObjects => {
+            let planche = this.planches.create(plancheObjects.x, plancheObjects.y - 54, 'planche').setOrigin(0, 1);
+            this.planches.add(planche);
+        });
+        this.physics.add.collider(this.player, this.planches);
+        this.physics.add.overlap(this.player, this.planches, this.ramasserEtoile, null, this);
 
         //Checkpoints
 
@@ -159,6 +177,7 @@ class Niveau1 extends Tableau
                 ici.player.setPosition(playerPos.x, playerPos.y - 64);
             }
         })
+
         this.initProfondeur();
     }
 
@@ -195,15 +214,15 @@ class Niveau1 extends Tableau
         this.secondPlan.setScrollFactor(0);
         this.secondPlan.setOrigin(0, 0);
 
-        this.plafond = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            0,
-            'plafond'
-        );
-        this.plafond.setOrigin(0, 0);
-        this.plafond.setScrollFactor(0);
+        // this.plafond = this.add.tileSprite(
+        //     0,
+        //     0,
+        //     this.sys.canvas.width,
+        //     0,
+        //     'plafond'
+        // );
+        // this.plafond.setOrigin(0, 0);
+        // this.plafond.setScrollFactor(0);
 
         //TILED
 
@@ -223,6 +242,7 @@ class Niveau1 extends Tableau
         //devant
         this.blood.setDepth(z--);
         this.platforms.setDepth(z--);
+        this.planches.setDepth(z--);
 
         this.player.setDepth(z--);
 
@@ -246,8 +266,8 @@ class Niveau1 extends Tableau
         this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
 
         //le premier plan se déplace moins vite pour accentuer l'effet
-        this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
-        this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
+        // this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
+        // this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
     }
 
 }
