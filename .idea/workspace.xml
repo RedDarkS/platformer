@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/planche.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Planche.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Planche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Planche.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +86,9 @@
       <workItem from="1617549055816" duration="76000" />
       <workItem from="1617952533132" duration="565000" />
       <workItem from="1617953399198" duration="7841000" />
-      <workItem from="1618043000091" duration="4982000" />
+      <workItem from="1618043000091" duration="6916000" />
+      <workItem from="1618051429617" duration="63000" />
+      <workItem from="1618389828663" duration="1894000" />
     </task>
     <servers />
   </component>

@@ -89,24 +89,27 @@ class Niveau1 extends Tableau
                 blendMode: Phaser.BlendModes.ADD,
                 speed: 40
             });
-            let immiter = particles.createEmitter({
-                frequency: 100,
-                lifespan: 6000,
-                quantity: 2,
-                x: {min: 32, max: 32},
-                y: {min: -32, max: -32},
-                tint: [0xFF0000, 0x00FF00, 0x0000FF, 0x8800FF],
-                rotate: {min: 0, max: 180},
-                scale: {start: 0.3, end: 0.1},
-                alpha: {start: 1, end: 0},
-                blendMode: Phaser.BlendModes.HARD_LIGHT,
-                speed: 40
-            })
+            // let immiter = particles.createEmitter({
+            //     frequency: 100,
+            //     lifespan: 6000,
+            //     quantity: 2,
+            //     x: {min: 32, max: 32},
+            //     y: {min: -32, max: -32},
+            //     tint: [0xFF0000, 0x00FF00, 0x0000FF, 0x8800FF],
+            //     rotate: {min: 0, max: 180},
+            //     scale: {start: 0.3, end: 0.1},
+            //     alpha: {start: 1, end: 0},
+            //     blendMode: Phaser.BlendModes.HARD_LIGHT,
+            //     speed: 40
+            // })
             emmiter.startFollow(etoile);
-            immiter.startFollow(etoile);
-            etoile.on(MyEvents.DESACTIVE, function () {
+            // immiter.startFollow(etoile);
+
+            etoile.once(MyEvents.DESACTIVE, function () {
                 emmiter.on = false;
-                immiter.on = false;
+                // immiter.on = false;
+                // let timer = this.time.delayedCall(200, this, emmiter, this);
+
             })
             ici.starsFxContainer.add(particles);
 
