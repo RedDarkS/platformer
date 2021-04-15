@@ -1052,6 +1052,24 @@
                  "width":0,
                  "x":10752,
                  "y":896
+                }, 
+                {
+                 "height":0,
+                 "id":109,
+                 "name":"Start",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"checkPoint",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":64,
+                 "y":832
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1119,7 +1137,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":109,
+ "nextobjectid":110,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.3",
