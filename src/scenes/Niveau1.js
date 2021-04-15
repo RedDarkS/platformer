@@ -51,10 +51,7 @@ class Niveau1 extends Tableau
         this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
         //ETOILES
-        /**
-         *
-         * @type {Phaser.Physics.Arcade.Group}
-         */
+
         this.stars = this.physics.add.group({
             allowGravity: false,
             immovable: false,
@@ -67,8 +64,6 @@ class Niveau1 extends Tableau
         });
         this.physics.add.overlap(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
-
-        //Particules étoiles
 
         this.starsFxContainer = this.add.container();
         this.starsFxContainer.x = 16;
@@ -109,13 +104,12 @@ class Niveau1 extends Tableau
                 emmiter.on = false;
                 // immiter.on = false;
                 // let timer = this.time.delayedCall(200, this, emmiter, this);
-
             })
             ici.starsFxContainer.add(particles);
 
         });
 
-        //MONSTRES
+        //Monstres
 
         this.monstersContainer = this.add.container();
         this.MonstersObjects = this.map.getObjectLayer('mob')['objects'];
@@ -125,7 +119,7 @@ class Niveau1 extends Tableau
             this.monstersContainer.add(monster);
         });
 
-        //TORCHES
+        //Torches
 
         this.torchesContainer = this.add.container();
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
@@ -151,13 +145,7 @@ class Niveau1 extends Tableau
         this.physics.add.collider(this.player, this.planches);
         this.physics.add.overlap(this.player, this.planches, this.ramasserEtoile, null, this);
 
-        //Checkpoints
-
-        let playerPos;
-        this.checkPoint = this.physics.add.group({
-            allowGravity: false,
-            immovable:false
-        });
+        //Les Checkpoint
 
         this.checkPointsObjects = this.map.getObjectLayer('ckps')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
@@ -179,11 +167,15 @@ class Niveau1 extends Tableau
             {
                 ici.player.setPosition(playerPos.x, playerPos.y - 64);
             }
+            console.log(playerPos);
         })
 
         this.initProfondeur();
     }
 
+    /**
+     * Fonction initialisant les éléments du background et les platformes
+     */
     initDecor()
     {
         this.sky = this.add.tileSprite(
@@ -239,6 +231,9 @@ class Niveau1 extends Tableau
 
     }
 
+    /**
+     * Fonction pour définir la profondeur à laquelle se trouve chaque élément
+     */
     initProfondeur()
     {
         let z = 1000; //niveau Z qui a chaque fois est décrémenté.

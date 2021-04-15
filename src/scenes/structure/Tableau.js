@@ -32,10 +32,11 @@ class Tableau extends Phaser.Scene
         this.load.image('Ennemi1', 'assets/ennemi1.png');
 
         //des petits sons pour le lol
-        // this.load.audio('mort', 'assets/son/mort.wav');
+        this.load.audio('mort', 'assets/son/mort.wav');
         // this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
         
     }
+
     create()
     {
         Tableau.current=this;
@@ -47,7 +48,7 @@ class Tableau extends Phaser.Scene
 
         //set up musique
 
-        // this.mort = this.sound.add('mort');
+        this.mort = this.sound.add('mort');
         // this.reveBleu = this.sound.add('reve_bleu');
         //
         // var musicConfig = {
@@ -195,8 +196,7 @@ class Tableau extends Phaser.Scene
                 //le joueur est mort
                 if(!me.player.isDead)
                 {
-                    // this.mort.play();
-                    // this.reveBleu.stop();
+                    this.mort.play();
 
                     me.player.isDead=true;
                     me.player.visible=false;

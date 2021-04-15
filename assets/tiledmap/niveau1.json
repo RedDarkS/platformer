@@ -465,6 +465,29 @@
         }, 
         {
          "draworder":"topdown",
+         "id":15,
+         "name":"boss",
+         "objects":[
+                {
+                 "gid":89,
+                 "height":64,
+                 "id":108,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":14272,
+                 "y":2624
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":2,
          "name":"stars",
          "objects":[
@@ -1035,9 +1058,68 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":14,
+         "name":"todo",
+         "objects":[
+                {
+                 "height":19,
+                 "id":105,
+                 "name":"",
+                 "rotation":0,
+                 "text":
+                    {
+                     "text":"Recentrer la cam\u00e9ra",
+                     "wrap":true
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":141.333333333333,
+                 "x":6299.33333333333,
+                 "y":2413.16666666667
+                }, 
+                {
+                 "height":19,
+                 "id":106,
+                 "name":"",
+                 "rotation":0,
+                 "text":
+                    {
+                     "text":"Red\u00e9caler la cam\u00e9ra",
+                     "wrap":true
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":145.333333333333,
+                 "x":6799.33333333333,
+                 "y":921.166666666667
+                }, 
+                {
+                 "height":19,
+                 "id":107,
+                 "name":"",
+                 "rotation":0,
+                 "text":
+                    {
+                     "text":"Recentrer la cam\u00e9ra",
+                     "wrap":true
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":140,
+                 "x":13351.3333333333,
+                 "y":1261.16666666667
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":14,
- "nextobjectid":102,
+ "nextlayerid":16,
+ "nextobjectid":109,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.3",

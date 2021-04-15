@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="224" height="42" tilewidth="64" tileheight="64" infinite="0" nextlayerid="14" nextobjectid="102">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="224" height="42" tilewidth="64" tileheight="64" infinite="0" nextlayerid="16" nextobjectid="109">
  <editorsettings>
   <export target="niveau1.json" format="json"/>
  </editorsettings>
@@ -442,6 +442,9 @@
   <object id="22" gid="88" x="3264" y="960" width="64" height="64"/>
   <object id="89" gid="88" x="10304" y="896" width="64" height="64"/>
  </objectgroup>
+ <objectgroup id="15" name="boss">
+  <object id="108" gid="89" x="14272" y="2624" width="64" height="64"/>
+ </objectgroup>
  <objectgroup id="2" name="stars">
   <object id="9" gid="85" x="1664" y="576" width="64" height="64"/>
   <object id="23" gid="85" x="680" y="704" width="64" height="64"/>
@@ -511,6 +514,17 @@
     <property name="checkPoint" type="int" value="4"/>
    </properties>
    <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="14" name="todo">
+  <object id="105" x="6299.33" y="2413.17" width="141.333" height="19">
+   <text wrap="1">Recentrer la caméra</text>
+  </object>
+  <object id="106" x="6799.33" y="921.167" width="145.333" height="19">
+   <text wrap="1">Redécaler la caméra</text>
+  </object>
+  <object id="107" x="13351.3" y="1261.17" width="140" height="19">
+   <text wrap="1">Recentrer la caméra</text>
   </object>
  </objectgroup>
 </map>
