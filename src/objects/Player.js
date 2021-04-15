@@ -104,4 +104,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
         }
     }
 
+    //TODO une attaque à semi distance
+
 }

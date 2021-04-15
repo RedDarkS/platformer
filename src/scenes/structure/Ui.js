@@ -1,13 +1,18 @@
-class Ui extends Phaser.Scene{
+class Ui extends Phaser.Scene
+{
     constructor ()
     {
         super({ key: 'ui', active: true });
         window.ui=this;
     }
-    preload(){
+
+    preload()
+    {
         this.load.image('ui/full-screen-icon', 'assets/ui/full-screen.png');
     }
-    create (){
+
+    create ()
+    {
         console.log("create Ui")
 
         this.score=0;
@@ -64,13 +69,11 @@ class Ui extends Phaser.Scene{
         },100)
 
 
-
         //let pad=new GamePad(this,0,0);
         // let pad=new GamePadButtons(this,0,0);
         let pad=new GamePad(this,0,0);
         pad.x=this.sys.canvas.width-pad.size-32;
         pad.y=this.sys.canvas.height-pad.size-32;
-
 
 
         let btFs=this.add.image(0,0,'ui/full-screen-icon');
@@ -88,7 +91,6 @@ class Ui extends Phaser.Scene{
         btFs.setDisplaySize(48,48)
         btFs.x=this.sys.canvas.width;
         btFs.y=this.sys.canvas.height;
-
     }
 
     gagne(points=10)
@@ -96,6 +98,7 @@ class Ui extends Phaser.Scene{
         this.score+=points;
         this._scoreText.setText('Score: ' + this.score);
     }
+
     update(){
         // if(Tableau.current){
         //     this._tableauText.setText(Tableau.current.scene.key);

@@ -100,13 +100,14 @@ class Niveau1 extends Tableau
             emmiter.startFollow(etoile);
             // immiter.startFollow(etoile);
 
+            //TODO Particule uniquement à la récupération et temporairement
+
             etoile.once(MyEvents.DESACTIVE, function () {
                 emmiter.on = false;
                 // immiter.on = false;
                 // let timer = this.time.delayedCall(200, this, emmiter, this);
             })
             ici.starsFxContainer.add(particles);
-
         });
 
         //Monstres
@@ -145,7 +146,9 @@ class Niveau1 extends Tableau
         this.physics.add.collider(this.player, this.planches);
         this.physics.add.overlap(this.player, this.planches, this.ramasserEtoile, null, this);
 
-        //Les Checkpoint
+        //TODO particules + destruction/chute au bout de x secondes
+
+        //Les Checkpoints
 
         this.checkPointsObjects = this.map.getObjectLayer('ckps')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
@@ -178,6 +181,8 @@ class Niveau1 extends Tableau
      */
     initDecor()
     {
+        //TODO mettre en place le décor final
+
         this.sky = this.add.tileSprite(
             0,
             0,

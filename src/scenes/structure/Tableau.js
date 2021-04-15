@@ -18,23 +18,22 @@ class Tableau extends Phaser.Scene
      */
     preload()
     {
+        //TODO import des différents sprites
         //SPRITES
         this.load.image('star', 'assets/Coffre.png');
         this.load.image('blood', 'assets/blood.png');
 
         //SPRITES ENTITES
         this.load.spritesheet('player', 'assets/DA_player_platformer.png', {frameWidth: 37.5, frameHeight: 45});
-
         this.load.spritesheet('player_animes','assets/animes.png', {frameWidth: 567, frameHeight: 338});
-
         this.load.spritesheet('torche', 'assets/torche-sheet.png', {frameHeight : 64, frameWidth : 64});
-    
         this.load.image('Ennemi1', 'assets/ennemi1.png');
 
         //des petits sons pour le lol
+
+        //TODO import et gestion des sons
+
         this.load.audio('mort', 'assets/son/mort.wav');
-        // this.load.audio('reve_bleu', 'assets/son/reve_bleu.mp3');
-        
     }
 
     create()
@@ -132,6 +131,7 @@ class Tableau extends Phaser.Scene
 
         star.emit(MyEvents.DESACTIVE);
 
+        //TODO gerer le scoring
         ui.gagne();
 
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
@@ -224,13 +224,13 @@ class Tableau extends Phaser.Scene
         this.scene.stop();
     }
 
+    //TODO condition de victoire
     /**
      * Quand on a gagné
      */
     win()
     {
         Tableau.suivant();
-        // this.reveBleu.stop();
     }
 
     /**
