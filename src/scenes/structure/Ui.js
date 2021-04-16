@@ -93,7 +93,7 @@ class Ui extends Phaser.Scene
         btFs.y=this.sys.canvas.height;
     }
 
-    gagne(points=10)
+    gagne(points)
     {
         this.score+=points;
         this._scoreText.setText('Score: ' + this.score);

@@ -31,9 +31,6 @@
                     break;
 
                 case "Control":
-                    // console.log("X du joueur " + Tableau.current.player.x);
-                    // console.log("Y du joueur " + Tableau.current.player.y);
-
                     localStorage.setItem('cP', null);
                     break;
             }

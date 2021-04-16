@@ -36,7 +36,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
             {
                 key: 'turn',
                 frames: this.anims.generateFrameNumbers('player_animes', { start: 20, end: 33 }),
-                frameRate: 24,
+                frameRate: 12,
                 repeat: -1
         });
 
@@ -85,7 +85,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
             default:
                 this.setVelocityX(0);
-                this.anims.play('turn');
+                this.anims.play('turn', true);
         }
 
         //TODO gérer sauts muraux
