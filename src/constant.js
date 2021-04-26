@@ -37,4 +37,13 @@ window.MyEvents = {
      * @const
      */
     EXCENTREE : "excentree",
+
+    /**
+     * Indique que l'on grimpe
+     *
+     * @name MyEvent.GRIMPE
+     * @type{String}
+     * @const
+     */
+    GRIMPE : "grimpe",
 }

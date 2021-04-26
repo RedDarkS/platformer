@@ -25,7 +25,11 @@ class Niveau1 extends Tableau
         let ici = this;
 
         this.player.on(MyEvents.SAUTE, function(){
-            console.log("yipi");
+            console.log("saut");
+        });
+
+        this.player.on(MyEvents.GRIMPE, function(){
+            console.log("grimpe");
         });
 
         //on définit la taille du tableau
@@ -39,7 +43,7 @@ class Niveau1 extends Tableau
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
         this.physics.world.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
 
-        this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 0);
+        this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
 
         this.initDecor();
 
@@ -142,9 +146,11 @@ class Niveau1 extends Tableau
         this.plancheObjects.forEach(plancheObjects => {
             let planche = this.planches.create(plancheObjects.x, plancheObjects.y - 54, 'planche').setOrigin(0, 1);
             this.planches.add(planche);
+
+            this.physics.add.overlap(this.player, this.planches, planche.fall, null, this);
         });
         this.physics.add.collider(this.player, this.planches);
-        this.physics.add.overlap(this.player, this.planches, this.ramasserEtoile, null, this);
+
 
         //TODO particules + destruction/chute au bout de x secondes
 

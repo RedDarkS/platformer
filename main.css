@@ -10,8 +10,8 @@ body{
 
 #game{
     background-color: #111;
-    --w:1920px;
-    --h:1080px;
+    --w:896px;
+    --h:448px;
 }
 
 

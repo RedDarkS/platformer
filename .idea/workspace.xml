@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Planche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Planche.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +107,8 @@
       <workItem from="1618561604622" duration="1337000" />
       <workItem from="1618668679497" duration="1280000" />
       <workItem from="1618671324524" duration="395000" />
+      <workItem from="1618921579752" duration="275000" />
+      <workItem from="1619438200936" duration="4610000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

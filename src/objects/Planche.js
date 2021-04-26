@@ -7,5 +7,7 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         this.body.allowGravity=false;
     }
 
+    fall(){
 
+    }
 }

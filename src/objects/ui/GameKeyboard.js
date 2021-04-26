@@ -12,6 +12,7 @@
 
         scene.input.keyboard.on('keydown', function(kevent)
         {
+            //console.log(kevent.key);
             switch (kevent.key)
             {
                 case "ArrowRight":
