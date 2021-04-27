@@ -77,38 +77,23 @@ class Niveau1 extends Tableau
             let particles = ici.add.particles("pixel");
             let emmiter = particles.createEmitter({
                 frequency: 100,
-                lifespan: 2000,
+                lifespan: 1000,
                 quantity: 5,
                 x: {min: -32, max: 32},
                 y: {min: -32, max: 32},
-                tint: [0xFF0000, 0x00FF00, 0x0000FF, 0x8800FF],
+                tint: [0xFFFF00],
                 rotate: {min: 0, max: 360},
                 scale: {start: 0.2, end: 0.1},
                 alpha: {start: 1, end: 0},
                 blendMode: Phaser.BlendModes.ADD,
-                speed: 40
+                speed: 20
             });
-            // let immiter = particles.createEmitter({
-            //     frequency: 100,
-            //     lifespan: 6000,
-            //     quantity: 2,
-            //     x: {min: 32, max: 32},
-            //     y: {min: -32, max: -32},
-            //     tint: [0xFF0000, 0x00FF00, 0x0000FF, 0x8800FF],
-            //     rotate: {min: 0, max: 180},
-            //     scale: {start: 0.3, end: 0.1},
-            //     alpha: {start: 1, end: 0},
-            //     blendMode: Phaser.BlendModes.HARD_LIGHT,
-            //     speed: 40
-            // })
             emmiter.startFollow(etoile);
-            // immiter.startFollow(etoile);
 
             //TODO Particule uniquement à la récupération et temporairement
 
             etoile.once(MyEvents.DESACTIVE, function () {
                 emmiter.on = false;
-                // immiter.on = false;
                 // let timer = this.time.delayedCall(200, this, emmiter, this);
             })
             ici.starsFxContainer.add(particles);
@@ -176,8 +161,25 @@ class Niveau1 extends Tableau
             {
                 ici.player.setPosition(playerPos.x, playerPos.y - 64);
             }
-            console.log(playerPos);
+            //console.log(playerPos);
         })
+
+        //Les event
+
+        // this.eventObjects = this.map.getObjectLayer('event')['objects'];
+        // this.eventObjects.forEach(eventObjects => {
+        //     let event = new checkPoint(
+        //         this,
+        //         eventObjects.x,
+        //         eventObjects.y - 10,
+        //         'pixel',
+        //         eventObjects.properties[0].value
+        //     );
+        //     this.physics.add.overlap(this.player, event, function()
+        //     {
+        //         event.savePos();
+        //     });
+        // })
 
         this.initProfondeur();
     }
