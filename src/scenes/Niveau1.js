@@ -47,12 +47,34 @@ class Niveau1 extends Tableau
 
         this.initDecor();
 
-        //Joueur au spawn
+        //Player
 
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
 
         // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
         this.player.setPosition(spawnPoint.x, spawnPoint.y);
+
+        var part = this.add.particles('player_animes');
+
+        var emmiterPlayer = part.createEmitter({
+            angle: { min: -20, max: 10 },
+            speed: 2,
+            quantity: 1,
+            lifespan: 300,
+            frequence: 500,
+            scale: { start: 0.2, end: 0.1 },
+            alpha: { start: 0.05, end: 0.00001},
+            blendMode: 'ADD',
+        });
+
+        this.player.on(MyEvents.COUR, function(){
+            emmiterPlayer.startFollow(ici.player);
+        });
+
+        this.player.on(MyEvents.STOP, function(){
+            console.log("bite");
+            emmiterPlayer.stopFollow();
+        });
 
         //ETOILES
 
@@ -88,14 +110,13 @@ class Niveau1 extends Tableau
                 blendMode: Phaser.BlendModes.ADD,
                 speed: 20
             });
-            emmiter.startFollow(etoile);
-
+            //emmiter.startFollow(etoile);
             //TODO Particule uniquement à la récupération et temporairement
 
-            etoile.once(MyEvents.DESACTIVE, function () {
-                emmiter.on = false;
-                // let timer = this.time.delayedCall(200, this, emmiter, this);
+            etoile.once(MyEvents.ACTIVE, function () {
+                emmiter.startFollow(etoile);
             })
+
             ici.starsFxContainer.add(particles);
         });
 

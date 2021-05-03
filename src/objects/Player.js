@@ -62,6 +62,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setVelocityY(0);
         this.directionY=0;
         this.directionX=0;
+        this.emit(MyEvents.STOP);
     }
 
     /**
@@ -81,6 +82,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityX(400);
                 this.anims.play('right', true);
                 this.setFlipX(false);
+                this.emit(MyEvents.COUR);
                 break;
 
             case this._directionX > 0 && this._directionY > 0 :

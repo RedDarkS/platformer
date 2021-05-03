@@ -129,7 +129,7 @@ class Tableau extends Phaser.Scene
     {
         star.disableBody(true, true);
 
-        star.emit(MyEvents.DESACTIVE);
+        star.emit(MyEvents.ACTIVE);
 
         //TODO gerer le scoring
         ui.gagne(10);

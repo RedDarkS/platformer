@@ -14,11 +14,11 @@ window.MyEvents = {
     /**
      * Indique que l'on désactive les particules
      *
-     * @name MyEvent.DESACTIVE
+     * @name MyEvent.ACTIVE
      * @type {String}
      * @const
      */
-    DESACTIVE : "desactive",
+    ACTIVE : "active",
 
     /**
      * Indique que l'on centre la caméra
@@ -46,4 +46,22 @@ window.MyEvents = {
      * @const
      */
     GRIMPE : "grimpe",
+
+    /**
+     * Indique que l'on cour
+     *
+     * @name MyEvent.COUR
+     * @type{String}
+     * @const
+     */
+    COUR : "cour",
+
+    /**
+     * Indique que l'on cour plus
+     *
+     * @name MyEvent.STOP
+     * @type{String}
+     * @const
+     */
+    STOP : "stop",
 }
