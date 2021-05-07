@@ -33,8 +33,8 @@ class Niveau1 extends Tableau
         });
 
         //on définit la taille du tableau
-        let largeurDuTableau = 896 * 16;
-        let hauteurDuTableau = 448 * 6;
+        let largeurDuTableau = 281 * 64;
+        let hauteurDuTableau = 47 * 64;
 
         // let largeurDuTableau=this.map.widthInPixels;
         // let hauteurDuTableau=this.map.heightInPixels;
@@ -70,6 +70,8 @@ class Niveau1 extends Tableau
         this.player.on(MyEvents.COUR, function(){
             emmiterPlayer.startFollow(ici.player);
         });
+
+        setTimeout(function(){emmiterPlayer.stopFollow();},2000);
 
         this.player.on(MyEvents.STOP, function(){
             console.log("bite");
