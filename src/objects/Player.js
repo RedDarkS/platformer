@@ -76,6 +76,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityX(-400);
                 this.anims.play('left', true);
                 this.setFlipX(true);
+                this.emit(MyEvents.STOP);
                 break;
 
             case this._directionX > 0:
@@ -88,14 +89,14 @@ class Player extends Phaser.Physics.Arcade.Sprite
             case this._directionX > 0 && this._directionY > 0 :
                 this.setVelocityY(-550);
                 this.anims.play('turn', true);
+                this.emit(MyEvents.STOP);
                 break;
 
             default:
                 this.setVelocityX(0);
                 this.anims.play('turn', true);
+                this.emit(MyEvents.STOP);
         }
-
-        //TODO gérer sauts muraux
 
         //saut
         // stockage ||this.body.touching.right
@@ -110,6 +111,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
             {
                 this.setVelocityY(-300);
                 this.emit(MyEvents.GRIMPE);
+                this.emit(MyEvents.STOP);
             }
 
         }

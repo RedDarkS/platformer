@@ -69,13 +69,15 @@ class Niveau1 extends Tableau
 
         this.player.on(MyEvents.COUR, function(){
             emmiterPlayer.startFollow(ici.player);
+            emmiterPlayer.setLifespan(300);
+            emmiterPlayer.setAlpha({ start: 0.05, end: 0.00001});
         });
 
-        setTimeout(function(){emmiterPlayer.stopFollow();},2000);
-
         this.player.on(MyEvents.STOP, function(){
-            console.log("bite");
-            emmiterPlayer.stopFollow();
+            setTimeout(function(){
+                emmiterPlayer.setLifespan(0);
+                emmiterPlayer.setAlpha(0);
+                },1);
         });
 
         //ETOILES
@@ -100,11 +102,11 @@ class Niveau1 extends Tableau
         this.stars.children.iterate(function (etoile) {
             let particles = ici.add.particles("pixel");
             let emmiter = particles.createEmitter({
-                frequency: 100,
+                frequency: 10,
                 lifespan: 1000,
                 quantity: 5,
-                x: {min: -32, max: 32},
-                y: {min: -32, max: 32},
+                x: {min: -64, max: 64},
+                y: {min: -64, max: 64},
                 tint: [0xFFFF00],
                 rotate: {min: 0, max: 360},
                 scale: {start: 0.2, end: 0.1},
@@ -117,6 +119,7 @@ class Niveau1 extends Tableau
 
             etoile.once(MyEvents.ACTIVE, function () {
                 emmiter.startFollow(etoile);
+                setTimeout(function(){emmiter.stopFollow();},300);
             })
 
             ici.starsFxContainer.add(particles);
