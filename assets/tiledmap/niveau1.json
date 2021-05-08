@@ -1378,6 +1378,58 @@
         }, 
         {
          "draworder":"topdown",
+         "id":18,
+         "name":"event camera",
+         "objects":[
+                {
+                 "gid":90,
+                 "height":64,
+                 "id":287,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"cam",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":1664,
+                 "y":2368
+                }, 
+                {
+                 "gid":90,
+                 "height":64,
+                 "id":288,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"cam",
+                         "type":"int",
+                         "value":-1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":2112,
+                 "y":1728
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":9,
          "name":"mob",
          "objects":[
@@ -2061,8 +2113,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":18,
- "nextobjectid":287,
+ "nextlayerid":19,
+ "nextobjectid":289,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.3",

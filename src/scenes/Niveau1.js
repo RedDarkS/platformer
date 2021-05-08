@@ -139,7 +139,7 @@ class Niveau1 extends Tableau
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
 
         this.torcheObjects.forEach(torcheObject => {
-            let torche = new Torche(this, torcheObject.x, torcheObject.y - 30);
+            let torche = new Torche(this, torcheObject.x + 32, torcheObject.y - 32);
             this.torchesContainer.add(torche);
         });
 
@@ -190,20 +190,21 @@ class Niveau1 extends Tableau
 
         //Les event
 
-        // this.eventObjects = this.map.getObjectLayer('event')['objects'];
-        // this.eventObjects.forEach(eventObjects => {
-        //     let event = new checkPoint(
-        //         this,
-        //         eventObjects.x,
-        //         eventObjects.y - 10,
-        //         'pixel',
-        //         eventObjects.properties[0].value
-        //     );
-        //     this.physics.add.overlap(this.player, event, function()
-        //     {
-        //         event.savePos();
-        //     });
-        // })
+        this.eventCam = this.map.getObjectLayer('event camera')['objects'];
+        this.eventCam.forEach(eventCam => {
+            let eventC = new EventCam(
+                this,
+                ici.player,
+                eventCam.x,
+                eventCam.y - 10,
+                eventCam.properties[0].value
+            );
+            this.physics.add.overlap(this.player, eventC, function()
+            {
+                console.log("contact")
+                eventC.change();
+            });
+        })
 
         this.initProfondeur();
     }

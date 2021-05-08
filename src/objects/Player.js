@@ -122,9 +122,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         setTimeout(function(){
             console.log("no body");
-            console.log(this.invul);
             this.invul = false;
-            console.log(this.invul);
         },1);
 
         setTimeout(function(){
