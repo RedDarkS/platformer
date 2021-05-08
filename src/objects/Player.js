@@ -14,8 +14,10 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setBodySize(this.body.width - 380,this.body.height -20);
         this.setOffset(190, 10);
 
-        this.displayWidth = 107 * 1.2;
-        this.displayHeight = 64 * 1.2;
+        this.displayWidth = 107 * 1.5;
+        this.displayHeight = 64 * 1.5;
+
+        this.invul = true;
 
         this.anims.create(
             {
@@ -113,10 +115,31 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.emit(MyEvents.GRIMPE);
                 this.emit(MyEvents.STOP);
             }
-
         }
     }
 
-    //TODO une attaque à semi distance
+    roulade()
+    {
+        setTimeout(function(){
+            console.log("no body");
+            console.log(this.invul);
+            this.invul = false;
+            console.log(this.invul);
+        },1);
+
+        setTimeout(function(){
+            console.log("body");
+            this.invul = true;
+        },1000);
+
+        /*
+        if(this.body.blocked.right || this.body.touching.right)
+        {
+            this.x-=5;
+        }
+         */
+    }
+
+    //TODO une roulade
 
 }

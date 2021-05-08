@@ -114,8 +114,6 @@ class Niveau1 extends Tableau
                 blendMode: Phaser.BlendModes.ADD,
                 speed: 20
             });
-            //emmiter.startFollow(etoile);
-            //TODO Particule uniquement à la récupération et temporairement
 
             etoile.once(MyEvents.ACTIVE, function () {
                 emmiter.startFollow(etoile);

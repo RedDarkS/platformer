@@ -15,24 +15,28 @@
             //console.log(kevent.key);
             switch (kevent.key)
             {
-                case "ArrowRight":
+                case "d":
                     Tableau.current.player.directionX=1;
                     break;
 
-                case "ArrowLeft":
+                case "q":
                     Tableau.current.player.directionX=-1;
                     break;
 
-                case "ArrowUp":
+                case "z":
                     Tableau.current.player.directionY=-1;
                     break;
 
-                case "ArrowDown":
+                case "s":
                     Tableau.current.player.directionY=1;
                     break;
 
                 case "Control":
                     localStorage.setItem('cP', null);
+                    break;
+
+                case "Shift":
+                    Tableau.current.player.roulade();
                     break;
             }
         });
@@ -40,19 +44,19 @@
         {
             switch (kevent.key)
             {
-                case "ArrowRight":
+                case "d":
                     Tableau.current.player.directionX=0;
                     break;
 
-                case "ArrowLeft":
+                case "q":
                     Tableau.current.player.directionX=0;
                     break;
 
-                case "ArrowUp":
+                case "z":
                     Tableau.current.player.directionY=0;
                     break;
 
-                case "ArrowDown":
+                case "s":
                     Tableau.current.player.directionY=0;
                     break;
             }

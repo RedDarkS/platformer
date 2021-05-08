@@ -2,6 +2,7 @@ window.MyEvents = {
 
     //TODO constante pour les différents events
 
+    // Actions
     /**
      * Indique que le player a commencé un saut
      *
@@ -10,33 +11,6 @@ window.MyEvents = {
      * @const
      */
     SAUTE : "saute",
-
-    /**
-     * Indique que l'on désactive les particules
-     *
-     * @name MyEvent.ACTIVE
-     * @type {String}
-     * @const
-     */
-    ACTIVE : "active",
-
-    /**
-     * Indique que l'on centre la caméra
-     *
-     * @name MyEvent.CENTREE
-     * @type {String}
-     * @const
-     */
-    CENTREE : "centree",
-
-    /**
-     * Indique que l'on décale la caméra vers la droite
-     *
-     * @name MyEvent.EXCENTREE
-     * @type {String}
-     * @const
-     */
-    EXCENTREE : "excentree",
 
     /**
      * Indique que l'on grimpe
@@ -64,4 +38,35 @@ window.MyEvents = {
      * @const
      */
     STOP : "stop",
+
+    //Particules
+
+    /**
+     * Indique que l'on désactive les particules
+     *
+     * @name MyEvent.ACTIVE
+     * @type {String}
+     * @const
+     */
+    ACTIVE : "active",
+
+    //Camera
+
+    /**
+     * Indique que l'on centre la caméra
+     *
+     * @name MyEvent.CENTREE
+     * @type {String}
+     * @const
+     */
+    CENTREE : "centree",
+
+    /**
+     * Indique que l'on décale la caméra vers la droite
+     *
+     * @name MyEvent.EXCENTREE
+     * @type {String}
+     * @const
+     */
+    EXCENTREE : "excentree",
 }

@@ -174,41 +174,47 @@ class Tableau extends Phaser.Scene
     hitMonster(player, monster)
     {
         let me=this;
-        if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
-            if(
-                // si le player descend
-                player.body.velocity.y > 0
-                // et si le bas du player est plus haut que le monstre
-                && player.getBounds().bottom < monster.getBounds().top+30
+        console.log(me.player.invul);
 
-            ){
-                ui.gagne(5);
-                monster.isDead=true; //ok le monstre est mort
-                monster.visible=false;
-                this.saigne(monster,function()
-                {
-                    //à la fin de la petite anim...ben il se passe rien :)
-                })
-                //notre joueur rebondit sur le monstre
-                player.directionY=500;
-            }
-            else {
-                //le joueur est mort
-                if(!me.player.isDead)
-                {
-                    this.mort.play();
+        if(me.player.invul === true)
+        {
+            if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
+                if(
+                    // si le player descend
+                    player.body.velocity.y > 0
+                    // et si le bas du player est plus haut que le monstre
+                    && player.getBounds().bottom < monster.getBounds().top+30
 
-                    me.player.isDead=true;
-                    me.player.visible=false;
-                    //ça saigne...
-                    me.saigne(me.player,function()
+                )
+                {
+                    ui.gagne(5);
+                    monster.isDead=true; //ok le monstre est mort
+                    monster.visible=false;
+                    this.saigne(monster,function()
                     {
-                        //à la fin de la petite anim, on relance le jeu
-                        me.blood.visible=false;
-                        me.player.anims.play('turn');
-                        me.player.isDead=false;
-                        me.scene.restart();
+                        //à la fin de la petite anim...ben il se passe rien :)
                     })
+                    //notre joueur rebondit sur le monstre
+                    player.directionY=500;
+                }
+                else
+                {
+                    //le joueur est mort
+                    if(!me.player.isDead)
+                    {
+                        this.mort.play();
+
+                        me.player.isDead=true;
+                        me.player.visible=false;
+                        //ça saigne...
+                        me.saigne(me.player,function() {
+                            //à la fin de la petite anim, on relance le jeu
+                            me.blood.visible=false;
+                            me.player.anims.play('turn');
+                            me.player.isDead=false;
+                            me.scene.restart();
+                        })
+                    }
                 }
             }
         }

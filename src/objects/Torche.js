@@ -10,6 +10,9 @@ class Torche extends Phaser.Physics.Arcade.Sprite
         super(scene, x, y, "torche")
         scene.add.existing(this)
 
+        this.displayWidth = 64;
+        this.displayHeight = 64;
+
         this.anims.create(
             {
                 key: 'burn',
