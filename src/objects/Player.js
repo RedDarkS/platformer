@@ -3,10 +3,10 @@ class Player extends Phaser.Physics.Arcade.Sprite
     constructor(scene, x, y) 
     {
         super(scene, x, y, "player_animes")
-        scene.add.existing(this)
-        scene.physics.add.existing(this)
+        scene.add.existing(this);
+        scene.physics.add.existing(this);
 
-        this.setCollideWorldBounds(true)
+        this.setCollideWorldBounds(true);
         this.setBounce(0);
         this.setGravityY(700)
         this.setFriction(1,1);

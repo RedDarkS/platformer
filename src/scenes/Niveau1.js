@@ -153,10 +153,19 @@ class Niveau1 extends Tableau
         this.plancheObjects = this.map.getObjectLayer('planches')['objects'];
 
         this.plancheObjects.forEach(plancheObjects => {
-            let planche = this.planches.create(plancheObjects.x, plancheObjects.y - 54, 'planche').setOrigin(0, 1);
+            let planche = new Planche(
+                this,
+                plancheObjects.x,
+                plancheObjects.y - 54,
+                'planche',
+            ).setOrigin(0, 1);
             this.planches.add(planche);
 
-            this.physics.add.overlap(this.player, this.planches, planche.fall, null, this);
+            this.physics.add.overlap(this.player, planche, function() {
+                setTimeout(function(){
+                        planche.fall();
+                    },300);
+            });
         });
         this.physics.add.collider(this.player, this.planches);
 
@@ -263,6 +272,7 @@ class Niveau1 extends Tableau
         this.tileset = this.map.addTilesetImage('tileSheet', 'tiles');
 
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
+        this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
 
         this.platforms.setCollisionByProperty({collides: true});
         this.physics.add.collider(this.player, this.platforms);
@@ -276,6 +286,7 @@ class Niveau1 extends Tableau
     {
         let z = 1000; //niveau Z qui a chaque fois est décrémenté.
         //devant
+        this.devant.setDepth(z--);
         this.blood.setDepth(z--);
         this.platforms.setDepth(z--);
         this.planches.setDepth(z--);
