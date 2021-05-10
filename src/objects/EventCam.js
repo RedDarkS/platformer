@@ -17,22 +17,19 @@ class EventCam extends Phaser.Physics.Arcade.Sprite
 
     change()
     {
-        if(this.val === -1)
+        if(this.val === -1)//base
         {
             //this.scene.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
             console.log("oui");
+            this.scene.cameras.main.setZoom(0.75);
             this.scene.cameras.main.setFollowOffset(-200,50);
         }
-        else if(this.val === 1)
+        else if(this.val === 1)//modifiée
         {
             //this.scene.cameras.main.startFollow(this.player, false, 0.1, 0.2, 0, 50);
             console.log("non");
+            this.scene.cameras.main.setZoom(1);
             this.scene.cameras.main.setFollowOffset(0,50);
         }
-    }
-
-    update()
-    {
-
     }
 }

@@ -45,6 +45,8 @@ class Niveau1 extends Tableau
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
 
+        this.cameras.main.setZoom(0.75);
+
         this.initDecor();
 
         //Player
@@ -226,20 +228,20 @@ class Niveau1 extends Tableau
         //TODO mettre en place le décor final
 
         this.sky = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
+            -192,
+            -128,
+            this.sys.canvas.width * 2,
+            this.sys.canvas.height * 2,
             'sky-2'
         );
         this.sky.setOrigin(0, 0);
         this.sky.setScrollFactor(0);
 
         this.dernierPlan = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
+            -192,
+            -128,
+            this.sys.canvas.width * 2,
+            this.sys.canvas.height * 2,
             'dernierPlan'
         );
         this.dernierPlan.setOrigin(0, 0);
@@ -247,10 +249,10 @@ class Niveau1 extends Tableau
 
         //on ajoute une deuxième couche de ciel
         this.secondPlan = this.add.tileSprite(
-            0,
-            0,
-            this.sys.canvas.width,
-            this.sys.canvas.height,
+            -192,
+            -128,
+            this.sys.canvas.width * 2,
+            this.sys.canvas.height * 2,
             'secondPlan'
         );
         this.secondPlan.setScrollFactor(0);

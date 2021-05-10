@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
+      <change afterPath="$PROJECT_DIR$/assets/tileSheet_32-32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tileSheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tileSheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Planche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Planche.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Torche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Torche.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/EventCam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/EventCam.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,6 +124,7 @@
       <workItem from="1620551998106" duration="794000" />
       <workItem from="1620582791680" duration="1416000" />
       <workItem from="1620584238990" duration="346000" />
+      <workItem from="1620636496022" duration="3750000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>
