@@ -10,8 +10,8 @@ class Torche extends Phaser.Physics.Arcade.Sprite
         super(scene, x, y, "torche")
         scene.add.existing(this);
 
-        this.displayWidth = 64;
-        this.displayHeight = 64;
+        this.displayWidth = 72;
+        this.displayHeight = 96;
 
         this.anims.create(
             {
@@ -23,7 +23,7 @@ class Torche extends Phaser.Physics.Arcade.Sprite
 
         this.anims.play('burn', true);
 
-        this.pointLight = scene.add.pointlight(x, y-10, (0, 0, 0), 100, 0.1, 0.1);
+        this.pointLight = scene.add.pointlight(x, y-10, (0, 0, 0), 150, 0.1, 0.1);
         this.pointLight.color.r = 255;
         this.pointLight.color.g = 215;
         this.pointLight.color.b = 0;

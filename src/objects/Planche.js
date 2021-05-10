@@ -6,11 +6,7 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         scene.add.existing(this);
 
         scene.physics.add.existing(this);
-
-        this.setCollideWorldBounds(true);
-        this.setBounce(1);
-        this.setGravityY(0);
-        this.setFriction(1,1);
+        this.displayWidth = 32;
     }
 
     fall()

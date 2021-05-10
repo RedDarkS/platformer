@@ -5,7 +5,6 @@ class Niveau1 extends Tableau
         super.preload();
 
         //d'autres trucs pour le décors
-        this.load.image('plafond', 'assets/plafond.png');
         this.load.image('secondPlan', 'assets/second-plan.png');
         this.load.image('dernierPlan', 'assets/dernier-plan.png');
         this.load.image('sky-2', 'assets/sky-2.jpg');
@@ -14,8 +13,8 @@ class Niveau1 extends Tableau
         this.load.image('pixel', 'assets/pixel.png');
         this.load.image('planche', 'assets/planche.png');
 
-        this.load.image('tiles', 'assets/tileSheet.png');
-        this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1.json');
+        this.load.image('tiles', 'assets/tileSheet_32-32.png');
+        this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1_32-32.json');
     }
 
     create()
@@ -33,8 +32,8 @@ class Niveau1 extends Tableau
         });
 
         //on définit la taille du tableau
-        let largeurDuTableau = 281 * 64;
-        let hauteurDuTableau = 47 * 64;
+        let largeurDuTableau = 281 * 64 * 2;
+        let hauteurDuTableau = 47 * 64 * 2;
 
         // let largeurDuTableau=this.map.widthInPixels;
         // let hauteurDuTableau=this.map.heightInPixels;
@@ -92,7 +91,7 @@ class Niveau1 extends Tableau
         this.starsObjects = this.map.getObjectLayer('stars')['objects'];
 
         this.starsObjects.forEach(starObject => {
-            let star = this.stars.create(starObject.x +20, starObject.y, 'star').setOrigin(0, 1);
+            let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
         });
         this.physics.add.overlap(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
@@ -120,7 +119,7 @@ class Niveau1 extends Tableau
             etoile.once(MyEvents.ACTIVE, function () {
                 emmiter.startFollow(etoile);
                 setTimeout(function(){emmiter.stopFollow();},300);
-            })
+            });
 
             ici.starsFxContainer.add(particles);
         });
@@ -141,7 +140,7 @@ class Niveau1 extends Tableau
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
 
         this.torcheObjects.forEach(torcheObject => {
-            let torche = new Torche(this, torcheObject.x + 32, torcheObject.y - 32);
+            let torche = new Torche(this, torcheObject.x +16, torcheObject.y - 48);
             this.torchesContainer.add(torche);
         });
 
@@ -158,7 +157,7 @@ class Niveau1 extends Tableau
             let planche = new Planche(
                 this,
                 plancheObjects.x,
-                plancheObjects.y - 54,
+                plancheObjects.y - 20,
                 'planche',
             ).setOrigin(0, 1);
             this.planches.add(planche);
@@ -181,7 +180,7 @@ class Niveau1 extends Tableau
             let ckp = new checkPoint(
                 this,
                 checkPointsObject.x,
-                checkPointsObject.y - 10,
+                checkPointsObject.y - 8,
                 'pixel',
                 checkPointsObject.properties[0].value
             );
@@ -258,20 +257,10 @@ class Niveau1 extends Tableau
         this.secondPlan.setScrollFactor(0);
         this.secondPlan.setOrigin(0, 0);
 
-        // this.plafond = this.add.tileSprite(
-        //     0,
-        //     0,
-        //     this.sys.canvas.width,
-        //     0,
-        //     'plafond'
-        // );
-        // this.plafond.setOrigin(0, 0);
-        // this.plafond.setScrollFactor(0);
-
         //TILED
 
         this.map = this.make.tilemap({key: 'map'});
-        this.tileset = this.map.addTilesetImage('tileSheet', 'tiles');
+        this.tileset = this.map.addTilesetImage('tileSheet_32-32', 'tiles');
 
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0);

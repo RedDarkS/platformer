@@ -18,16 +18,31 @@
                 case "d":
                     Tableau.current.player.directionX=1;
                     break;
+                case "ArrowRight":
+                    Tableau.current.player.directionX=1;
+                    break;
 
                 case "q":
+                    Tableau.current.player.directionX=-1;
+                    break;
+                case "ArrowLeft":
                     Tableau.current.player.directionX=-1;
                     break;
 
                 case "z":
                     Tableau.current.player.directionY=-1;
                     break;
+                case " ":
+                    Tableau.current.player.directionY=-1;
+                    break;
+                case "ArrowUp":
+                    Tableau.current.player.directionY=-1;
+                    break;
 
                 case "s":
+                    Tableau.current.player.directionY=1;
+                    break;
+                case "ArrowDown":
                     Tableau.current.player.directionY=1;
                     break;
 
@@ -47,16 +62,31 @@
                 case "d":
                     Tableau.current.player.directionX=0;
                     break;
+                case "ArrowRight":
+                    Tableau.current.player.directionX=0;
+                    break;
 
                 case "q":
+                    Tableau.current.player.directionX=0;
+                    break;
+                case "ArrowLeft":
                     Tableau.current.player.directionX=0;
                     break;
 
                 case "z":
                     Tableau.current.player.directionY=0;
                     break;
+                case " ":
+                    Tableau.current.player.directionY=0;
+                    break;
+                case "ArrowUp":
+                    Tableau.current.player.directionY=0;
+                    break;
 
                 case "s":
+                    Tableau.current.player.directionY=0;
+                    break;
+                case "ArrowDown":
                     Tableau.current.player.directionY=0;
                     break;
             }
