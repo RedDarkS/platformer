@@ -262,6 +262,7 @@ class Niveau1 extends Tableau
         this.map = this.make.tilemap({key: 'map'});
         this.tileset = this.map.addTilesetImage('tileSheet_32-32', 'tiles');
 
+        this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
 
@@ -278,17 +279,22 @@ class Niveau1 extends Tableau
         let z = 1000; //niveau Z qui a chaque fois est décrémenté.
         //devant
         this.devant.setDepth(z--);
+
         this.blood.setDepth(z--);
+
         this.platforms.setDepth(z--);
         this.planches.setDepth(z--);
 
         this.player.setDepth(z--);
 
         this.monstersContainer.setDepth(z--);
-        this.stars.setDepth(z--);
 
+        this.stars.setDepth(z--);
         this.starsFxContainer.setDepth(z--);
+
         this.torchesContainer.setDepth(z--);
+
+        this.derriere.setDepth(z--);
         //derrière
     }
 

@@ -3,19 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/DA_player_platformer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/plafond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/premier-plan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sky.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Planche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Planche.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Torche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Torche.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +124,8 @@
       <workItem from="1620636496022" duration="4348000" />
       <workItem from="1620648116464" duration="1443000" />
       <workItem from="1620649617770" duration="9249000" />
+      <workItem from="1620715519791" duration="1250000" />
+      <workItem from="1620745859374" duration="4787000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

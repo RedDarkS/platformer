@@ -7,6 +7,7 @@ class Planche extends Phaser.Physics.Arcade.Sprite
 
         scene.physics.add.existing(this);
         this.displayWidth = 32;
+        this.displayHeight = 12;
     }
 
     fall()

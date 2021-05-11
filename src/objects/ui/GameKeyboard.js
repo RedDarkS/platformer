@@ -39,13 +39,6 @@
                     Tableau.current.player.directionY=-1;
                     break;
 
-                case "s":
-                    Tableau.current.player.directionY=1;
-                    break;
-                case "ArrowDown":
-                    Tableau.current.player.directionY=1;
-                    break;
-
                 case "Control":
                     localStorage.setItem('cP', null);
                     break;
@@ -80,13 +73,6 @@
                     Tableau.current.player.directionY=0;
                     break;
                 case "ArrowUp":
-                    Tableau.current.player.directionY=0;
-                    break;
-
-                case "s":
-                    Tableau.current.player.directionY=0;
-                    break;
-                case "ArrowDown":
                     Tableau.current.player.directionY=0;
                     break;
             }
