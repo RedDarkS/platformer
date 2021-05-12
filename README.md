@@ -19,6 +19,7 @@ A Faire / Finir :
 - Particules des planches : à la destruction durant x secondes.
 - IA des ennemis (Markus, Chevalier, Archer, Mage).
 - Adapter, agrandir et corriger le level design.
+- débugger la chute des planches (glitch dans le sol si on est en dessous)
 
 Fait :
 
