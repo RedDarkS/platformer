@@ -211,8 +211,14 @@ class Niveau1 extends Tableau
             );
             this.physics.add.overlap(this.player, eventC, function()
             {
-                console.log("contact")
+                console.log("contact");
                 eventC.change();
+            });
+            eventC.once(MyEvents.EXCENTREE, function(){
+                ici.cameras.main.setFollowOffset(-200,50);
+            });
+            eventC.once(MyEvents.CENTREE, function(){
+                ici.cameras.main.setFollowOffset(0,50);
             });
         })
 
