@@ -198,16 +198,16 @@ class Niveau1 extends Tableau
             //console.log(playerPos);
         })
 
-        //Les event
+        //Les events
 
         this.eventCam = this.map.getObjectLayer('event camera')['objects'];
-        this.eventCam.forEach(eventCam => {
+        this.eventCam.forEach(eventCamObject => {
             let eventC = new EventCam(
                 this,
-                ici.player,
-                eventCam.x,
-                eventCam.y - 10,
-                eventCam.properties[0].value
+                eventCamObject.x,
+                eventCamObject.y - 10,
+                eventCamObject.properties[0].value,
+                'pixel'
             );
             this.physics.add.overlap(this.player, eventC, function()
             {
