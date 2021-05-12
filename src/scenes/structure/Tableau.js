@@ -131,7 +131,7 @@ class Tableau extends Phaser.Scene
         star.emit(MyEvents.ACTIVE);
 
         //TODO gerer le scoring
-        ui.gagne(10);
+        ui.gagne(0.5);
 
         //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
         let totalActive = 0;
@@ -186,7 +186,7 @@ class Tableau extends Phaser.Scene
 
                 )
                 {
-                    ui.gagne(5);
+                    ui.gagne(1);
                     monster.isDead=true; //ok le monstre est mort
                     monster.visible=false;
                     this.saigne(monster,function()
@@ -280,6 +280,10 @@ class Tableau extends Phaser.Scene
             Tableau.current._destroy();
         }
         game.scene.start(tableau);
+    }
+
+    recharger(){
+        this.scene.restart();
     }
 }
 

@@ -8,6 +8,7 @@
         super(scene, x, y)
         scene.add.existing(this);
 
+        this.scene = scene;
         this.cursors = scene.input.keyboard.createCursorKeys();
 
         scene.input.keyboard.on('keydown', function(kevent)
@@ -45,6 +46,10 @@
 
                 case "Shift":
                     Tableau.current.player.roulade();
+                    break;
+
+                case "r":
+                    Tableau.current.recharger();
                     break;
             }
         });

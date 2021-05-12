@@ -15,13 +15,13 @@ class Ui extends Phaser.Scene
     {
         console.log("create Ui")
 
-        this.score=0;
+        this.completion=0;
         /**
          * Le champ texte du score
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._scoreText = this.add.text(16, 16, '...', {
+        this._completionText = this.add.text(16, 16, '...', {
             font:'32px "Comic Sans MS"',
             fill: '#fff'
         });
@@ -100,8 +100,8 @@ class Ui extends Phaser.Scene
 
     gagne(points)
     {
-        this.score+=points;
-        this._scoreText.setText('Score: ' + this.score);
+        this.completion+=points;
+        this._completionText.setText('Completion : ' + this.completion);
     }
 
     update(){
