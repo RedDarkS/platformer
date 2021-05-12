@@ -20,7 +20,7 @@ class Tableau extends Phaser.Scene
     {
         //TODO import des différents sprites
         //SPRITES
-        this.load.image('star', 'assets/Coffre.png');
+        this.load.image('star', 'assets/coeur.png');
         this.load.image('blood', 'assets/blood.png');
 
         //SPRITES ENTITES

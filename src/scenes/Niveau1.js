@@ -92,6 +92,8 @@ class Niveau1 extends Tableau
 
         this.starsObjects.forEach(starObject => {
             let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
+            star.displayWidth = 32;
+            star.displayHeight = 40;
         });
         this.physics.add.overlap(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
@@ -110,18 +112,45 @@ class Niveau1 extends Tableau
                 y: {min: -64, max: 64},
                 tint: [0xFFFF00],
                 rotate: {min: 0, max: 360},
-                scale: {start: 0.2, end: 0.1},
+                scale: {start: 0.1, end: 0.3},
                 alpha: {start: 1, end: 0},
+                blendMode: Phaser.BlendModes.ADD,
+                speed: 30
+            });
+            let flameche = particles.createEmitter({
+                frequency: 100,
+                //delay: 200,
+                lifespan: 1200,
+                quantity: 5,
+                gravityX: 0,
+                gravityY: -100,
+                x: { min: -32, max: 32 },
+                y: { min: -32, max: 32 },
+                tint: [  0x191970, 0x000080, 0x4169E1, 0x1E90FF, 0x4682B4 ],
+                rotate: { min:0, max:360 },
+                radial: true,
+                scale: { start: 0.3, end: 0.1 },
+                alpha: { start: 1, end: 0 },
                 blendMode: Phaser.BlendModes.ADD,
                 speed: 20
             });
+            flameche.startFollow(etoile);
+
+            let halo = ici.add.pointlight(etoile.body.x + 10, etoile.body.y + 10, (30, 144, 255), 50, 0.1, 0.1);
+            halo.color.r = 30;
+            halo.color.g = 144;
+            halo.color.b = 255;
 
             etoile.once(MyEvents.ACTIVE, function () {
+                halo.destroy();
+                flameche.stopFollow();
                 emmiter.startFollow(etoile);
                 setTimeout(function(){emmiter.stopFollow();},300);
             });
 
             ici.starsFxContainer.add(particles);
+            ici.starsFxContainer.add(halo);
+
         });
 
         //Monstres
@@ -195,7 +224,6 @@ class Niveau1 extends Tableau
             {
                 ici.player.setPosition(playerPos.x, playerPos.y - 64);
             }
-            //console.log(playerPos);
         })
 
         //Les events
@@ -211,7 +239,6 @@ class Niveau1 extends Tableau
             );
             this.physics.add.overlap(this.player, eventC, function()
             {
-                console.log("contact");
                 eventC.change();
             });
             eventC.once(MyEvents.EXCENTREE, function(){
@@ -234,7 +261,7 @@ class Niveau1 extends Tableau
 
         this.sky = this.add.tileSprite(
             -192,
-            -128,
+            -72,
             this.sys.canvas.width * 2,
             this.sys.canvas.height * 2,
             'sky-2'
@@ -242,26 +269,25 @@ class Niveau1 extends Tableau
         this.sky.setOrigin(0, 0);
         this.sky.setScrollFactor(0);
 
-        this.dernierPlan = this.add.tileSprite(
-            -192,
-            -128,
-            this.sys.canvas.width * 2,
-            this.sys.canvas.height * 2,
-            'dernierPlan'
-        );
-        this.dernierPlan.setOrigin(0, 0);
-        this.dernierPlan.setScrollFactor(0);
+        // this.dernierPlan = this.add.tileSprite(
+        //     -192,
+        //     -128,
+        //     this.sys.canvas.width * 2,
+        //     this.sys.canvas.height * 2,
+        //     'dernierPlan'
+        // );
+        // this.dernierPlan.setOrigin(0, 0);
+        // this.dernierPlan.setScrollFactor(0);
 
-        //on ajoute une deuxième couche de ciel
-        this.secondPlan = this.add.tileSprite(
-            -192,
-            -128,
-            this.sys.canvas.width * 2,
-            this.sys.canvas.height * 2,
-            'secondPlan'
-        );
-        this.secondPlan.setScrollFactor(0);
-        this.secondPlan.setOrigin(0, 0);
+        // this.secondPlan = this.add.tileSprite(
+        //     -192,
+        //     -128,
+        //     this.sys.canvas.width * 2,
+        //     this.sys.canvas.height * 2,
+        //     'secondPlan'
+        // );
+        // this.secondPlan.setScrollFactor(0);
+        // this.secondPlan.setOrigin(0, 0);
 
         //TILED
 
@@ -300,7 +326,6 @@ class Niveau1 extends Tableau
 
         this.torchesContainer.setDepth(z--);
 
-        this.derriere.setDepth(z--);
         //derrière
     }
 
@@ -308,12 +333,12 @@ class Niveau1 extends Tableau
     {
         super.update();
         // le fond se déplace moins vite que la caméra pour donner un effet paralax
-        this.dernierPlan.tilePositionX = this.cameras.main.scrollX * 0.1;
-        this.dernierPlan.tilePositionY = this.cameras.main.scrollY * 0.1;
+        this.sky.tilePositionX = this.cameras.main.scrollX * 0.1;
+        this.sky.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         //le second plan se déplace moins vite pour accentuer l'effet
-        this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.15;
-        this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
+        // this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.15;
+        // this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
 
         //le premier plan se déplace moins vite pour accentuer l'effet
         // this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
