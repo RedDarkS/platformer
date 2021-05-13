@@ -41,6 +41,13 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 frameRate: 12,
                 repeat: -1
         });
+        this.anims.create(
+            {
+                key: 'escalade',
+                frames: this.anims.generateFrameNumbers('player_animes', { start: 38, end: 40}),
+                frameRate: 1,
+                repeat: -1
+            });
 
         this._directionX=0;
         this._directionY=0;
@@ -112,6 +119,9 @@ class Player extends Phaser.Physics.Arcade.Sprite
             else if(this.body.blocked.right || this.body.blocked.left)
             {
                 this.setVelocityY(-300);
+                // this.anims.stop();
+                this.anims.play('escalade', true);
+
                 this.emit(MyEvents.GRIMPE);
                 this.emit(MyEvents.STOP);
             }
