@@ -143,9 +143,11 @@ class Niveau1 extends Tableau
 
             etoile.once(MyEvents.ACTIVE, function () {
                 halo.destroy();
-                flameche.stopFollow();
+                flameche.on = false;
                 emmiter.startFollow(etoile);
-                setTimeout(function(){emmiter.stopFollow();},300);
+                setTimeout(function(){
+                    emmiter.on = false;
+                    },300);
             });
 
             ici.starsFxContainer.add(particles);
