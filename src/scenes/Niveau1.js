@@ -297,6 +297,7 @@ class Niveau1 extends Tableau
         this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0);
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
+        this.nature = this.map.createLayer('nature', this.tileset, 0, 0);
 
         this.platforms.setCollisionByProperty({collides: true});
         this.physics.add.collider(this.player, this.platforms);
@@ -310,6 +311,7 @@ class Niveau1 extends Tableau
     {
         let z = 1000; //niveau Z qui a chaque fois est décrémenté.
         //devant
+        this.nature.setDepth(z--);
         this.devant.setDepth(z--);
 
         this.blood.setDepth(z--);
@@ -337,8 +339,8 @@ class Niveau1 extends Tableau
         this.sky.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         //le second plan se déplace moins vite pour accentuer l'effet
-        // this.secondPlan.tilePositionX = this.cameras.main.scrollX * 0.15;
-        // this.secondPlan.tilePositionY = this.cameras.main.scrollY * 0.05;
+        this.derriere.tilePositionX = this.cameras.main.scrollX * 0.15;
+        this.derriere.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         //le premier plan se déplace moins vite pour accentuer l'effet
         // this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
