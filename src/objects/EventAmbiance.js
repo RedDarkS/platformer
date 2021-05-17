@@ -1,4 +1,4 @@
-class EventCam extends Phaser.Physics.Arcade.Sprite
+class EventAmbiance extends Phaser.Physics.Arcade.Sprite
 {
     preload()
     {
@@ -12,8 +12,7 @@ class EventCam extends Phaser.Physics.Arcade.Sprite
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.body.allowGravity=false;
-
-        this.setTint(0x009900);
+        this.setTint(0x990000);
 
         this.val = val;
     }
@@ -22,16 +21,11 @@ class EventCam extends Phaser.Physics.Arcade.Sprite
     {
         if(this.val)//base
         {
-            this.emit(MyEvents.EXCENTREE);
+            this.emit(MyEvents.EXTERIEUR);
         }
         else if(!this.val)//modifiée
         {
-            this.emit(MyEvents.CENTREE);
+            this.emit(MyEvents.INTERIEUR);
         }
-        /*
-        var cam = Tableau.current.cameras.main;
-        cam.pan(500, 500, 2000, 'Power2');
-        cam.zoomTo(4, 3000);
-         */
     }
 }

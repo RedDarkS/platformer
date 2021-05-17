@@ -78,4 +78,22 @@ window.MyEvents = {
      * @const
      */
     EXCENTREE : "excentree",
+
+    /**
+     * Indique que l'on est dedans
+     *
+     * @name MyEvent.EXCENTREE
+     * @type {String}
+     * @const
+     */
+    INTERIEUR : "interieur",
+
+    /**
+     * Indique que l'on est dehors
+     *
+     * @name MyEvent.EXCENTREE
+     * @type {String}
+     * @const
+     */
+    EXTERIEUR : "exterieur",
 }

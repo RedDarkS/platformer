@@ -25,10 +25,10 @@ class Torche extends Phaser.Physics.Arcade.Sprite
 
         this.anims.play('burn', true);
 
-        this.pointLight = scene.add.pointlight(x, y-10, (0, 0, 0), 150, 0.1, 0.05);
-        this.pointLight.color.r = 205;
-        this.pointLight.color.g = 165;
-        this.pointLight.color.b = 20;
+        this.pointLight = scene.lights.addLight(x, y-10, 150, (0, 0, 0), 0.5);
+        this.pointLight.color.r = 20;
+        this.pointLight.color.g = 16;
+        this.pointLight.color.b = 2;
 
         scene.starsFxContainer = scene.add.container();
         scene.starsFxContainer.x = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="1191">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="1207">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -152,7 +152,7 @@
   </tile>
   <tile id="29">
    <properties>
-    <property name="collides" type="bool" value="true"/>
+    <property name="collides" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="30">
@@ -3374,10 +3374,78 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="12" name="texte pour moi">
-  <object id="432" x="722" y="4838.5" width="120" height="59">
-   <text wrap="1" color="#ffffff">Etoile = 0.5 pts
-Monstre = 1 pts</text>
+ <objectgroup id="12" name="ambiance">
+  <object id="1191" x="7904" y="4544">
+   <properties>
+    <property name="amb" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1193" x="21888" y="1120">
+   <properties>
+    <property name="amb" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1194" x="384" y="5184">
+   <properties>
+    <property name="amb" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1195" x="1216" y="5184">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1198" x="18432" y="4480">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1200" x="20448" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1201" x="20480" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1202" x="20512" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1203" x="20544" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1204" x="20576" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1205" x="20608" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1206" x="20640" y="4512">
+   <properties>
+    <property name="amb" type="bool" value="false"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>

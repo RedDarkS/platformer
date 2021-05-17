@@ -2,7 +2,7 @@ let width=14*64; //896;
 let height=7*64; //448;
 
 let config = {
-    type: Phaser.AUTO,
+    type: Phaser.WEBGL,
 
     physics: 
     {
