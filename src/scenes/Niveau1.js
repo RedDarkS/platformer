@@ -123,7 +123,6 @@ class Niveau1 extends Tableau
             });
             let flameche = particles.createEmitter({
                 frequency: 100,
-                //delay: 200,
                 lifespan: 1200,
                 quantity: 5,
                 gravityX: 0,
@@ -145,11 +144,13 @@ class Niveau1 extends Tableau
             halo.color.g = 144;
             halo.color.b = 255;
 
-            etoile.once(MyEvents.ACTIVE, function () {
+            etoile.once(MyEvents.ACTIVE, function ()
+            {
                 halo.destroy();
                 flameche.on = false;
                 emmiter.startFollow(etoile);
-                setTimeout(function(){
+                setTimeout(function()
+                {
                     emmiter.on = false;
                     },300);
             });
@@ -164,7 +165,8 @@ class Niveau1 extends Tableau
         this.monstersContainer = this.add.container();
         this.MonstersObjects = this.map.getObjectLayer('mob')['objects'];
 
-        this.MonstersObjects.forEach(monsterObject => {
+        this.MonstersObjects.forEach(monsterObject =>
+        {
             let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
             this.monstersContainer.add(monster);
         });
@@ -175,7 +177,8 @@ class Niveau1 extends Tableau
         this.torchesContainer = this.add.container();
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
 
-        this.torcheObjects.forEach(torcheObject => {
+        this.torcheObjects.forEach(torcheObject =>
+        {
             let torche = new Torche(this, torcheObject.x +16, torcheObject.y - 48);
             this.torchesContainer.add(torche);
 
@@ -200,6 +203,28 @@ class Niveau1 extends Tableau
             ).setOrigin(0, 1);
             this.planches.add(planche);
 
+            let emmit = new Phaser.Geom.Rectangle(planche.x, planche.y, 32, 10);
+
+            let parti = this.add.particles("pixel");
+            let liliter = parti.createEmitter({
+                frequency: 100,
+                lifespan: 500,
+                quantity: 5,
+                gravityX: 0,
+                gravityY: 50,
+                x: {min: -64, max: 64},
+                y: {min: -64, max: 64},
+                tint: [0x6e3300],
+                rotate: {min: 0, max: 360},
+                scale: {start: 0.1, end: 0.3},
+                alpha: {start: 1, end: 0},
+                emitZone: { type: 'random', source: emmit },
+                blendMode: Phaser.BlendModes.ADD,
+                speed: 30
+            });
+
+            liliter.startFollow(planche);
+
             this.physics.add.overlap(this.player, planche, function() {
                 setTimeout(function(){
                         planche.fall();
@@ -207,9 +232,6 @@ class Niveau1 extends Tableau
             });
         });
         this.physics.add.collider(this.player, this.planches);
-
-
-        //TODO particules + destruction/chute au bout de x secondes
 
         //Les Checkpoints
 
@@ -276,12 +298,12 @@ class Niveau1 extends Tableau
             ).setOrigin(0, 1);
             this.brisables.add(bri);
 
-            let emmit = new Phaser.Geom.Rectangle(this.x + 50, this.y - 120, 1, 190);
+            let emmit = new Phaser.Geom.Rectangle(bri.x + 50, bri.y - 120, 1, 190);
 
             let parti = this.add.particles("pixel");
             let mimiter = parti.createEmitter({
-                frequency: 10,
-                lifespan: 1000,
+                frequency: 100,
+                lifespan: 500,
                 quantity: 5,
                 gravityX: 50,
                 gravityY: 0,
@@ -295,9 +317,7 @@ class Niveau1 extends Tableau
                 blendMode: Phaser.BlendModes.ADD,
                 speed: 30
             });
-
-            mimiter.on = false;
-            this.starsFxContainer.add(parti);
+            mimiter.startFollow(bri);
 
             this.physics.add.overlap(this.player, bri, function()
             {
@@ -306,18 +326,17 @@ class Niveau1 extends Tableau
 
             bri.once(MyEvents.BREAK, function()
             {
-                mimiter.on = true;
-                ici.starsFxContainer.add(parti);
                 mimiter.startFollow(bri);
-
+                ici.starsFxContainer.add(parti);
                 setTimeout(function()
                 {
+                    // bri.disableBody(true, true);
                     mimiter.on = false;
-                    bri.disableBody(true, true);
-                    }, 50);
+                    }, 500);
             });
         });
         this.physics.add.collider(this.player, this.brisables);
+
 
         this.initProfondeur();
     }
