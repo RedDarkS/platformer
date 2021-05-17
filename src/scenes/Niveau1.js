@@ -203,28 +203,6 @@ class Niveau1 extends Tableau
             ).setOrigin(0, 1);
             this.planches.add(planche);
 
-            let emmit = new Phaser.Geom.Rectangle(planche.x, planche.y, 32, 10);
-
-            let parti = this.add.particles("pixel");
-            let liliter = parti.createEmitter({
-                frequency: 100,
-                lifespan: 500,
-                quantity: 5,
-                gravityX: 0,
-                gravityY: 50,
-                x: {min: -64, max: 64},
-                y: {min: -64, max: 64},
-                tint: [0x6e3300],
-                rotate: {min: 0, max: 360},
-                scale: {start: 0.1, end: 0.3},
-                alpha: {start: 1, end: 0},
-                emitZone: { type: 'random', source: emmit },
-                blendMode: Phaser.BlendModes.ADD,
-                speed: 30
-            });
-
-            liliter.startFollow(planche);
-
             this.physics.add.overlap(this.player, planche, function() {
                 setTimeout(function(){
                         planche.fall();
@@ -298,41 +276,19 @@ class Niveau1 extends Tableau
             ).setOrigin(0, 1);
             this.brisables.add(bri);
 
-            let emmit = new Phaser.Geom.Rectangle(bri.x + 50, bri.y - 120, 1, 190);
-
-            let parti = this.add.particles("pixel");
-            let mimiter = parti.createEmitter({
-                frequency: 100,
-                lifespan: 500,
-                quantity: 5,
-                gravityX: 50,
-                gravityY: 0,
-                x: {min: -64, max: 64},
-                y: {min: -64, max: 64},
-                tint: [0x6e3300],
-                rotate: {min: 0, max: 360},
-                scale: {start: 0.1, end: 0.3},
-                alpha: {start: 1, end: 0},
-                emitZone: { type: 'random', source: emmit },
-                blendMode: Phaser.BlendModes.ADD,
-                speed: 30
-            });
-            mimiter.startFollow(bri);
-
             this.physics.add.overlap(this.player, bri, function()
             {
-                bri.emit(MyEvents.BREAK);
+                bri.break();
             });
 
             bri.once(MyEvents.BREAK, function()
             {
-                mimiter.startFollow(bri);
-                ici.starsFxContainer.add(parti);
+                bri.mimiter.startFollow(bri);
                 setTimeout(function()
                 {
-                    // bri.disableBody(true, true);
-                    mimiter.on = false;
-                    }, 500);
+                    bri.disableBody(true, true);
+                    bri.mimiter.on = false;
+                    }, 50);
             });
         });
         this.physics.add.collider(this.player, this.brisables);

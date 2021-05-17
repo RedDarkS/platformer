@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Brisable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Brisable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Planche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Planche.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +131,7 @@
       <workItem from="1620921644393" duration="3148000" />
       <workItem from="1621083766513" duration="1794000" />
       <workItem from="1621240529547" duration="1040000" />
-      <workItem from="1621241704439" duration="6177000" />
+      <workItem from="1621241704439" duration="7592000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>
