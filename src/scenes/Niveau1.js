@@ -45,7 +45,9 @@ class Niveau1 extends Tableau
         this.cameras.main.setZoom(0.75);
 
         //ambiance atmosphérique
-        this.lights.enable().setAmbientColor(0x666666);
+
+        this.lights.enable();
+        this.lights.setAmbientColor(0x666666);
 
         this.initDecor();
 
@@ -270,11 +272,19 @@ class Niveau1 extends Tableau
             {
                 eventA.change();
             });
-            eventA.on(MyEvents.EXTERIEUR, function(){
+            eventA.on(MyEvents.EXTERIEUR, function()
+            {
+                console.log("exterieur");
+                ici.lights.disable();
                 ici.lights.setAmbientColor(0xFFFFFF);
+                ici.lights.enable();
             });
-            eventA.on(MyEvents.INTERIEUR, function(){
+            eventA.on(MyEvents.INTERIEUR, function()
+            {
+                console.log("interieur");
+                ici.lights.disable();
                 ici.lights.setAmbientColor(0x666666);
+                ici.lights.enable();
             });
         })
 
@@ -304,11 +314,8 @@ class Niveau1 extends Tableau
             bri.once(MyEvents.BREAK, function()
             {
                 bri.mimiter.startFollow(bri);
-                setTimeout(function()
-                {
-                    bri.disableBody(true, true);
-                    bri.mimiter.on = false;
-                    }, 50);
+                bri.disableBody(true, true);
+                // bri.mimiter.on = false;
             });
         });
         this.physics.add.collider(this.player, this.brisables);

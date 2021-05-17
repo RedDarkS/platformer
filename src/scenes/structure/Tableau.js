@@ -174,7 +174,7 @@ class Tableau extends Phaser.Scene
     hitMonster(player, monster)
     {
         let me=this;
-        console.log(me.player.invul);
+        // console.log(me.player.invul);
 
         if(me.player.invul === true)
         {

@@ -101,7 +101,7 @@ class Ui extends Phaser.Scene
     gagne(points)
     {
         this.completion+=points;
-        this._completionText.setText('Completion : ' + this.completion);
+        // this._completionText.setText('Completion : ' + this.completion);
     }
 
     update(){
