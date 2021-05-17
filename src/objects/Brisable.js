@@ -8,13 +8,14 @@ class Brisable extends Phaser.Physics.Arcade.Sprite
 
         scene.physics.add.existing(this);
 
-        // this.setBodySize(this.body.width,this.body.height);
-        // this.setOffset(190, 10);
-
         this.displayWidth = 12;
         this.displayHeight = 190;
 
         this.scene = scene;
+
+        scene.starsFxContainer = scene.add.container();
+        scene.starsFxContainer.x = 0;
+        scene.starsFxContainer.y = -12;
 
         let emmit = new Phaser.Geom.Rectangle(x + 50, y - 120, 1, 190);
 
@@ -37,6 +38,7 @@ class Brisable extends Phaser.Physics.Arcade.Sprite
         });
 
         this.mimiter.startFollow(this);
+        scene.starsFxContainer.add(parti);
     }
 
     break()

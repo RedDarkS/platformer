@@ -313,7 +313,6 @@ class Niveau1 extends Tableau
         });
         this.physics.add.collider(this.player, this.brisables);
 
-
         this.initProfondeur();
     }
 
@@ -397,22 +396,29 @@ class Niveau1 extends Tableau
         //derrière
     }
 
-    optimizeDisplay() {
+    optimizeDisplay()
+    {
         //return;
         let world = this.cameras.main.worldView; // le rectangle de la caméra, (les coordonnées de la zone visible)
 
         // on va activer / désactiver les particules de lave
-        for (let particule of this.starsFxContainer.getAll()) { // parcours toutes les particules de lave
-            if (Phaser.Geom.Rectangle.Overlaps(world, particule.rectangle)) {
+        for (let particule of this.starsFxContainer.getAll())
+        { // parcours toutes les particules de lave
+            if (Phaser.Geom.Rectangle.Overlaps(world, particule.rectangle))
+            {
                 //si le rectangle de la particule est dans le rectangle de la caméra
-                if (!particule.visible) {
+                if (!particule.visible)
+                {
                     //on active les particules
                     particule.resume();
                     particule.visible = true;
                 }
-            } else {
+            }
+            else
+            {
                 //si le rectangle de la particule n'est PAS dans le rectangle de la caméra
-                if (particule.visible) {
+                if (particule.visible)
+                {
                     //on désactive les particules
                     particule.pause();
                     particule.visible = false;

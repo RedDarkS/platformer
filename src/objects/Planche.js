@@ -12,6 +12,7 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         this.displayHeight = 12;
 
         this.scene = scene;
+        this.ici = this;
 
         scene.starsFxContainer = scene.add.container();
         scene.starsFxContainer.x = 0;
@@ -36,18 +37,16 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         });
 
         scene.starsFxContainer.add(parti);
-        this.liliter.off = true;
     }
 
     fall()
     {
-        this.liliter.off = false;
         this.body.allowGravity = true;
         this.liliter.startFollow(this);
 
         setTimeout(function()
         {
-            this.liliter.off = true;
-        }, 50)
+            this.ici.liliter.stopFollow();
+        }, 100)
     }
 }
