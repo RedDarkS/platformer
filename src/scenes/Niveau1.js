@@ -12,6 +12,7 @@ class Niveau1 extends Tableau
         this.load.image('star', 'assets/Coffre.png');
         this.load.image('pixel', 'assets/pixel.png');
         this.load.image('planche', 'assets/planche.png');
+        this.load.image('brisable', 'assets/brisable.png');
 
         this.load.image('tiles', 'assets/tileSheet_32-32.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1_32-32.json');
@@ -45,6 +46,9 @@ class Niveau1 extends Tableau
         this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
 
         this.cameras.main.setZoom(0.75);
+
+        //ambiance atmosphérique
+        this.lights.enable().setAmbientColor(0x110000);
 
         this.initDecor();
 
@@ -166,6 +170,7 @@ class Niveau1 extends Tableau
         });
 
         //Torches
+        this.torcheList = [];
 
         this.torchesContainer = this.add.container();
         this.torcheObjects = this.map.getObjectLayer('torches')['objects'];
@@ -173,6 +178,8 @@ class Niveau1 extends Tableau
         this.torcheObjects.forEach(torcheObject => {
             let torche = new Torche(this, torcheObject.x +16, torcheObject.y - 48);
             this.torchesContainer.add(torche);
+
+            this.torcheList.push(torche);
         });
 
         //Planches
@@ -251,6 +258,67 @@ class Niveau1 extends Tableau
             });
         })
 
+        //brisables
+
+        this.brisables = this.physics.add.group({
+            allowGravity: false,
+            immovable: true,
+            bounceY: 0
+        });
+        this.brisableObject = this.map.getObjectLayer('brisables')['objects'];
+
+        this.brisableObject.forEach(brisableObject => {
+            let bri = new Brisable(
+                this,
+                brisableObject.x + 10,
+                brisableObject.y,
+                'brisable',
+            ).setOrigin(0, 1);
+            this.brisables.add(bri);
+
+            let emmit = new Phaser.Geom.Rectangle(this.x + 50, this.y - 120, 1, 190);
+
+            let parti = this.add.particles("pixel");
+            let mimiter = parti.createEmitter({
+                frequency: 10,
+                lifespan: 1000,
+                quantity: 5,
+                gravityX: 50,
+                gravityY: 0,
+                x: {min: -64, max: 64},
+                y: {min: -64, max: 64},
+                tint: [0x6e3300],
+                rotate: {min: 0, max: 360},
+                scale: {start: 0.1, end: 0.3},
+                alpha: {start: 1, end: 0},
+                emitZone: { type: 'random', source: emmit },
+                blendMode: Phaser.BlendModes.ADD,
+                speed: 30
+            });
+
+            mimiter.on = false;
+            this.starsFxContainer.add(parti);
+
+            this.physics.add.overlap(this.player, bri, function()
+            {
+                bri.emit(MyEvents.BREAK);
+            });
+
+            bri.once(MyEvents.BREAK, function()
+            {
+                mimiter.on = true;
+                ici.starsFxContainer.add(parti);
+                mimiter.startFollow(bri);
+
+                setTimeout(function()
+                {
+                    mimiter.on = false;
+                    bri.disableBody(true, true);
+                    }, 50);
+            });
+        });
+        this.physics.add.collider(this.player, this.brisables);
+
         this.initProfondeur();
     }
 
@@ -320,6 +388,7 @@ class Niveau1 extends Tableau
 
         this.platforms.setDepth(z--);
         this.planches.setDepth(z--);
+        this.brisables.setDepth(z--);
 
         this.player.setDepth(z--);
 
@@ -347,6 +416,11 @@ class Niveau1 extends Tableau
         //le premier plan se déplace moins vite pour accentuer l'effet
         // this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
         // this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
+
+        for (let i = 0; i < this.torcheList.length; i++)
+        {
+            this.variaLight(this.torcheList[i].pointLight);
+        }
     }
 
 }

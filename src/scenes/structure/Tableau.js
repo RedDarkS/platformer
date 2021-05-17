@@ -220,6 +220,12 @@ class Tableau extends Phaser.Scene
         }
     }
 
+    variaLight(light)
+    {
+        light.intensity = light.intensity + Phaser.Math.FloatBetween(-0.1, 0.08);
+        light.intensity = Phaser.Math.Clamp(light.intensity, 0.2, 0.4);
+    }
+
     /**
      * Pour reset cette scène proprement
      * @private

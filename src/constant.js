@@ -50,6 +50,15 @@ window.MyEvents = {
      */
     ACTIVE : "active",
 
+    /**
+     * Indique que l'on break une planche
+     *
+     * @name MyEvent.BREAK
+     * @type {String}
+     * @const
+     */
+    BREAK : "break",
+
     //Camera
 
     /**
