@@ -205,7 +205,7 @@ class Niveau1 extends Tableau
             this.physics.add.overlap(this.player, planche, function() {
                 setTimeout(function(){
                         planche.fall();
-                    },300);
+                    },500);
             });
         });
         this.physics.add.collider(this.player, this.planches);
