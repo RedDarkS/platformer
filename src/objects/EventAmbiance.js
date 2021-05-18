@@ -19,7 +19,7 @@ class EventAmbiance extends Phaser.Physics.Arcade.Sprite
 
     change()
     {
-        if(this.val === 1)
+        if(this.val >= 1)
         {
             this.emit(MyEvents.EXTERIEUR);
         }

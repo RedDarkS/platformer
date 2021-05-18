@@ -5,7 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/EventAmbiance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/EventAmbiance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +138,9 @@
       <workItem from="1621330226908" duration="881000" />
       <workItem from="1621334551468" duration="206000" />
       <workItem from="1621341583996" duration="4179000" />
+      <workItem from="1621357950420" duration="111000" />
+      <workItem from="1621359130422" duration="18000" />
+      <workItem from="1621369548500" duration="2519000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>
