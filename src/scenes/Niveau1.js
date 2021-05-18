@@ -275,16 +275,12 @@ class Niveau1 extends Tableau
             eventA.on(MyEvents.EXTERIEUR, function()
             {
                 console.log("exterieur");
-                ici.lights.disable();
                 ici.lights.setAmbientColor(0xFFFFFF);
-                ici.lights.enable();
             });
             eventA.on(MyEvents.INTERIEUR, function()
             {
                 console.log("interieur");
-                ici.lights.disable();
                 ici.lights.setAmbientColor(0x666666);
-                ici.lights.enable();
             });
         })
 
