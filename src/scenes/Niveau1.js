@@ -47,7 +47,7 @@ class Niveau1 extends Tableau
         //ambiance atmosphérique
 
         this.lights.enable();
-        this.lights.setAmbientColor(0x666666);
+        this.lights.setAmbientColor(0x888888);
 
         this.initDecor();
 
@@ -280,7 +280,7 @@ class Niveau1 extends Tableau
             eventA.on(MyEvents.INTERIEUR, function()
             {
                 console.log("interieur");
-                ici.lights.setAmbientColor(0x666666);
+                ici.lights.setAmbientColor(0x888888);
             });
         })
 
