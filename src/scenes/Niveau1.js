@@ -338,15 +338,8 @@ class Niveau1 extends Tableau
 
             this.physics.add.overlap(this.player, rec, function()
             {
-                rec.collision();
+                rec.isActive = true;
             });
-
-            this.torcheList.forEach(torch =>{
-                if(Phaser.Geom.Rectangle.Overlaps(rec, torch)){
-                    rec.collisionTorche(torch);
-                }
-            })
-
         });
 
 
@@ -429,15 +422,34 @@ class Niveau1 extends Tableau
         this.starsFxContainer.setDepth(z--);
 
         this.torchesContainer.setDepth(z--);
+        this.recContainer.setDepth(z--);
 
         //derrière
     }
 
     optimizeDisplay()
     {
-        this.rectList.forEach(rec => {
+        this.rectList.forEach(rec =>
+        {
+            if(rec.isActive)
+            {
+                // console.log("active", rec.getBounds(), this.player.getBounds());
 
+                if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), this.player.getBounds()))//le joueur est en contact avec le rectancle
+                {
+                    this.torcheList.forEach(torch =>{
+                        if(Phaser.Geom.Rectangle.Overlaps(rec, torch)){
+                            torch.disable();
+                        }
+                    });
+                }
+                else// le joueur n'est pas en contact avec le rectangle
+                {
+                    rec.isActive = false;
+                }
+            }
         });
+
     }
 
     update()
