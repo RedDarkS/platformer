@@ -96,7 +96,11 @@ class Niveau1 extends Tableau
         this.starsObjects = this.map.getObjectLayer('stars')['objects'];
 
         this.starsObjects.forEach(starObject => {
-            let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
+            let star = this.stars.create(
+                starObject.x,
+                starObject.y,
+                'star'
+            ).setOrigin(0, 1);
             star.displayWidth = 32;
             star.displayHeight = 40;
 
@@ -447,7 +451,7 @@ class Niveau1 extends Tableau
                     {
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
-                            // star.enable();
+
                         }
                     });
                 }
@@ -464,7 +468,7 @@ class Niveau1 extends Tableau
                     {
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
-                            // star.disable();
+
                         }
                     });
 
