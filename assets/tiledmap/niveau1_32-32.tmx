@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1902">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1905">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -2735,7 +2735,10 @@
 </data>
  </layer>
  <objectgroup id="15" name="rectangles">
-  <object id="1899" name="rect" x="864" y="4896" width="224" height="128"/>
+  <object id="1899" name="rect" x="0" y="4192" width="7872" height="1120"/>
+  <object id="1902" x="7776" y="1504" width="9536" height="4384"/>
+  <object id="1903" x="17248" y="224" width="5728" height="5664"/>
+  <object id="1904" x="22912" y="224" width="13056" height="5664"/>
  </objectgroup>
  <objectgroup id="10" name="planches">
   <object id="20" gid="170" x="12512" y="5536" width="32" height="32"/>
@@ -2929,7 +2932,6 @@
   <object id="1867" gid="171" x="22688" y="1120" width="32" height="32"/>
   <object id="1873" gid="171" x="35840" y="5824" width="32" height="32"/>
   <object id="1874" gid="171" x="35648" y="5824" width="32" height="32"/>
-  <object id="1901" gid="171" x="992" y="4992" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="8" name="event camera">
   <object id="391" x="1760" y="5248">

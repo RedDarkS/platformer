@@ -86,6 +86,8 @@ class Niveau1 extends Tableau
 
         //ETOILES
 
+        this.starList = [];
+
         this.stars = this.physics.add.group({
             allowGravity: false,
             immovable: false,
@@ -97,6 +99,8 @@ class Niveau1 extends Tableau
             let star = this.stars.create(starObject.x, starObject.y, 'star').setOrigin(0, 1);
             star.displayWidth = 32;
             star.displayHeight = 40;
+
+            this.starList.push(star);
         });
         this.physics.add.overlap(this.stars, this.platforms);
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
@@ -274,12 +278,10 @@ class Niveau1 extends Tableau
             });
             eventA.on(MyEvents.EXTERIEUR, function()
             {
-                console.log("exterieur");
                 ici.lights.setAmbientColor(0xFFFFFF);
             });
             eventA.on(MyEvents.INTERIEUR, function()
             {
-                console.log("interieur");
                 ici.lights.setAmbientColor(0x888888);
             });
         })
@@ -329,8 +331,7 @@ class Niveau1 extends Tableau
                 recObjects.x,
                 recObjects.y,
                 recObjects.width,
-                recObjects.height,
-                "rect"
+                recObjects.height
             ).setOrigin(0,0);
 
             this.recContainer.add(rec);
@@ -433,23 +434,76 @@ class Niveau1 extends Tableau
         {
             if(rec.isActive)
             {
-                // console.log("active", rec.getBounds(), this.player.getBounds());
-
-                if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), this.player.getBounds()))//le joueur est en contact avec le rectancle
+                if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), this.player.getBounds() ))//le joueur est en contact avec le rectancle
                 {
-                    this.torcheList.forEach(torch =>{
-                        if(Phaser.Geom.Rectangle.Overlaps(rec, torch)){
-                            torch.disable();
+                    this.torcheList.forEach(torch =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), torch.getBounds() ))
+                        {
+                            torch.isActive = true;
+                        }
+                    });
+                    this.starList.forEach(star =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
+                        {
+                            // star.enable();
                         }
                     });
                 }
                 else// le joueur n'est pas en contact avec le rectangle
                 {
+                    this.torcheList.forEach(torch =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), torch.getBounds() ))
+                        {
+                            torch.isActive = false;
+                        }
+                    });
+                    this.starList.forEach(star =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
+                        {
+                            // star.disable();
+                        }
+                    });
+
                     rec.isActive = false;
                 }
             }
         });
 
+    }
+
+    onlyRenderInCamera()
+    {
+        let world = this.cameras.main.worldView;
+
+        this.torcheList.forEach(torch =>
+        {
+            if (Phaser.Geom.Rectangle.Overlaps(world, torch.getBounds()))
+            {
+                torch.renderable = false;
+                torch.cacheAsBitmap = true;
+            }
+            else
+            {
+                torch.renderable = true;
+            }
+        });
+
+        this.starList.forEach(star =>
+        {
+            if (Phaser.Geom.Rectangle.Overlaps(world, star.getBounds()))
+            {
+                star.renderable = false;
+                star.cacheAsBitmap = true;
+            }
+            else
+            {
+                star.renderable = true;
+            }
+        });
     }
 
     update()
@@ -471,6 +525,8 @@ class Niveau1 extends Tableau
         {
             this.variaLight(this.torcheList[i].pointLight);
         }
+
+        // this.onlyRenderInCamera();
 
         this.optimizeDisplay();
     }

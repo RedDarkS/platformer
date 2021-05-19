@@ -14,36 +14,26 @@ class Rectangle extends Phaser.Physics.Arcade.Sprite
 
         if(value)//le joueur est dans le rectangle
         {
-            this.setTint(0xFFFF00);
-            this.alpha = 0.2;
+            this.alpha = 0;
         }
         else//le joueur n'y est pas
         {
-            this.setTint(0xFF00FF);
-            this.alpha = 0.8;
+            this.alpha = 1;
         }
 
         this._isActive = value;
     }
 
-    constructor(scene, x, y, w, h, image)
+    constructor(scene, x, y, w, h)
     {
-        super(scene, x, y, image);
+        super(scene, x, y);
 
-        let ici = this;
-
-        this._isActive = false;
+        this._isActive = true;
 
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.body.allowGravity=false;
 
         this.setDisplaySize(w, h);
-    }
-
-    collisionTorche(torch)
-    {
-        console.log("torche");
-        torch.setTint(0x00FF00);
     }
 }
