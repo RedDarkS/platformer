@@ -42,11 +42,11 @@ class Planche extends Phaser.Physics.Arcade.Sprite
     fall()
     {
         this.body.allowGravity = true;
-        this.liliter.startFollow(this);
-
-        setTimeout(function()
-        {
-            this.ici.liliter.stopFollow();
-        }, 100)
+        // this.liliter.startFollow(this);
+        //
+        // setTimeout(function()
+        // {
+        //     this.ici.liliter.stopFollow();
+        // }, 100)
     }
 }

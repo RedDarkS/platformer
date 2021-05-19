@@ -282,7 +282,6 @@ class Niveau1 extends Tableau
                 console.log("interieur");
                 ici.lights.setAmbientColor(0x888888);
             });
-            console.log(eventAmbObject);
         })
 
         //brisables
@@ -312,10 +311,44 @@ class Niveau1 extends Tableau
             {
                 bri.mimiter.startFollow(bri);
                 bri.disableBody(true, true);
-                // bri.mimiter.on = false;
             });
         });
         this.physics.add.collider(this.player, this.brisables);
+
+        //rectangles
+
+        this.rectList = [];
+
+        this.recContainer = this.add.container();
+        this.recObjects = this.map.getObjectLayer('rectangles')['objects'];
+
+        this.recObjects.forEach(recObjects =>
+        {
+            let rec = new Rectangle(
+                ici,
+                recObjects.x,
+                recObjects.y,
+                recObjects.width,
+                recObjects.height,
+                "rect"
+            ).setOrigin(0,0);
+
+            this.recContainer.add(rec);
+            this.rectList.push(rec);
+
+            this.physics.add.overlap(this.player, rec, function()
+            {
+                rec.collision();
+            });
+
+            this.torcheList.forEach(torch =>{
+                if(Phaser.Geom.Rectangle.Overlaps(rec, torch)){
+                    rec.collisionTorche(torch);
+                }
+            })
+
+        });
+
 
         this.initProfondeur();
     }
@@ -402,33 +435,9 @@ class Niveau1 extends Tableau
 
     optimizeDisplay()
     {
-        //return;
-        let world = this.cameras.main.worldView; // le rectangle de la caméra, (les coordonnées de la zone visible)
+        this.rectList.forEach(rec => {
 
-        // on va activer / désactiver les particules de lave
-        for (let particule of this.starsFxContainer.getAll())
-        { // parcours toutes les particules de lave
-            if (Phaser.Geom.Rectangle.Overlaps(world, particule.rectangle))
-            {
-                //si le rectangle de la particule est dans le rectangle de la caméra
-                if (!particule.visible)
-                {
-                    //on active les particules
-                    particule.resume();
-                    particule.visible = true;
-                }
-            }
-            else
-            {
-                //si le rectangle de la particule n'est PAS dans le rectangle de la caméra
-                if (particule.visible)
-                {
-                    //on désactive les particules
-                    particule.pause();
-                    particule.visible = false;
-                }
-            }
-        }
+        });
     }
 
     update()
@@ -451,14 +460,7 @@ class Niveau1 extends Tableau
             this.variaLight(this.torcheList[i].pointLight);
         }
 
-        // let actualPosition=JSON.stringify(this.cameras.main.worldView);
-        // if(
-        //     !this.previousPosition
-        //     || this.previousPosition !== actualPosition
-        // ){
-        //     this.previousPosition=actualPosition;
-        //     this.optimizeDisplay();
-        // }
+        this.optimizeDisplay();
     }
 
 }

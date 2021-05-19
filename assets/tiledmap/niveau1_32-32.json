@@ -60,6 +60,28 @@
         }, 
         {
          "draworder":"topdown",
+         "id":15,
+         "name":"rectangles",
+         "objects":[
+                {
+                 "height":128,
+                 "id":1899,
+                 "name":"rect",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":224,
+                 "x":864,
+                 "y":4896
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":10,
          "name":"planches",
          "objects":[
@@ -2341,6 +2363,18 @@
                  "width":32,
                  "x":35648,
                  "y":5824
+                }, 
+                {
+                 "gid":171,
+                 "height":32,
+                 "id":1901,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":992,
+                 "y":4992
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3569,34 +3603,12 @@
          "visible":true,
          "x":0,
          "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":15,
-         "name":"rectangles",
-         "objects":[
-                {
-                 "height":128,
-                 "id":1899,
-                 "name":"rect",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":224,
-                 "x":896,
-                 "y":4960
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":1901,
+ "nextobjectid":1902,
  "orientation":"orthogonal",
  "renderorder":"left-up",
- "tiledversion":"1.4.3",
+ "tiledversion":"1.4.2",
  "tileheight":32,
  "tilesets":[
         {
