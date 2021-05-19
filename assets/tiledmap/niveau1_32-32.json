@@ -2305,6 +2305,42 @@
                  "width":32,
                  "x":17120,
                  "y":5824
+                }, 
+                {
+                 "gid":171,
+                 "height":32,
+                 "id":1867,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":22688,
+                 "y":1120
+                }, 
+                {
+                 "gid":171,
+                 "height":32,
+                 "id":1873,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":35840,
+                 "y":5824
+                }, 
+                {
+                 "gid":171,
+                 "height":32,
+                 "id":1874,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":35648,
+                 "y":5824
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3262,7 +3298,7 @@
          "objects":[
                 {
                  "height":0,
-                 "id":251,
+                 "id":1892,
                  "name":"Player",
                  "point":true,
                  "rotation":0,
@@ -3509,6 +3545,46 @@
                  "width":0,
                  "x":13120,
                  "y":4928
+                }, 
+                {
+                 "height":0,
+                 "id":1865,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"amb",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":22880,
+                 "y":1120
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":15,
+         "name":"rectangles",
+         "objects":[
+                {
+                 "height":128,
+                 "id":1899,
+                 "name":"rect",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":224,
+                 "x":896,
+                 "y":4960
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3516,8 +3592,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":15,
- "nextobjectid":1865,
+ "nextlayerid":16,
+ "nextobjectid":1901,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.3",

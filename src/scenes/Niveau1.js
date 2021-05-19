@@ -282,6 +282,7 @@ class Niveau1 extends Tableau
                 console.log("interieur");
                 ici.lights.setAmbientColor(0x888888);
             });
+            console.log(eventAmbObject);
         })
 
         //brisables

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="1865">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1901">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -2923,6 +2923,9 @@
   <object id="318" gid="171" x="2272" y="4736" width="32" height="32"/>
   <object id="1234" gid="171" x="17312" y="5824" width="32" height="32"/>
   <object id="1235" gid="171" x="17120" y="5824" width="32" height="32"/>
+  <object id="1867" gid="171" x="22688" y="1120" width="32" height="32"/>
+  <object id="1873" gid="171" x="35840" y="5824" width="32" height="32"/>
+  <object id="1874" gid="171" x="35648" y="5824" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="8" name="event camera">
   <object id="391" x="1760" y="5248">
@@ -3026,7 +3029,7 @@
   <object id="428" gid="169" x="18144" y="3104" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="4" name="point">
-  <object id="251" name="Player" x="800" y="5056">
+  <object id="1892" name="Player" x="800" y="5056">
    <point/>
   </object>
  </objectgroup>
@@ -3105,5 +3108,14 @@
    </properties>
    <point/>
   </object>
+  <object id="1865" x="22880" y="1120">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="15" name="rectangles">
+  <object id="1899" name="rect" x="896" y="4960" width="224" height="128"/>
  </objectgroup>
 </map>
