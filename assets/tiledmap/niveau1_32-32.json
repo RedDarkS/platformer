@@ -66,7 +66,7 @@
                 {
                  "height":1120,
                  "id":1899,
-                 "name":"rect",
+                 "name":"rect1",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -3640,7 +3640,7 @@
  "nextobjectid":1906,
  "orientation":"orthogonal",
  "renderorder":"left-up",
- "tiledversion":"1.4.3",
+ "tiledversion":"1.4.2",
  "tileheight":32,
  "tilesets":[
         {

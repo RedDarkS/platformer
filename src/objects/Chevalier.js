@@ -25,7 +25,7 @@ class Chevalier extends ObjetEnnemi
         // X
         this.originalX=x;
         this.minX=x;
-        this.maxX=x+320;
+        this.maxX=x;
 
         // Y
         this.originalY=y;
@@ -38,9 +38,8 @@ class Chevalier extends ObjetEnnemi
         this.alpha=0;
         let me=this;
 
-        //on fait apparaitre notre objet avec un petit delay, puis on lance l'animation
-        //ceci a pour effet de décaler les animations pour ce même objet
-        scene.tweens.add({
+        scene.tweens.add(
+            {
             targets:this,
             duration:200,
             delay:Math.random()*2000,
@@ -49,20 +48,22 @@ class Chevalier extends ObjetEnnemi
                 from:0,
                 to:1,
             },
-            onComplete: function () {
+            onComplete: function ()
+            {
                 me.start();
             }
         })
 
     }
 
-    start(){
+    start()
+    {
         this.scene.tweens.add({
             targets: this,
             //horizontale
             x: {
                 from: this.minX,
-                to:this.maxX,
+                to: this.maxX,
                 duration: 2500,
                 ease: 'linear',
                 yoyo: -1,

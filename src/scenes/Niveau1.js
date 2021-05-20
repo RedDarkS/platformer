@@ -347,6 +347,7 @@ class Niveau1 extends Tableau
             });
         });
 
+        // this.cameras.main.dirty = true;
 
         this.initProfondeur();
     }
@@ -400,7 +401,6 @@ class Niveau1 extends Tableau
 
         this.platforms.setCollisionByProperty({collides: true});
         this.physics.add.collider(this.player, this.platforms);
-
     }
 
     /**
@@ -451,7 +451,7 @@ class Niveau1 extends Tableau
                     {
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
-
+                            // star.emmiter.on = true;
                         }
                     });
                 }
@@ -468,7 +468,7 @@ class Niveau1 extends Tableau
                     {
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
-
+                            // star.emmiter.on = false;
                         }
                     });
 

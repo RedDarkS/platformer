@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1906">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1906">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -2735,7 +2735,7 @@
 </data>
  </layer>
  <objectgroup id="15" name="rectangles">
-  <object id="1899" name="rect" x="3456" y="4192" width="4608" height="1120"/>
+  <object id="1899" name="rect1" x="3456" y="4192" width="4608" height="1120"/>
   <object id="1902" name="rect2" x="7808" y="1504" width="9504" height="4384"/>
   <object id="1903" name="rect3" x="16896" y="220" width="6016" height="5664"/>
   <object id="1904" name="rect4" x="22912" y="224" width="13056" height="5664"/>
