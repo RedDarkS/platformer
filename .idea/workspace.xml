@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Collectible.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Collectible.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Torche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Torche.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +144,7 @@
       <workItem from="1621410671916" duration="4300000" />
       <workItem from="1621425135702" duration="11837000" />
       <workItem from="1621441761107" duration="3726000" />
-      <workItem from="1621494904703" duration="9100000" />
+      <workItem from="1621494904703" duration="11290000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

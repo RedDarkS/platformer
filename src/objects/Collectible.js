@@ -45,8 +45,8 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
         this._isActive = true;
 
         this.starsFxContainer = scene.add.container();
-        this.starsFxContainer.x = 0;
-        this.starsFxContainer.y = -12;
+        this.starsFxContainer.x = 16;
+        this.starsFxContainer.y = -16;
 
         let particles = scene.add.particles('pixel');
         this.emmiter = particles.createEmitter({
@@ -85,8 +85,8 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
         this.halo.color.g = 144;
         this.halo.color.b = 255;
 
-        // scene.starsFxContainer.add(particles);
-        // scene.starsFxContainer.add(this.halo);
+        scene.starsFxContainer.add(particles);
+        scene.starsFxContainer.add(this.halo);
     }
 
     pick()

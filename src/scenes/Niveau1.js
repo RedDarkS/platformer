@@ -88,6 +88,10 @@ class Niveau1 extends Tableau
 
         this.starList = [];
 
+        this.starsFxContainer = this.add.container();
+        this.starsFxContainer.x = 16;
+        this.starsFxContainer.y = -16;
+
         this.stars = this.physics.add.group({
             allowGravity: false,
             immovable: false,
@@ -151,7 +155,11 @@ class Niveau1 extends Tableau
 
         this.torcheObjects.forEach(torcheObject =>
         {
-            let torche = new Torche(this, torcheObject.x +16, torcheObject.y - 48);
+            let torche = new Torche(
+                this,
+                torcheObject.x +16,
+                torcheObject.y - 48
+            );
 
             this.torchesContainer.add(torche);
             this.torcheList.push(torche);
@@ -205,6 +213,8 @@ class Niveau1 extends Tableau
             {
                 ici.player.setPosition(this.playerPos.x, this.playerPos.y - 64);
             }
+
+            ckp.setVisible(false);
         })
 
         //Les events
@@ -229,6 +239,8 @@ class Niveau1 extends Tableau
             eventC.once(MyEvents.CENTREE, function(){
                 ici.cameras.main.setFollowOffset(0,50);
             });
+
+            eventC.setVisible(false);
         })
 
         //Ambiance
@@ -253,6 +265,8 @@ class Niveau1 extends Tableau
             {
                 ici.lights.setAmbientColor(0x888888);
             });
+
+            eventA.setVisible(false);
         })
 
         //brisables
