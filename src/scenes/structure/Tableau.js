@@ -25,7 +25,7 @@ class Tableau extends Phaser.Scene
         this.load.image('rect', 'assets/skin_rec.png');
 
         //SPRITES ENTITES
-        this.load.spritesheet('player_animes','assets/animes.png', {frameWidth: 567, frameHeight: 338});
+        this.load.spritesheet('player_animes','assets/animes.png', {frameWidth: 400, frameHeight: 345});
 
         this.load.spritesheet('torche', 'assets/torche-sheet.png', {frameHeight : 64, frameWidth : 64});
         this.load.image('Ennemi1', 'assets/ennemi1.png');

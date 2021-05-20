@@ -11,41 +11,41 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setGravityY(700)
         this.setFriction(1,1);
 
-        this.setBodySize(this.body.width - 380,this.body.height -20);
-        this.setOffset(190, 10);
+        this.setBodySize(this.body.width -300,this.body.height-20);
+        this.setOffset(150, 15);
 
-        this.displayWidth = 107 * 1.2;
-        this.displayHeight = 64 * 1.2;
+        this.displayWidth = 107;
+        this.displayHeight = 64 * 1.3;
 
         this.invul = true;
 
         this.anims.create(
             {
             key: 'left',
-            frames: this.anims.generateFrameNumbers('player_animes', { start: 0, end: 19 }),
-            frameRate: 24,
+            frames: this.anims.generateFrameNumbers('player_animes', { start: 0, end: 10 }),
+            frameRate: 12,
             repeat: -1
         });
 
         this.anims.create(
             {
             key: 'right',
-            frames: this.anims.generateFrameNumbers('player_animes', { start: 0, end: 19 }),
-            frameRate: 24,
+            frames: this.anims.generateFrameNumbers('player_animes', { start: 0, end: 10 }),
+            frameRate: 12,
             repeat: -1
         });
         this.anims.create(
             {
                 key: 'turn',
-                frames: this.anims.generateFrameNumbers('player_animes', { start: 20, end: 33 }),
+                frames: this.anims.generateFrameNumbers('player_animes', { start: 11, end: 11 }),
                 frameRate: 12,
                 repeat: -1
         });
         this.anims.create(
             {
                 key: 'escalade',
-                frames: this.anims.generateFrameNumbers('player_animes', { start: 38, end: 40}),
-                frameRate: 1,
+                frames: this.anims.generateFrameNumbers('player_animes', { start: 12, end: 15}),
+                frameRate: 12,
                 repeat: -1
             });
 
@@ -119,7 +119,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
             else if(this.body.blocked.right || this.body.blocked.left)
             {
                 this.setVelocityY(-300);
-                // this.anims.stop();
                 this.anims.play('escalade', true);
 
                 this.emit(MyEvents.GRIMPE);

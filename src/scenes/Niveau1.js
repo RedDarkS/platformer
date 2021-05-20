@@ -42,7 +42,7 @@ class Niveau1 extends Tableau
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
 
-        this.cameras.main.setZoom(0.75);
+        this.cameras.main.setZoom(1);
 
         //ambiance atmosphérique
 
