@@ -73,14 +73,14 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         switch (true)
         {
-            case this._directionX < 0:
+            case this._directionX < 0 && ( !(this.body.blocked.right) || !(this.body.blocked.left)):
                 this.setVelocityX(-400);
                 this.anims.play('right', true);
                 this.setFlipX(true);
                 this.emit(MyEvents.STOP);
                 break;
 
-            case this._directionX > 0:
+            case this._directionX > 0 && ( !(this.body.blocked.right) || !(this.body.blocked.left)):
                 this.setVelocityX(400);
                 this.anims.play('right', true);
                 this.setFlipX(false);
@@ -92,13 +92,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.anims.play('turn', true);
                 this.emit(MyEvents.STOP);
                 break;
-
-            // case (this._directionX > 0 && this._directionY < 0) && (this.body.blocked.right || this.body.blocked.left) :
-            //     this.setVelocityY(-300);
-            //     this.anims.play('escalade', true);
-            //     this.emit(MyEvents.GRIMPE);
-            //     this.emit(MyEvents.STOP);
-            //     break;
 
             default:
                 this.setVelocityX(0);
@@ -115,14 +108,24 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityY(-550);
                 this.emit(MyEvents.SAUTE);
             }
-            else if(this.body.blocked.right || this.body.blocked.left)
-            {
-                this.setVelocityY(-300);
-                // this.anims.play('escalade', true);
+        }
+    }
 
-                this.emit(MyEvents.GRIMPE);
-                this.emit(MyEvents.STOP);
+    escalade()
+    {
+        if(this._directionY < 0)
+        {
+            this.setVelocityY(-300);
+
+            console.log(this.anims.currentAnim.key);
+
+            if(this.anims.currentAnim.key !== 'escalade')
+            {
+                this.anims.play('escalade', true);
             }
+
+            this.emit(MyEvents.GRIMPE);
+            this.emit(MyEvents.STOP);
         }
     }
 

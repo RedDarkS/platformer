@@ -13,6 +13,8 @@ class Niveau1 extends Tableau
         this.load.image('pixel', 'assets/pixel.png');
         this.load.image('planche', 'assets/planche.png');
         this.load.image('brisable', 'assets/brisable.png');
+        this.load.image('priseD', 'assets/prise_droite.png');
+        this.load.image('priseG', 'assets/prise_gauche.png');
 
         this.load.image('tiles', 'assets/tileSheet_32-32.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1_32-32.json');
@@ -28,10 +30,9 @@ class Niveau1 extends Tableau
         //     console.log("saut");
         // });
 
-        this.player.once(MyEvents.GRIMPE, function(){
-            ici.player.anims.stop();
-            ici.player.anims.play('escalade', true)
-        });
+        // this.player.once(MyEvents.GRIMPE, function(){
+        //
+        // });
 
         //on définit la taille du tableau
         let largeurDuTableau = 281 * 64 * 2;
@@ -43,7 +44,7 @@ class Niveau1 extends Tableau
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
 
-        this.cameras.main.setZoom(1);
+        this.cameras.main.setZoom(0.75);
 
         //ambiance atmosphérique
 
@@ -327,7 +328,49 @@ class Niveau1 extends Tableau
             });
         });
 
-        // this.cameras.main.dirty = true;
+        //prise escalade Droite
+
+        this.priseDContainer = this.add.container();
+        this.priseDObject = this.map.getObjectLayer('esc droite')['objects'];
+
+        this.priseDObject.forEach(priseDObject =>
+        {
+            let prise = new PriseEsc(
+                ici,
+                priseDObject.x,
+                priseDObject.y,
+                "priseD"
+            ).setOrigin(0,0);
+
+            this.priseDContainer.add(prise);
+
+            this.physics.add.overlap(this.player, prise, function()
+            {
+                ici.player.escalade();
+            });
+        });
+
+        //prise escalade Gaucge
+
+        this.priseGContainer = this.add.container();
+        this.priseGObject = this.map.getObjectLayer('esc gauche')['objects'];
+
+        this.priseGObject.forEach(priseGObject =>
+        {
+            let prise = new PriseEsc(
+                ici,
+                priseGObject.x,
+                priseGObject.y,
+                "priseG"
+            ).setOrigin(0,0);
+
+            this.priseGContainer.add(prise);
+
+            this.physics.add.overlap(this.player, prise, function()
+            {
+                ici.player.escalade();
+            });
+        });
 
         this.initProfondeur();
     }
@@ -400,6 +443,8 @@ class Niveau1 extends Tableau
         this.platforms.setDepth(z--);
         this.planches.setDepth(z--);
         this.brisables.setDepth(z--);
+        this.priseDContainer.setDepth(z--);
+        this.priseGContainer.setDepth(z--);
 
         this.monstersContainer.setDepth(z--);
 
