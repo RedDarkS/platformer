@@ -51,7 +51,7 @@ class Torche extends Phaser.Physics.Arcade.Sprite
         this.anims.create(
             {
                 key: 'burn',
-                frames: this.anims.generateFrameNumbers('torche', { start: 0, end: 6 }),
+                frames: this.anims.generateFrameNumbers('torche', { start: 0, end: 5 }),
                 frameRate: 10,
                 repeat: -1
             });

@@ -15,17 +15,9 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setOffset(150, 15);
 
         this.displayWidth = 107;
-        this.displayHeight = 64 * 1.3;
+        this.displayHeight = 83;
 
         this.invul = true;
-
-        this.anims.create(
-            {
-            key: 'left',
-            frames: this.anims.generateFrameNumbers('player_animes', { start: 0, end: 10 }),
-            frameRate: 12,
-            repeat: -1
-        });
 
         this.anims.create(
             {
@@ -83,7 +75,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         {
             case this._directionX < 0:
                 this.setVelocityX(-400);
-                this.anims.play('left', true);
+                this.anims.play('right', true);
                 this.setFlipX(true);
                 this.emit(MyEvents.STOP);
                 break;
@@ -100,6 +92,13 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.anims.play('turn', true);
                 this.emit(MyEvents.STOP);
                 break;
+
+            // case (this._directionX > 0 && this._directionY < 0) && (this.body.blocked.right || this.body.blocked.left) :
+            //     this.setVelocityY(-300);
+            //     this.anims.play('escalade', true);
+            //     this.emit(MyEvents.GRIMPE);
+            //     this.emit(MyEvents.STOP);
+            //     break;
 
             default:
                 this.setVelocityX(0);
@@ -119,7 +118,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
             else if(this.body.blocked.right || this.body.blocked.left)
             {
                 this.setVelocityY(-300);
-                this.anims.play('escalade', true);
+                // this.anims.play('escalade', true);
 
                 this.emit(MyEvents.GRIMPE);
                 this.emit(MyEvents.STOP);

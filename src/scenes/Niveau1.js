@@ -28,9 +28,10 @@ class Niveau1 extends Tableau
         //     console.log("saut");
         // });
 
-        // this.player.on(MyEvents.GRIMPE, function(){
-        //     console.log("grimpe");
-        // });
+        this.player.once(MyEvents.GRIMPE, function(){
+            ici.player.anims.stop();
+            ici.player.anims.play('escalade', true)
+        });
 
         //on définit la taille du tableau
         let largeurDuTableau = 281 * 64 * 2;
