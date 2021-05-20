@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
+      <change afterPath="$PROJECT_DIR$/src/objects/Collectible.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Chevalier.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Chevalier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/MonsterFly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/circleMonster.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/cruchMonster.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/testMonstre.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/testMonstre2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/testMonstre3.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +144,7 @@
       <workItem from="1621410671916" duration="4300000" />
       <workItem from="1621425135702" duration="11837000" />
       <workItem from="1621441761107" duration="3726000" />
-      <workItem from="1621494904703" duration="1616000" />
+      <workItem from="1621494904703" duration="4609000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

@@ -95,8 +95,10 @@ class Niveau1 extends Tableau
         });
         this.starsObjects = this.map.getObjectLayer('stars')['objects'];
 
-        this.starsObjects.forEach(starObject => {
-            let star = this.stars.create(
+        this.starsObjects.forEach(starObject =>
+        {
+            let star = new Collectible(
+                ici,
                 starObject.x,
                 starObject.y,
                 'star'
@@ -104,68 +106,30 @@ class Niveau1 extends Tableau
             star.displayWidth = 32;
             star.displayHeight = 40;
 
-            this.starList.push(star);
-        });
-        this.physics.add.overlap(this.stars, this.platforms);
-        this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
-
-        this.starsFxContainer = this.add.container();
-        this.starsFxContainer.x = 16;
-        this.starsFxContainer.y = -16;
-
-        this.stars.children.iterate(function (etoile) {
-            let particles = ici.add.particles("pixel");
-            let emmiter = particles.createEmitter({
-                frequency: 10,
-                lifespan: 1000,
-                quantity: 5,
-                x: {min: -64, max: 64},
-                y: {min: -64, max: 64},
-                tint: [0xFFFF00],
-                rotate: {min: 0, max: 360},
-                scale: {start: 0.1, end: 0.3},
-                alpha: {start: 1, end: 0},
-                blendMode: Phaser.BlendModes.ADD,
-                speed: 30
-            });
-            let flameche = particles.createEmitter({
-                frequency: 100,
-                lifespan: 1200,
-                quantity: 5,
-                gravityX: 0,
-                gravityY: -100,
-                x: { min: -32, max: 32 },
-                y: { min: -32, max: 32 },
-                tint: [  0x191970, 0x000080, 0x4169E1, 0x1E90FF, 0x4682B4 ],
-                rotate: { min:0, max:360 },
-                radial: true,
-                scale: { start: 0.3, end: 0.1 },
-                alpha: { start: 1, end: 0 },
-                blendMode: Phaser.BlendModes.ADD,
-                speed: 20
-            });
-            flameche.startFollow(etoile);
-
-            let halo = ici.add.pointlight(etoile.body.x + 10, etoile.body.y + 10, (30, 144, 255), 50, 0.1, 0.1);
-            halo.color.r = 30;
-            halo.color.g = 144;
-            halo.color.b = 255;
-
-            etoile.once(MyEvents.ACTIVE, function ()
+            this.physics.add.overlap(this.player, star, function()
             {
-                halo.destroy();
-                flameche.on = false;
-                emmiter.startFollow(etoile);
                 setTimeout(function()
                 {
-                    emmiter.on = false;
-                    },300);
+                    star.pick();
+                },20);
             });
 
-            ici.starsFxContainer.add(particles);
-            ici.starsFxContainer.add(halo);
+            star.once(MyEvents.ACTIVE, function()
+            {
+                star.halo.destroy();
+                star.flameche.on = false;
+                star.emmiter.startFollow(star);
+                star.disableBody(true, true);
+                setTimeout(function()
+                {
+                    star.emmiter.on = false;
+                },300);
+            });
 
+            this.starList.push(star);
+            this.stars.add(star);
         });
+        this.physics.add.overlap(this.stars, this.platforms);
 
         //Monstres
 
@@ -187,8 +151,8 @@ class Niveau1 extends Tableau
         this.torcheObjects.forEach(torcheObject =>
         {
             let torche = new Torche(this, torcheObject.x +16, torcheObject.y - 48);
-            this.torchesContainer.add(torche);
 
+            this.torchesContainer.add(torche);
             this.torcheList.push(torche);
         });
 
