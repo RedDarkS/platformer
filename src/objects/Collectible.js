@@ -19,13 +19,13 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
 
         if(value)//la torche est active
         {
-            this.emmiter.on = true;
-            this.halo.boot();
+            this.flameche.on = true;
+            this.halo.setVisible(true);
         }
         else//la torche n'est pas active
         {
-            this.emmiter.on = false;
-            this.halo.shutdown();
+            this.flameche.on = false;
+            this.halo.setVisible(false);
         }
 
         this._isActive = value;
@@ -42,7 +42,7 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
         this.displayHeight = 96;
 
         this.scene = scene;
-        this._isActive = false;
+        this._isActive = true;
 
         this.starsFxContainer = scene.add.container();
         this.starsFxContainer.x = 0;

@@ -21,12 +21,16 @@ class Torche extends Phaser.Physics.Arcade.Sprite
         {
             this.anims.play('burn', true);
             this.emmiter.on = true;
+            // this.pointLight.setVisible(true);
+            // this.pointLight.renderFlags = 15;
             this.pointLight.radius = 150;
         }
         else//la torche n'est pas active
         {
             this.anims.pause();
             this.emmiter.on = false;
+            // this.pointLight.setVisible(false);
+            // this.pointLight.renderFlags = 0;
             this.pointLight.radius = 0;
         }
 
@@ -52,7 +56,7 @@ class Torche extends Phaser.Physics.Arcade.Sprite
                 repeat: -1
             });
 
-        this.pointLight = scene.lights.addLight(x, y-10, 0, (0, 0, 0), 0.5);
+        this.pointLight = scene.lights.addLight(x, y-10, 150, (0, 0, 0), 0.5);
         this.pointLight.color.r = 20;
         this.pointLight.color.g = 16;
         this.pointLight.color.b = 2;

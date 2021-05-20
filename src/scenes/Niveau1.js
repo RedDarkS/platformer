@@ -61,12 +61,12 @@ class Niveau1 extends Tableau
         var part = this.add.particles('player_animes');
 
         var emmiterPlayer = part.createEmitter({
+            frequency: 50,
+            lifespan: 300,
+            quantity: 1,
             angle: { min: -20, max: 10 },
             speed: 2,
-            quantity: 1,
-            lifespan: 300,
-            frequence: 500,
-            scale: { start: 0.2, end: 0.1 },
+            scale: { start: 0.2, end: 0.05 },
             alpha: { start: 0.05, end: 0.00001},
             blendMode: 'ADD',
         });
@@ -123,6 +123,7 @@ class Niveau1 extends Tableau
                 setTimeout(function()
                 {
                     star.emmiter.on = false;
+                    star.destroy();
                 },300);
             });
 
@@ -415,7 +416,7 @@ class Niveau1 extends Tableau
                     {
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
-                            // star.emmiter.on = true;
+                            star.isActive = true;
                         }
                     });
                 }
@@ -432,7 +433,7 @@ class Niveau1 extends Tableau
                     {
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
-                            // star.emmiter.on = false;
+                            star.isActive = false;
                         }
                     });
 
@@ -441,37 +442,6 @@ class Niveau1 extends Tableau
             }
         });
 
-    }
-
-    onlyRenderInCamera()
-    {
-        let world = this.cameras.main.worldView;
-
-        this.torcheList.forEach(torch =>
-        {
-            if (Phaser.Geom.Rectangle.Overlaps(world, torch.getBounds()))
-            {
-                torch.renderable = false;
-                torch.cacheAsBitmap = true;
-            }
-            else
-            {
-                torch.renderable = true;
-            }
-        });
-
-        this.starList.forEach(star =>
-        {
-            if (Phaser.Geom.Rectangle.Overlaps(world, star.getBounds()))
-            {
-                star.renderable = false;
-                star.cacheAsBitmap = true;
-            }
-            else
-            {
-                star.renderable = true;
-            }
-        });
     }
 
     update()
@@ -493,8 +463,6 @@ class Niveau1 extends Tableau
         {
             this.variaLight(this.torcheList[i].pointLight);
         }
-
-        // this.onlyRenderInCamera();
 
         this.optimizeDisplay();
     }
