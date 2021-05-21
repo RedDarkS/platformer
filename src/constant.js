@@ -22,13 +22,22 @@ window.MyEvents = {
     GRIMPE : "grimpe",
 
     /**
-     * Indique que l'on cour
+     * Indique que l'on cour vers la droite
      *
-     * @name MyEvent.COUR
+     * @name MyEvent.COURD
      * @type{String}
      * @const
      */
-    COUR : "cour",
+    COURD : "courd",
+
+    /**
+     * Indique que l'on cour vers la gauche
+     *
+     * @name MyEvent.COURG
+     * @type{String}
+     * @const
+     */
+    COURG : "courg",
 
     /**
      * Indique que l'on cour plus

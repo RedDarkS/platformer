@@ -11,6 +11,9 @@ class Niveau1 extends Tableau
 
         this.load.image('star', 'assets/Coffre.png');
         this.load.image('pixel', 'assets/pixel.png');
+        this.load.image('particD', 'assets/part_course_droite.png');
+        this.load.image('particG', 'assets/part_course_gauche.png');
+
         this.load.image('planche', 'assets/planche.png');
         this.load.image('brisable', 'assets/brisable.png');
         this.load.image('priseD', 'assets/prise_droite.png');
@@ -60,9 +63,9 @@ class Niveau1 extends Tableau
         // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
         this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
-        var part = this.add.particles('player_animes');
+        var part = this.add.particles('particD');
 
-        var emmiterPlayer = part.createEmitter({
+        var emmiterPlayerD = part.createEmitter({
             frequency: 50,
             lifespan: 300,
             quantity: 1,
@@ -73,16 +76,38 @@ class Niveau1 extends Tableau
             blendMode: 'ADD',
         });
 
-        this.player.on(MyEvents.COUR, function(){
-            emmiterPlayer.startFollow(ici.player);
-            emmiterPlayer.setLifespan(300);
-            emmiterPlayer.setAlpha({ start: 0.05, end: 0.00001});
+        var part = this.add.particles('particG');
+
+        var emmiterPlayerG = part.createEmitter({
+            frequency: 50,
+            lifespan: 300,
+            quantity: 1,
+            angle: { min: -20, max: 10 },
+            speed: 2,
+            scale: { start: 0.2, end: 0.05 },
+            alpha: { start: 0.05, end: 0.00001},
+            blendMode: 'ADD',
+        });
+
+        this.player.on(MyEvents.COURD, function(){
+            emmiterPlayerD.startFollow(ici.player);
+            emmiterPlayerD.setLifespan(300);
+            emmiterPlayerD.setAlpha({ start: 0.05, end: 0.00001});
+        });
+
+        this.player.on(MyEvents.COURG, function(){
+            emmiterPlayerG.startFollow(ici.player);
+            emmiterPlayerG.setLifespan(300);
+            emmiterPlayerG.setAlpha({ start: 0.05, end: 0.00001});
         });
 
         this.player.on(MyEvents.STOP, function(){
             setTimeout(function(){
-                emmiterPlayer.setLifespan(0);
-                emmiterPlayer.setAlpha(0);
+                emmiterPlayerD.setLifespan(0);
+                emmiterPlayerD.setAlpha(0);
+
+                emmiterPlayerG.setLifespan(0);
+                emmiterPlayerG.setAlpha(0);
                 },1);
         });
 
@@ -341,7 +366,7 @@ class Niveau1 extends Tableau
         {
             let prise = new PriseEsc(
                 ici,
-                priseDObject.x + 32,
+                priseDObject.x,
                 priseDObject.y - 32,
                 "priseD"
             ).setOrigin(0,0);

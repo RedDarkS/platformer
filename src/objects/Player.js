@@ -11,8 +11,8 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setGravityY(700)
         this.setFriction(1,1);
 
-        this.setBodySize(this.body.width -300,this.body.height-20);
-        this.setOffset(150, 15);
+        this.setBodySize(this.body.width -250,this.body.height-20);
+        this.setOffset(125, 15);
 
         this.displayWidth = 107;
         this.displayHeight = 83;
@@ -73,27 +73,37 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         switch (true)
         {
-            case this._directionX < 0 && ( !(this.body.blocked.right) || !(this.body.blocked.left)):
+            case this._directionX < 0 && !(this.body.blocked.left) : // va vers la gauche et n'est pas bloqué à gauche
                 this.setVelocityX(-400);
-                this.anims.play('right', true);
+
+                if(this.anims.currentAnim.key !== 'escalade')
+                {
+                    this.anims.play('right', true);
+                }
+
                 this.setFlipX(true);
-                this.emit(MyEvents.STOP);
+                this.emit(MyEvents.COURG);
                 break;
 
-            case this._directionX > 0 && ( !(this.body.blocked.right) || !(this.body.blocked.left)):
+            case this._directionX > 0 && !(this.body.blocked.right) : // va vers la droite et n'est pas bloqué à droite
                 this.setVelocityX(400);
-                this.anims.play('right', true);
+
+                if(this.anims.currentAnim.key !== 'escalade')
+                {
+                    this.anims.play('right', true);
+                }
+
                 this.setFlipX(false);
-                this.emit(MyEvents.COUR);
+                this.emit(MyEvents.COURD);
                 break;
 
-            case this._directionX > 0 && this._directionY > 0 :
+            case this._directionX > 0 && this._directionY > 0 : // va vers en bas à droite
                 this.setVelocityY(-550);
                 this.anims.play('turn', true);
                 this.emit(MyEvents.STOP);
                 break;
 
-            case this._directionX === 0 && this._directionY === 0 :
+            case this._directionX === 0 && this._directionY === 0 : // ne bouge pas
                 this.setVelocityX(0);
                 this.anims.play('turn', true);
                 this.emit(MyEvents.STOP);
@@ -123,7 +133,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         {
             this.setVelocityY(-300);
 
-            console.log(this.anims.currentAnim.key);
+            // console.log(this.anims.currentAnim.key);
 
             if(this.anims.currentAnim.key !== 'escalade')
             {
