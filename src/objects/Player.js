@@ -96,7 +96,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
                 this.anims.play('right', true);
 
-
                 this.setFlipX(true);
                 this.emit(MyEvents.COURG);
                 break;
@@ -139,22 +138,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
             }
         }
     }
-
-    // escalade()
-    // {
-    //     if(this._directionY < 0)
-    //     {
-    //         this.setVelocityY(-300);
-    //
-    //         if(this.anims.currentAnim.key !== 'escalade')
-    //         {
-    //             this.anims.play('escalade', true);
-    //         }
-    //
-    //         this.emit(MyEvents.GRIMPE);
-    //         this.emit(MyEvents.STOP);
-    //     }
-    // }
 
     roulade()
     {

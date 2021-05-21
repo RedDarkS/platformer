@@ -247,7 +247,7 @@ class Niveau1 extends Tableau
                 ici.player.setPosition(this.playerPos.x, this.playerPos.y - 64);
             }
 
-            ckp.setVisible(false);
+            // ckp.setVisible(false);
         })
 
         //Les events
