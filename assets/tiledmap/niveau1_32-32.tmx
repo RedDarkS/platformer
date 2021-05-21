@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="2269">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="2343">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -3295,6 +3295,20 @@
   <object id="1867" gid="171" x="22688" y="1120" width="32" height="32"/>
   <object id="1873" gid="171" x="35840" y="5824" width="32" height="32"/>
   <object id="1874" gid="171" x="35648" y="5824" width="32" height="32"/>
+  <object id="2277" gid="171" x="29184" y="4960" width="32" height="32"/>
+  <object id="2278" gid="171" x="30048" y="4960" width="32" height="32"/>
+  <object id="2279" gid="171" x="30912" y="4960" width="32" height="32"/>
+  <object id="2289" gid="171" x="31776" y="4960" width="32" height="32"/>
+  <object id="2318" gid="171" x="19712" y="3136" width="32" height="32"/>
+  <object id="2319" gid="171" x="17984" y="3136" width="32" height="32"/>
+  <object id="2320" gid="171" x="17632" y="3200" width="32" height="32"/>
+  <object id="2321" gid="171" x="17568" y="4480" width="32" height="32"/>
+  <object id="2322" gid="171" x="17088" y="4352" width="32" height="32"/>
+  <object id="2323" gid="171" x="20128" y="3232" width="32" height="32"/>
+  <object id="2325" gid="171" x="20704" y="4480" width="32" height="32"/>
+  <object id="2340" gid="171" x="20192" y="4480" width="32" height="32"/>
+  <object id="2341" gid="171" x="19424" y="4480" width="32" height="32"/>
+  <object id="2342" gid="171" x="18304" y="4480" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="8" name="event camera">
   <object id="391" x="1760" y="5248">
@@ -3453,33 +3467,273 @@
    </properties>
    <point/>
   </object>
-  <object id="1194" name="ext" x="384" y="5184">
-   <properties>
-    <property name="amb" type="int" value="1"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="1195" name="int" x="1216" y="5184">
-   <properties>
-    <property name="amb" type="int" value="0"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="1210" x="17280" y="4224">
-   <properties>
-    <property name="amb" type="int" value="0"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="1221" x="13120" y="4928">
-   <properties>
-    <property name="amb" type="int" value="1"/>
-   </properties>
-   <point/>
-  </object>
   <object id="1865" x="22880" y="1120">
    <properties>
     <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2271" name="ext" x="10720" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2272" name="int" x="10240" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2273" name="ext" x="13440" y="4928">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2274" name="int" x="13056" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2275" name="ext" x="29408" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2276" name="int" x="28960" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2283" name="ext" x="30272" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2284" name="int" x="29824" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2285" name="ext" x="31136" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2286" name="int" x="30688" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2287" name="ext" x="32000" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2288" name="int" x="31552" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2290" name="int" x="32032" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2291" name="ext" x="31520" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2292" name="int" x="31168" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2293" name="ext" x="30656" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2294" name="int" x="30304" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2295" name="ext" x="29792" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2296" name="int" x="29440" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2297" name="ext" x="28928" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2298" name="int" x="7840" y="4544">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2299" name="int" x="22816" y="1088">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2301" name="ext" x="17248" y="4256">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2302" name="ext" x="10208" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2303" name="int" x="10688" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2304" name="ext" x="13024" y="4960">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2305" name="int" x="13408" y="4960">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2306" name="ext" x="14528" y="5824">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2307" name="int" x="14496" y="5824">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2308" name="ext" x="12992" y="5824">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2309" name="int" x="13024" y="5824">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2311" name="int" x="17280" y="4224">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2312" name="ext" x="17824" y="3136">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2313" name="int" x="17856" y="3136">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2314" name="ext" x="17536" y="3328">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2316" name="ext" x="19904" y="3136">
+   <properties>
+    <property name="amb" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2317" name="int" x="19872" y="3136">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2327" name="int" x="20480" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2329" name="int" x="20448" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2331" name="int" x="20512" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2333" name="int" x="20544" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2335" name="int" x="20576" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2337" name="int" x="20608" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2339" name="int" x="20640" y="4512">
+   <properties>
+    <property name="amb" type="int" value="0"/>
    </properties>
    <point/>
   </object>

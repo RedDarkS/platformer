@@ -76,9 +76,9 @@ class Niveau1 extends Tableau
             blendMode: 'ADD',
         });
 
-        var part = this.add.particles('particG');
+        var part2 = this.add.particles('particG');
 
-        var emmiterPlayerG = part.createEmitter({
+        var emmiterPlayerG = part2.createEmitter({
             frequency: 50,
             lifespan: 300,
             quantity: 1,
@@ -93,12 +93,16 @@ class Niveau1 extends Tableau
             emmiterPlayerD.startFollow(ici.player);
             emmiterPlayerD.setLifespan(300);
             emmiterPlayerD.setAlpha({ start: 0.05, end: 0.00001});
+
+            ici.player.isEsc = false;
         });
 
         this.player.on(MyEvents.COURG, function(){
             emmiterPlayerG.startFollow(ici.player);
             emmiterPlayerG.setLifespan(300);
             emmiterPlayerG.setAlpha({ start: 0.05, end: 0.00001});
+
+            ici.player.isEsc = false;
         });
 
         this.player.on(MyEvents.STOP, function(){
@@ -108,6 +112,8 @@ class Niveau1 extends Tableau
 
                 emmiterPlayerG.setLifespan(0);
                 emmiterPlayerG.setAlpha(0);
+
+                ici.player.isEsc = false;
                 },1);
         });
 
@@ -375,11 +381,11 @@ class Niveau1 extends Tableau
 
             this.physics.add.overlap(this.player, prise, function()
             {
-                ici.player.escalade();
+                ici.player.isEsc = true;
             });
         });
 
-        //prise escalade Gaucge
+        //prise escalade Gauche
 
         this.priseGContainer = this.physics.add.group({
             allowGravity: false,
@@ -401,7 +407,7 @@ class Niveau1 extends Tableau
 
             this.physics.add.overlap(this.player, prise, function()
             {
-                ici.player.escalade();
+                ici.player.isEsc = true;
             });
         });
 

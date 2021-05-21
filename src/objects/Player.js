@@ -1,5 +1,13 @@
 class Player extends Phaser.Physics.Arcade.Sprite
 {
+    get isEsc() {
+        return this._isEsc;
+    }
+
+    set isEsc(value) {
+        this._isEsc = value;
+    }
+
     constructor(scene, x, y) 
     {
         super(scene, x, y, "player_animes")
@@ -18,6 +26,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.displayHeight = 83;
 
         this.invul = true;
+        this._isEsc = false;
 
         this.anims.create(
             {
@@ -73,25 +82,29 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         switch (true)
         {
-            case this._directionX < 0 && !(this.body.blocked.left) : // va vers la gauche et n'est pas bloqué à gauche
+
+            case this._directionY < 0 && this.isEsc :
+                this.setVelocityY(-300);
+                this.anims.play('escalade', true);
+
+                this.emit(MyEvents.GRIMPE);
+                this.emit(MyEvents.STOP);
+            break;
+
+            case this._directionX < 0 : // va vers la gauche et n'est pas bloqué à gauche
                 this.setVelocityX(-400);
 
-                if(this.anims.currentAnim.key !== 'escalade')
-                {
-                    this.anims.play('right', true);
-                }
+                this.anims.play('right', true);
+
 
                 this.setFlipX(true);
                 this.emit(MyEvents.COURG);
                 break;
 
-            case this._directionX > 0 && !(this.body.blocked.right) : // va vers la droite et n'est pas bloqué à droite
+            case this._directionX > 0 : // va vers la droite et n'est pas bloqué à droite
                 this.setVelocityX(400);
 
-                if(this.anims.currentAnim.key !== 'escalade')
-                {
-                    this.anims.play('right', true);
-                }
+                this.anims.play('right', true);
 
                 this.setFlipX(false);
                 this.emit(MyEvents.COURD);
@@ -111,7 +124,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
             default:
                 this.setVelocityX(0);
-                // this.anims.play('turn', true);
+                this.anims.play('turn', true);
                 this.emit(MyEvents.STOP);
         }
 
@@ -127,23 +140,21 @@ class Player extends Phaser.Physics.Arcade.Sprite
         }
     }
 
-    escalade()
-    {
-        if(this._directionY < 0)
-        {
-            this.setVelocityY(-300);
-
-            // console.log(this.anims.currentAnim.key);
-
-            if(this.anims.currentAnim.key !== 'escalade')
-            {
-                this.anims.play('escalade', true);
-            }
-
-            this.emit(MyEvents.GRIMPE);
-            this.emit(MyEvents.STOP);
-        }
-    }
+    // escalade()
+    // {
+    //     if(this._directionY < 0)
+    //     {
+    //         this.setVelocityY(-300);
+    //
+    //         if(this.anims.currentAnim.key !== 'escalade')
+    //         {
+    //             this.anims.play('escalade', true);
+    //         }
+    //
+    //         this.emit(MyEvents.GRIMPE);
+    //         this.emit(MyEvents.STOP);
+    //     }
+    // }
 
     roulade()
     {
