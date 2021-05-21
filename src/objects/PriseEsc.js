@@ -8,8 +8,11 @@ class PriseEsc extends Phaser.Physics.Arcade.Sprite
 
         scene.physics.add.existing(this);
 
-        this.displayWidth = 32;
-        this.displayHeight = 12;
+        this.setBodySize(this.body.width + 10,this.body.height);
+        this.setOffset(-10, 0);
+
+        this.displayWidth = 5;
+        this.displayHeight = 32;
 
         this.scene = scene;
         this.ici = this;

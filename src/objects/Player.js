@@ -37,7 +37,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
             {
                 key: 'escalade',
                 frames: this.anims.generateFrameNumbers('player_animes', { start: 12, end: 15}),
-                frameRate: 12,
+                frameRate: 6,
                 repeat: -1
             });
 
@@ -93,9 +93,15 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.emit(MyEvents.STOP);
                 break;
 
-            default:
+            case this._directionX === 0 && this._directionY === 0 :
                 this.setVelocityX(0);
                 this.anims.play('turn', true);
+                this.emit(MyEvents.STOP);
+                break;
+
+            default:
+                this.setVelocityX(0);
+                // this.anims.play('turn', true);
                 this.emit(MyEvents.STOP);
         }
 

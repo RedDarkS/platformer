@@ -330,15 +330,19 @@ class Niveau1 extends Tableau
 
         //prise escalade Droite
 
-        this.priseDContainer = this.add.container();
+        this.priseDContainer = this.physics.add.group({
+            allowGravity: false,
+            immovable: true,
+            bounceY: 0
+        });
         this.priseDObject = this.map.getObjectLayer('esc droite')['objects'];
 
         this.priseDObject.forEach(priseDObject =>
         {
             let prise = new PriseEsc(
                 ici,
-                priseDObject.x,
-                priseDObject.y,
+                priseDObject.x + 32,
+                priseDObject.y - 32,
                 "priseD"
             ).setOrigin(0,0);
 
@@ -352,15 +356,19 @@ class Niveau1 extends Tableau
 
         //prise escalade Gaucge
 
-        this.priseGContainer = this.add.container();
+        this.priseGContainer = this.physics.add.group({
+            allowGravity: false,
+            immovable: true,
+            bounceY: 0
+        });
         this.priseGObject = this.map.getObjectLayer('esc gauche')['objects'];
 
         this.priseGObject.forEach(priseGObject =>
         {
             let prise = new PriseEsc(
                 ici,
-                priseGObject.x,
-                priseGObject.y,
+                priseGObject.x + 32,
+                priseGObject.y - 32,
                 "priseG"
             ).setOrigin(0,0);
 
@@ -440,11 +448,12 @@ class Niveau1 extends Tableau
 
         this.player.setDepth(z--);
 
-        this.platforms.setDepth(z--);
-        this.planches.setDepth(z--);
-        this.brisables.setDepth(z--);
         this.priseDContainer.setDepth(z--);
         this.priseGContainer.setDepth(z--);
+
+        this.planches.setDepth(z--);
+        this.brisables.setDepth(z--);
+        this.platforms.setDepth(z--);
 
         this.monstersContainer.setDepth(z--);
 
