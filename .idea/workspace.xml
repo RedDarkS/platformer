@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre" />
+    <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
+      <change afterPath="$PROJECT_DIR$/assets/son/arrow-shot-trough-air.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/coin.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/cri-aigle-royal.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/fairy-arcade-sparkle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/fast-creaking-floorboard.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/fire-magic.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/fire-spell.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/game-complete.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/human-fighter-pain-scream.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/item-collect.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/metal-arrow-hit.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/player-jumping.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/player-losing-or-failing.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/player-recharging.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/sf_feu_cheminee.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/simple-game-countdown.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/son/sword-blade-attack.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/objects/Archer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +168,9 @@
       <workItem from="1621494904703" duration="11290000" />
       <workItem from="1621509600060" duration="12586000" />
       <workItem from="1621580906914" duration="9374000" />
-      <workItem from="1621684594503" duration="364000" />
+      <workItem from="1621684594503" duration="963000" />
+      <workItem from="1621777726638" duration="2246000" />
+      <workItem from="1621846991548" duration="4336000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

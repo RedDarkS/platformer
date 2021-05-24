@@ -30,12 +30,23 @@ class Niveau1 extends Tableau
         let ici = this;
 
         // this.player.on(MyEvents.SAUTE, function(){
-        //     console.log("saut");
+        //     ici.jump.play();
         // });
 
         // this.player.once(MyEvents.GRIMPE, function(){
         //
         // });
+
+        this.player.once(MyEvents.AIGLE, function()
+        {
+            ici.aigle.play(ici.aigleConfig);
+
+            setTimeout(function()
+            {
+                ici.mort.play();
+            }, 500)
+
+        });
 
         //on définit la taille du tableau
         let largeurDuTableau = 281 * 64 * 2;
@@ -563,6 +574,27 @@ class Niveau1 extends Tableau
         {
             this.variaLight(this.torcheList[i].pointLight);
         }
+
+        if(this.player.x > 22912)//&& this.player.y > 1152
+        {
+            this.player.emit(MyEvents.AIGLE);
+        }
+
+        this.torcheList.forEach(torch =>
+        {
+            if (this.player.x < torch.x + 150 && this.player.x > torch.x - 150)
+            {
+                console.log("fire !");
+                if(!this.feu.isPlaying)
+                {
+                    this.feu.play();
+                }
+            }
+            else
+            {
+                this.feu.stop();
+            }
+        });
 
         this.optimizeDisplay();
     }

@@ -35,6 +35,9 @@ class Tableau extends Phaser.Scene
         //TODO import et gestion des sons
 
         this.load.audio('mort', 'assets/son/mort.wav');
+        this.load.audio('aigle', 'assets/son/cri-aigle-royal.wav');
+        this.load.audio('feu', 'assets/son/sf_feu_cheminee.mp3');
+
     }
 
     create()
@@ -49,19 +52,20 @@ class Tableau extends Phaser.Scene
         //set up musique
 
         this.mort = this.sound.add('mort');
-        // this.reveBleu = this.sound.add('reve_bleu');
-        //
-        // var musicConfig = {
-        //     mute : false,
-        //     volume : 1,
-        //     rate : 1,
-        //     detune : 0,
-        //     seek : 0,
-        //     loop : true,
-        //     delay : 0
-        // }
-        //
-        // this.reveBleu.play(musicConfig);
+        this.aigle = this.sound.add('aigle');
+        this.feu = this.sound.add('feu');
+
+        this.aigleConfig = {
+            mute : false,
+            volume : 0.5,
+            rate : 1,
+            detune : 0,
+            seek : 0,
+            loop : false,
+            delay : 0
+        }
+
+
         
         /**
          * Le ciel en fond
@@ -202,7 +206,7 @@ class Tableau extends Phaser.Scene
                     //le joueur est mort
                     if(!me.player.isDead)
                     {
-                        this.mort.play();
+                        // this.mort.play();
 
                         me.player.isDead=true;
                         me.player.visible=false;

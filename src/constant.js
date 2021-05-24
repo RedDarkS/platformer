@@ -88,6 +88,8 @@ window.MyEvents = {
      */
     EXCENTREE : "excentree",
 
+    //Ambient light
+
     /**
      * Indique que l'on est dedans
      *
@@ -105,4 +107,15 @@ window.MyEvents = {
      * @const
      */
     EXTERIEUR : "exterieur",
+
+    //son
+
+    /**
+     * Indique que l'on est dehors
+     *
+     * @name MyEvent.AIGLE
+     * @type {String}
+     * @const
+     */
+    AIGLE : "aigle",
 }

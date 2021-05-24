@@ -22,8 +22,8 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.setBodySize(this.body.width -250,this.body.height-20);
         this.setOffset(125, 15);
 
-        this.displayWidth = 107;
-        this.displayHeight = 83;
+        this.displayWidth = 100;
+        this.displayHeight = 80;
 
         this.invul = true;
         this._isEsc = false;
