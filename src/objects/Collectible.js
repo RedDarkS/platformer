@@ -72,7 +72,7 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
         });
         this.flameche = particles.createEmitter({
             frequency: 100,
-            lifespan: 1200,
+            lifespan: Phaser.Math.Between(900,1200),
             quantity: 5,
             gravityX: 0,
             gravityY: -100,
