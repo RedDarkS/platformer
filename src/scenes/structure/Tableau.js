@@ -29,6 +29,7 @@ class Tableau extends Phaser.Scene
 
         this.load.spritesheet('torche', 'assets/torche-sheet.png', {frameHeight : 64, frameWidth : 64});
         this.load.image('Ennemi1', 'assets/ennemi1.png');
+        this.load.image('pic', 'assets/pic.png');
 
         //des petits sons pour le lol
 
@@ -164,17 +165,12 @@ class Tableau extends Phaser.Scene
     //     // }
     // }
 
-    /**
-     * Aïeee ça fait mal
-     * @param player
-     * @param spike
-     */
-    hitSpike (player, spike)
+    hitSat (player, sat)
     {
-        this.physics.pause();
-        player.setTint(0xff0000);
-        player.anims.play('turn');
-        this.scene.restart();
+        // this.physics.pause();
+        Tableau.current.cameras.main.fadeOut(2000,0,0,0);
+        Tableau.current.player.setTint(0xff0000);
+        Tableau.current.scene.restart()
     }
 
     /**
@@ -186,51 +182,47 @@ class Tableau extends Phaser.Scene
     hitMonster(player, monster)
     {
         let me=this;
-        // console.log(me.player.invul);
-
-        if(me.player.invul === true)
+        if(me.player.invul !== true)
         {
-            if(monster.isDead !== true){ //si notre monstre n'est pas déjà mort
-                if(
+            if (monster.isDead !== true) { //si notre monstre n'est pas déjà mort
+                if (
                     // si le player descend
                     player.body.velocity.y > 0
                     // et si le bas du player est plus haut que le monstre
-                    && player.getBounds().bottom < monster.getBounds().top+30
-                )
-                {
-                    ui.gagne(1);
+                    && player.getBounds().bottom < monster.getBounds().top + 30
+                ) {
+                    ui.gagne();
 
                     me.mortEnnemy.play(me.aigleConfig);
 
-                    monster.isDead=true; //ok le monstre est mort
-                    monster.visible=false;
-                    this.saigne(monster,function()
-                    {
+                    monster.isDead = true; //ok le monstre est mort
+                    monster.disableBody(true, true);//plus de collisions
+                    this.saigne(monster, function () {
                         //à la fin de la petite anim...ben il se passe rien :)
                     })
-                    //notre joueur rebondit sur le monstre
-                    player.directionY=500;
-                }
-                else
-                {
+                } else {
                     //le joueur est mort
-                    if(!me.player.isDead)
-                    {
-                        // this.mort.play();
-
-                        me.player.isDead=true;
-                        me.player.visible=false;
-                        //ça saigne...
-                        me.saigne(me.player,function() {
-                            //à la fin de la petite anim, on relance le jeu
-                            me.blood.visible=false;
-                            me.player.anims.play('turn');
-                            me.player.isDead=false;
-                            me.scene.restart();
-                        })
-                    }
+                    me.playerDie();
                 }
             }
+        }
+    }
+
+    playerDie()
+    {
+        let me=this;
+        if(me.player.isDead === false)
+        {
+            me.player.isDead = true;
+            me.player.visible = false;
+            //ça saigne...
+            me.saigne(me.player, function () {
+                //à la fin de la petite anim, on relance le jeu
+                me.blood.visible = false;
+                me.player.anims.play('turn');
+                me.player.isDead = false;
+                me.scene.restart();
+            })
         }
     }
 

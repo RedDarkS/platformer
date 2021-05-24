@@ -181,15 +181,32 @@ class Niveau1 extends Tableau
         });
         this.physics.add.overlap(this.stars, this.platforms);
 
-        //Monstres
+        //Chevaliers
 
         this.monstersContainer = this.add.container();
-        this.MonstersObjects = this.map.getObjectLayer('mob')['objects'];
+        this.MonstersObjects = this.map.getObjectLayer('chevalier')['objects'];
 
         this.MonstersObjects.forEach(monsterObject =>
         {
             let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
             this.monstersContainer.add(monster);
+        });
+
+        //Pic
+
+        this.picContainer = this.add.container();
+        this.picObjects = this.map.getObjectLayer('pic')['objects'];
+
+        this.picObjects.forEach(picObjects =>
+        {
+            let pic = new Pic(
+                this,
+                picObjects.x,
+                picObjects.y
+            );
+            this.picContainer.add(pic);
+
+            this.physics.add.overlap(this.player, pic, this.hitSat);
         });
 
         //Torches

@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
-      <change afterPath="$PROJECT_DIR$/assets/son/wood-plank-break.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/objects/Pic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/son/fire-magic.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/son/fire-spell.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tileSheet_32-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tileSheet_32-32.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
@@ -153,7 +154,7 @@
       <workItem from="1621580906914" duration="9374000" />
       <workItem from="1621684594503" duration="963000" />
       <workItem from="1621777726638" duration="2246000" />
-      <workItem from="1621846991548" duration="6462000" />
+      <workItem from="1621846991548" duration="10156000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

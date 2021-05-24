@@ -25,7 +25,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.displayWidth = 100;
         this.displayHeight = 80;
 
-        this.invul = true;
+        this.invul = false;
         this._isEsc = false;
 
         this.anims.create(
@@ -143,12 +143,12 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         setTimeout(function(){
             console.log("no body");
-            this.invul = false;
+            this.invul = true;
         },1);
 
         setTimeout(function(){
             console.log("body");
-            this.invul = true;
+            this.invul = false;
         },1000);
 
         /*
