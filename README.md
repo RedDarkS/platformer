@@ -15,7 +15,6 @@ A Faire / Finir :
 
 - Menu du jeu.
 - Conditions de victoire.
-- Score : affichage + équilibrage.
 - Sons.
 - Event durant le niveau.
 - Faire et intégrer le décor.
