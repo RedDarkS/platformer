@@ -50,6 +50,7 @@
 
                 case "r":
                     Tableau.current.recharger();
+                    Tableau.current.recharging.play(Tableau.current.aigleConfig);
                     break;
             }
         });

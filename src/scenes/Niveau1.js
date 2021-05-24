@@ -159,6 +159,7 @@ class Niveau1 extends Tableau
                 setTimeout(function()
                 {
                     star.pick();
+                    ici.collect.play(ici.aigleConfig);
                 },20);
             });
 
@@ -227,8 +228,14 @@ class Niveau1 extends Tableau
             ).setOrigin(0, 1);
             this.planches.add(planche);
 
-            this.physics.add.overlap(this.player, planche, function() {
-                setTimeout(function(){
+            this.physics.add.overlap(this.player, planche, function()
+            {
+                if(ici.planche.isPlaying !== true)
+                {
+                    ici.planche.play();
+                }
+                setTimeout(function()
+                {
                         planche.fall();
                     },500);
             });
@@ -333,6 +340,10 @@ class Niveau1 extends Tableau
 
             this.physics.add.overlap(this.player, bri, function()
             {
+                if(ici.brisable.isPlaying !== true)
+                {
+                    ici.brisable.play();
+                }
                 bri.break();
             });
 
@@ -579,22 +590,6 @@ class Niveau1 extends Tableau
         {
             this.player.emit(MyEvents.AIGLE);
         }
-
-        this.torcheList.forEach(torch =>
-        {
-            if (this.player.x < torch.x + 150 && this.player.x > torch.x - 150)
-            {
-                console.log("fire !");
-                if(!this.feu.isPlaying)
-                {
-                    this.feu.play();
-                }
-            }
-            else
-            {
-                this.feu.stop();
-            }
-        });
 
         this.optimizeDisplay();
     }

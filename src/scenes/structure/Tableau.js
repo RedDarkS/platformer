@@ -37,7 +37,11 @@ class Tableau extends Phaser.Scene
         this.load.audio('mort', 'assets/son/mort.wav');
         this.load.audio('aigle', 'assets/son/cri-aigle-royal.wav');
         this.load.audio('feu', 'assets/son/sf_feu_cheminee.mp3');
-
+        this.load.audio('collect', 'assets/son/fairy-arcade-sparkle.wav');
+        this.load.audio('mortEnnemy', 'assets/son/human-fighter-pain-scream.wav');
+        this.load.audio('planche', 'assets/son/fast-creaking-floorboard.wav');
+        this.load.audio('brisable', 'assets/son/wood-plank-break.wav');
+        this.load.audio('recharging', 'assets/son/player-recharging.wav');
     }
 
     create()
@@ -53,7 +57,11 @@ class Tableau extends Phaser.Scene
 
         this.mort = this.sound.add('mort');
         this.aigle = this.sound.add('aigle');
-        this.feu = this.sound.add('feu');
+        this.mortEnnemy = this.sound.add('mortEnnemy');
+        this.collect = this.sound.add('collect');
+        this.planche = this.sound.add('planche');
+        this.brisable = this.sound.add('brisable');
+        this.recharging = this.sound.add('recharging');
 
         this.aigleConfig = {
             mute : false,
@@ -188,10 +196,12 @@ class Tableau extends Phaser.Scene
                     player.body.velocity.y > 0
                     // et si le bas du player est plus haut que le monstre
                     && player.getBounds().bottom < monster.getBounds().top+30
-
                 )
                 {
                     ui.gagne(1);
+
+                    me.mortEnnemy.play(me.aigleConfig);
+
                     monster.isDead=true; //ok le monstre est mort
                     monster.visible=false;
                     this.saigne(monster,function()
