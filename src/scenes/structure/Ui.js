@@ -13,7 +13,7 @@ class Ui extends Phaser.Scene
 
     create ()
     {
-        console.log("create Ui")
+        // console.log("create Ui")
 
         this.completion=0;
         /**

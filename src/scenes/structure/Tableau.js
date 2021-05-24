@@ -52,7 +52,7 @@ class Tableau extends Phaser.Scene
         this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
 
         this.sys.scene.scale.lockOrientation("landscape")
-        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
+        // console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
 
         //set up musique
 
@@ -165,7 +165,7 @@ class Tableau extends Phaser.Scene
     //     // }
     // }
 
-    hitSat (player, sat)
+    hitPic (player, sat)
     {
         // this.physics.pause();
         Tableau.current.cameras.main.fadeOut(2000,0,0,0);

@@ -1,5 +1,33 @@
 class Brisable extends Phaser.Physics.Arcade.Sprite
 {
+    get isActive()
+    {
+        return this._isActive;
+    }
+
+    set isActive(value)
+    {
+        if(value === this._isActive)//la valeur n'a pas changé donc on ne fait rien
+        {
+            return;
+        }
+
+        if(value)
+        {
+            if(this.body.enable)
+            {
+                this.mimiter.setVisible(true);
+            }
+        }
+        else
+        {
+            this.mimiter.pause();
+            this.mimiter.setVisible(false);
+        }
+
+        this._isActive = value;
+    }
+
     constructor(scene, x, y, image)
     {
         super(scene, x, y, image);
@@ -12,12 +40,13 @@ class Brisable extends Phaser.Physics.Arcade.Sprite
         this.displayHeight = 190;
 
         this.scene = scene;
+        this._isActive = false;
 
         scene.starsFxContainer = scene.add.container();
         scene.starsFxContainer.x = 0;
         scene.starsFxContainer.y = -12;
 
-        let emmit = new Phaser.Geom.Rectangle(x + 50, y - 120, 1, 190);
+        let emmit = new Phaser.Geom.Rectangle(x + 50, y - 120, 5, 190);
 
         let parti = scene.add.particles("pixel");
         this.mimiter = parti.createEmitter({
@@ -38,11 +67,15 @@ class Brisable extends Phaser.Physics.Arcade.Sprite
         });
 
         this.mimiter.startFollow(this);
+        // this.mimiter.pause();
+
         scene.starsFxContainer.add(parti);
     }
 
     break()
     {
+        this.mimiter.resume();
+        this.mimiter.setVisible(true);
         this.emit(MyEvents.BREAK);
     }
 

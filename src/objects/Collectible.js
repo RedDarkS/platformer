@@ -17,14 +17,22 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
             return;
         }
 
-        if(value)//la torche est active
+        if(value)//la flamme est active
         {
-            this.flameche.on = true;
+            if(this.body.enable)
+            {
+                this.emmiter.setVisible(true);
+            }
+            this.flameche.resume();
+            this.flameche.setVisible(true);
             this.halo.setVisible(true);
         }
-        else//la torche n'est pas active
+        else//la flamme n'est pas active
         {
-            this.flameche.on = false;
+            this.emmiter.pause();
+            this.emmiter.setVisible(false);
+            this.flameche.pause();
+            this.flameche.setVisible(false);
             this.halo.setVisible(false);
         }
 
@@ -38,8 +46,8 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
 
         scene.physics.add.existing(this);
 
-        this.displayWidth = 72;
-        this.displayHeight = 96;
+        this.displayWidth = 32;
+        this.displayHeight = 40;
 
         this.scene = scene;
         this._isActive = true;
@@ -78,7 +86,11 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
             blendMode: Phaser.BlendModes.ADD,
             speed: 20
         });
+
         this.flameche.startFollow(this);
+        this.emmiter.startFollow(this);
+
+        this.emmiter.pause();
 
         this.halo = scene.add.pointlight(this.x, this.y, (30, 144, 255), 50, 0.1, 0.1);
         this.halo.color.r = 30;
@@ -91,6 +103,7 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
 
     pick()
     {
+        this.emmiter.resume();
         this.emit(MyEvents.ACTIVE);
     }
 }

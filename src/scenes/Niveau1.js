@@ -151,8 +151,6 @@ class Niveau1 extends Tableau
                 starObject.y,
                 'star'
             ).setOrigin(0, 1);
-            star.displayWidth = 32;
-            star.displayHeight = 40;
 
             this.physics.add.overlap(this.player, star, function()
             {
@@ -167,12 +165,10 @@ class Niveau1 extends Tableau
             {
                 star.halo.destroy();
                 star.flameche.on = false;
-                star.emmiter.startFollow(star);
                 star.disableBody(true, true);
                 setTimeout(function()
                 {
                     star.emmiter.on = false;
-                    star.destroy();
                 },300);
             });
 
@@ -201,12 +197,12 @@ class Niveau1 extends Tableau
         {
             let pic = new Pic(
                 this,
-                picObjects.x,
-                picObjects.y
+                picObjects.x + 16,
+                picObjects.y,
             );
             this.picContainer.add(pic);
 
-            this.physics.add.overlap(this.player, pic, this.hitSat);
+            this.physics.add.overlap(this.player, pic, this.hitPic);
         });
 
         //Torches
@@ -228,6 +224,7 @@ class Niveau1 extends Tableau
         });
 
         //Planches
+        this.plancheList = [];
 
         this.planches = this.physics.add.group({
             allowGravity: false,
@@ -244,6 +241,7 @@ class Niveau1 extends Tableau
                 'planche',
             ).setOrigin(0, 1);
             this.planches.add(planche);
+            this.plancheList.push(planche);
 
             this.physics.add.overlap(this.player, planche, function()
             {
@@ -254,10 +252,51 @@ class Niveau1 extends Tableau
                 setTimeout(function()
                 {
                         planche.fall();
-                    },500);
+                    },750);
             });
         });
         this.physics.add.collider(this.player, this.planches);
+
+        //brisables
+
+        this.brisableList = [];
+
+        this.brisables = this.physics.add.group({
+            allowGravity: false,
+            immovable: true,
+            bounceY: 0
+        });
+        this.brisableObject = this.map.getObjectLayer('brisables')['objects'];
+
+        this.brisableObject.forEach(brisableObject => {
+            let bri = new Brisable(
+                this,
+                brisableObject.x + 10,
+                brisableObject.y,
+                'brisable',
+            ).setOrigin(0, 1);
+            this.brisables.add(bri);
+            this.brisableList.push(bri);
+
+            this.physics.add.overlap(this.player, bri, function()
+            {
+                if(ici.brisable.isPlaying !== true)
+                {
+                    ici.brisable.play();
+                }
+                bri.break();
+            });
+
+            bri.once(MyEvents.BREAK, function()
+            {
+                bri.disableBody(true, true);
+                setTimeout(function()
+                {
+                    bri.mimiter.on = false;
+                },2000);
+            });
+        });
+        this.physics.add.collider(this.player, this.brisables);
 
         //Les Checkpoints
 
@@ -284,8 +323,6 @@ class Niveau1 extends Tableau
 
             // ckp.setVisible(false);
         })
-
-        //Les events
 
         //Cam
         this.eventCam = this.map.getObjectLayer('event camera')['objects'];
@@ -336,41 +373,6 @@ class Niveau1 extends Tableau
 
             eventA.setVisible(false);
         })
-
-        //brisables
-
-        this.brisables = this.physics.add.group({
-            allowGravity: false,
-            immovable: true,
-            bounceY: 0
-        });
-        this.brisableObject = this.map.getObjectLayer('brisables')['objects'];
-
-        this.brisableObject.forEach(brisableObject => {
-            let bri = new Brisable(
-                this,
-                brisableObject.x + 10,
-                brisableObject.y,
-                'brisable',
-            ).setOrigin(0, 1);
-            this.brisables.add(bri);
-
-            this.physics.add.overlap(this.player, bri, function()
-            {
-                if(ici.brisable.isPlaying !== true)
-                {
-                    ici.brisable.play();
-                }
-                bri.break();
-            });
-
-            bri.once(MyEvents.BREAK, function()
-            {
-                bri.mimiter.startFollow(bri);
-                bri.disableBody(true, true);
-            });
-        });
-        this.physics.add.collider(this.player, this.brisables);
 
         //rectangles
 
@@ -558,6 +560,20 @@ class Niveau1 extends Tableau
                             star.isActive = true;
                         }
                     });
+                    this.plancheList.forEach(planche =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), planche.getBounds() ))
+                        {
+                            planche.isActive = true;
+                        }
+                    });
+                    this.brisableList.forEach(bri =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), bri.getBounds() ))
+                        {
+                            bri.isActive = true;
+                        }
+                    });
                 }
                 else// le joueur n'est pas en contact avec le rectangle
                 {
@@ -573,6 +589,20 @@ class Niveau1 extends Tableau
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), star.getBounds() ))
                         {
                             star.isActive = false;
+                        }
+                    });
+                    this.plancheList.forEach(planche =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), planche.getBounds() ))
+                        {
+                            planche.isActive = false;
+                        }
+                    });
+                    this.brisableList.forEach(bri =>
+                    {
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), bri.getBounds() ))
+                        {
+                            bri.isActive = false;
                         }
                     });
 
@@ -600,7 +630,7 @@ class Niveau1 extends Tableau
 
         for (let i = 0; i < this.torcheList.length; i++)
         {
-            this.variaLight(this.torcheList[i].pointLight);
+            this.variaLight(this.torcheList[i].light);
         }
 
         if(this.player.x > 22912)//&& this.player.y > 1152
