@@ -1,5 +1,12 @@
 class Player extends Phaser.Physics.Arcade.Sprite
 {
+    get isDead() {
+        return this._isDead;
+    }
+
+    set isDead(value) {
+        this._isDead = value;
+    }
     get isEsc() {
         return this._isEsc;
     }
@@ -25,8 +32,8 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.displayWidth = 100;
         this.displayHeight = 80;
 
-        this.invul = false;
         this._isEsc = false;
+        this._isDead = false;
 
         this.anims.create(
             {
@@ -162,27 +169,18 @@ class Player extends Phaser.Physics.Arcade.Sprite
             // }
         }
     }
-
-    roulade()
-    {
-        setTimeout(function(){
-            console.log("no body");
-            this.invul = true;
-        },1);
-
-        setTimeout(function(){
-            console.log("body");
-            this.invul = false;
-        },1000);
-
-        /*
-        if(this.body.blocked.right || this.body.touching.right)
-        {
-            this.x-=5;
-        }
-         */
-    }
-
-    //TODO une roulade
+    //
+    // roulade()
+    // {
+    //     setTimeout(function(){
+    //         console.log("no body");
+    //         this.invul = true;
+    //     },1);
+    //
+    //     setTimeout(function(){
+    //         console.log("body");
+    //         this.invul = false;
+    //     },1000);
+    // }
 
 }

@@ -44,10 +44,6 @@
                     localStorage.setItem('cP', null);
                     break;
 
-                case "Shift":
-                    Tableau.current.player.roulade();
-                    break;
-
                 case "r":
                     Tableau.current.recharger();
                     Tableau.current.recharging.play(Tableau.current.aigleConfig);

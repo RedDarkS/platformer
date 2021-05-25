@@ -40,12 +40,6 @@ class Niveau1 extends Tableau
         this.player.once(MyEvents.AIGLE, function()
         {
             ici.aigle.play(ici.aigleConfig);
-
-            setTimeout(function()
-            {
-                ici.mort.play();
-            }, 500)
-
         });
 
         //on définit la taille du tableau
@@ -186,6 +180,8 @@ class Niveau1 extends Tableau
         {
             let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
             this.monstersContainer.add(monster);
+
+            this.physics.add.overlap(this.player, monster, this.hitMonster);
         });
 
         //Pic

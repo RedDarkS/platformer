@@ -35,7 +35,6 @@ class Tableau extends Phaser.Scene
 
         //TODO import et gestion des sons
 
-        this.load.audio('mort', 'assets/son/mort.wav');
         this.load.audio('aigle', 'assets/son/cri-aigle-royal.wav');
         this.load.audio('feu', 'assets/son/sf_feu_cheminee.mp3');
         this.load.audio('collect', 'assets/son/fairy-arcade-sparkle.wav');
@@ -56,7 +55,6 @@ class Tableau extends Phaser.Scene
 
         //set up musique
 
-        this.mort = this.sound.add('mort');
         this.aigle = this.sound.add('aigle');
         this.mortEnnemy = this.sound.add('mortEnnemy');
         this.collect = this.sound.add('collect');
@@ -74,8 +72,6 @@ class Tableau extends Phaser.Scene
             delay : 0
         }
 
-
-        
         /**
          * Le ciel en fond
          * @type {Phaser.GameObjects.Image}
@@ -165,7 +161,7 @@ class Tableau extends Phaser.Scene
     //     // }
     // }
 
-    hitPic (player, sat)
+    hitPic ()
     {
         // this.physics.pause();
         Tableau.current.cameras.main.fadeOut(2000,0,0,0);
@@ -173,39 +169,47 @@ class Tableau extends Phaser.Scene
         Tableau.current.scene.restart()
     }
 
-    /**
-     * Quand on touche un monstre
-     * si on le touche par en haut on le tue, sinon c'est lui qui nous tue
-     * @param {Player} player
-     * @param {Phaser.Physics.Arcade.Sprite} monster
-     */
     hitMonster(player, monster)
     {
         let me=this;
-        if(me.player.invul !== true)
-        {
-            if (monster.isDead !== true) { //si notre monstre n'est pas déjà mort
-                if (
-                    // si le player descend
-                    player.body.velocity.y > 0
-                    // et si le bas du player est plus haut que le monstre
-                    && player.getBounds().bottom < monster.getBounds().top + 30
-                ) {
-                    ui.gagne();
+        if (monster.isDead !== true) { //si notre monstre n'est pas déjà mort
+            if (
+                // si le player descend
+                player.body.velocity.y > 0
+                // et si le bas du player est plus haut que le monstre
+                && player.getBounds().bottom < monster.getBounds().top + 30
+            ) {
+                ui.gagne();
 
-                    me.mortEnnemy.play(me.aigleConfig);
+                me.mortEnnemy.play(me.aigleConfig);
 
-                    monster.isDead = true; //ok le monstre est mort
-                    monster.disableBody(true, true);//plus de collisions
-                    this.saigne(monster, function () {
-                        //à la fin de la petite anim...ben il se passe rien :)
+                monster.isDead = true; //ok le monstre est mort
+                monster.disableBody(true, true);//plus de collisions
+                this.saigne(monster, function () {
+                    //à la fin de la petite anim...ben il se passe rien :)
+                })
+            }
+            else
+            {
+                // this.playerDie();
+                if(Tableau.current.player.isDead === false)
+                {
+                    Tableau.current.player.isDead = true;
+                    Tableau.current.player.visible = false;
+                    //ça saigne...
+                    me.saigne(me.player, function ()
+                    {
+                        //à la fin de la petite anim, on relance le jeu
+                        me.blood.visible = false;
+                        me.player.anims.play('turn');
+                        Tableau.current.player.isDead = false;
+                        me.scene.restart();
                     })
-                } else {
-                    //le joueur est mort
-                    me.playerDie();
                 }
             }
+
         }
+
     }
 
     playerDie()
