@@ -28,15 +28,15 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         this._isActive = value;
     }
 
-    constructor(scene, x, y, image, startX, startY)
+    constructor(scene, x, y, image)
     {
-        super(scene, x, y, image, startX, startY);
+        super(scene, x, y, image);
         scene.add.existing(this);
 
         scene.physics.add.existing(this);
 
-        this.startX = startX;
-        this.startY = startY;
+        this.startX = x;
+        this.startY = y;
 
         this.displayWidth = 32;
         this.displayHeight = 12;
