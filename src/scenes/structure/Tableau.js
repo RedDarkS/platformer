@@ -115,7 +115,7 @@ class Tableau extends Phaser.Scene
         me.blood.visible=true;
 
         me.blood.setDepth(10);
-        
+
         me.blood.rotation = Phaser.Math.Between(0,6);
         me.blood.x=object.x;
         me.blood.y=object.y;
@@ -131,7 +131,7 @@ class Tableau extends Phaser.Scene
                 from:40,
                 to:70,
             },
-            onComplete: function () 
+            onComplete: function ()
             {
                 me.blood.visible=false;
                 onComplete();

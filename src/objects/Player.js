@@ -54,6 +54,16 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this._directionY=0;
     }
 
+    get directionX()
+    {
+        return this._directionX;
+    }
+
+    get directionY()
+    {
+        return this._directionY;
+    }
+
     set directionX(value)
     {
         this._directionX=value;
@@ -136,6 +146,20 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityY(-550);
                 this.emit(MyEvents.SAUTE);
             }
+            // else
+            // {
+            //     if(this.directionX > 0)
+            //     {
+            //         this.anims.play('turn', true);
+            //         this.setFlipX(false);
+            //     }
+            //     else
+            //     {
+            //         this.anims.play('turn', true);
+            //         this.setFlipX(true);
+            //     }
+            //
+            // }
         }
     }
 

@@ -3,6 +3,7 @@ let height=7*64; //448;
 
 let config = {
     type: Phaser.WEBGL,
+    roundPixels : true,
 
     physics: 
     {

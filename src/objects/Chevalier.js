@@ -64,7 +64,7 @@ class Chevalier extends ObjetEnnemi
             x: {
                 from: this.minX,
                 to: this.maxX,
-                duration: 2500,
+                duration: 1500,
                 ease: 'linear',
                 yoyo: -1,
                 repeat:-1,
