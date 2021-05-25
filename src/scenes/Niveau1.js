@@ -235,7 +235,10 @@ class Niveau1 extends Tableau
                 plancheObjects.x,
                 plancheObjects.y - 20,
                 'planche',
+                plancheObjects.x,
+                plancheObjects.y
             ).setOrigin(0, 1);
+
             this.planches.add(planche);
             this.plancheList.push(planche);
 

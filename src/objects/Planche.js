@@ -28,13 +28,15 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         this._isActive = value;
     }
 
-    constructor(scene, x, y, image)
+    constructor(scene, x, y, image, startX, startY)
     {
-        super(scene, x, y, image);
-
+        super(scene, x, y, image, startX, startY);
         scene.add.existing(this);
 
         scene.physics.add.existing(this);
+
+        this.startX = startX;
+        this.startY = startY;
 
         this.displayWidth = 32;
         this.displayHeight = 12;
@@ -80,5 +82,17 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         {
             ici.liliter.pause();
         }, 2000)
+
+        setTimeout(function()
+        {
+            ici.x = ici.startX;
+            ici.y = ici.startY;
+            console.log("reset");
+            ici.body.allowGravity = false;
+            ici.liliter.pause();
+            ici.liliter.setVisible(false);
+        }, 5000)
+
+
     }
 }
