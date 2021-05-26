@@ -19,7 +19,8 @@ class Niveau1 extends Tableau
         this.load.image('priseD', 'assets/prise_droite.png');
         this.load.image('priseG', 'assets/prise_gauche.png');
 
-        this.load.image('tiles', 'assets/tileSheet_32-32.png');
+        this.load.image('tiles', ['assets/tileSheet_32-32.png','assets/NormalMap.png']);
+        // this.load.image('tiles', 'assets/tileSheet_32-32.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1_32-32.json');
     }
 
@@ -57,7 +58,7 @@ class Niveau1 extends Tableau
         //ambiance atmosphérique
 
         this.lights.enable();
-        this.lights.setAmbientColor(0x888888);
+        this.lights.setAmbientColor(0x999999);
 
         this.initDecor();
 
@@ -367,7 +368,7 @@ class Niveau1 extends Tableau
             });
             eventA.on(MyEvents.INTERIEUR, function()
             {
-                ici.lights.setAmbientColor(0x888888);
+                ici.lights.setAmbientColor(0x999999);
             });
 
             eventA.setVisible(false);
