@@ -74,6 +74,7 @@ class Planche extends Phaser.Physics.Arcade.Sprite
     fall()
     {
         let ici = this;
+
         this.body.allowGravity = true;
         this.liliter.resume();
         this.liliter.setVisible(true);
@@ -81,18 +82,21 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         setTimeout(function()
         {
             ici.liliter.pause();
+            ici.liliter.setVisible(false);
         }, 2000)
 
         setTimeout(function()
         {
-            ici.x = ici.startX;
-            ici.y = ici.startY;
-            console.log("reset");
-            ici.body.allowGravity = false;
-            ici.liliter.pause();
-            ici.liliter.setVisible(false);
+            ici.replace()
         }, 5000)
+    }
 
-
+    replace()
+    {
+        let ici = this;
+        this.body.allowGravity = false;
+        this.x = this.startX;
+        this.y = this.startY;
+        // console.log("reset");
     }
 }
