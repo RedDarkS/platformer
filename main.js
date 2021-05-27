@@ -15,6 +15,7 @@ let config = {
         }
     },
     scene: [
+
         new Ui(),
 
         new Niveau1("Tiled"),
