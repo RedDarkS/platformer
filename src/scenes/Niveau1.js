@@ -58,7 +58,7 @@ class Niveau1 extends Tableau
         //ambiance atmosphérique
 
         this.lights.enable();
-        this.lights.setAmbientColor(0x999999);
+        this.lights.setAmbientColor(0x777777);
 
         this.initDecor();
 
@@ -366,11 +366,11 @@ class Niveau1 extends Tableau
             });
             eventA.on(MyEvents.EXTERIEUR, function()
             {
-                ici.lights.setAmbientColor(0xFFFFFF);
+                ici.lights.setAmbientColor(0xBBBBBB);
             });
             eventA.on(MyEvents.INTERIEUR, function()
             {
-                ici.lights.setAmbientColor(0x999999);
+                ici.lights.setAmbientColor(0x777777);
             });
 
             eventA.setVisible(false);
@@ -495,11 +495,11 @@ class Niveau1 extends Tableau
         this.map = this.make.tilemap({key: 'map'});
         this.tileset = this.map.addTilesetImage('tileSheet_32-32', 'tiles');
 
-        this.doubleDerriere = this.map.createLayer('double derriere', this.tileset, 0, 0);
-        this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
+        this.doubleDerriere = this.map.createLayer('double derriere', this.tileset, 0, 0).setPipeline('Light2D');
+        this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0).setPipeline('Light2D');
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0).setPipeline('Light2D');
-        this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
-        this.nature = this.map.createLayer('nature', this.tileset, 0, 0);
+        this.devant = this.map.createLayer('devant', this.tileset, 0, 0).setPipeline('Light2D');
+        this.nature = this.map.createLayer('nature', this.tileset, 0, 0).setPipeline('Light2D');
 
         this.platforms.setCollisionByProperty({collides: true});
         this.physics.add.collider(this.player, this.platforms);
