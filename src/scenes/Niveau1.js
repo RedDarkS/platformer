@@ -325,6 +325,7 @@ class Niveau1 extends Tableau
         })
 
         //Cam
+
         this.eventCam = this.map.getObjectLayer('event camera')['objects'];
         this.eventCam.forEach(eventCamObject => {
             let eventC = new EventCam(
@@ -349,6 +350,7 @@ class Niveau1 extends Tableau
         })
 
         //Ambiance
+
         this.eventAmb = this.map.getObjectLayer('ambiance')['objects'];
         this.eventAmb.forEach(eventAmbObject => {
             let eventA = new EventAmbiance(
@@ -462,15 +464,11 @@ class Niveau1 extends Tableau
     {
         //TODO mettre en place le décor final
 
-        this.sky = this.add.tileSprite(
-            -192,
-            -72,
-            this.sys.canvas.width * 2,
-            this.sys.canvas.height * 2,
-            'sky-2'
-        );
+        this.sky = this.add.sprite(-150, -95,  'sky-2');
         this.sky.setOrigin(0, 0);
-        this.sky.setScrollFactor(0);
+        this.sky.displayHeight = this.sky.height*0.55;
+        this.sky.displayWidth = this.sky.width*0.65;
+        this.sky.setScrollFactor(0, 0);
 
         // this.dernierPlan = this.add.tileSprite(
         //     -192,
@@ -497,6 +495,7 @@ class Niveau1 extends Tableau
         this.map = this.make.tilemap({key: 'map'});
         this.tileset = this.map.addTilesetImage('tileSheet_32-32', 'tiles');
 
+        this.doubleDerriere = this.map.createLayer('double derriere', this.tileset, 0, 0);
         this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0).setPipeline('Light2D');
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
@@ -525,6 +524,7 @@ class Niveau1 extends Tableau
 
         this.planches.setDepth(z--);
         this.brisables.setDepth(z--);
+        this.picContainer.setDepth(z--);
         this.platforms.setDepth(z--);
 
         this.monstersContainer.setDepth(z--);
@@ -534,6 +534,9 @@ class Niveau1 extends Tableau
 
         this.torchesContainer.setDepth(z--);
         this.recContainer.setDepth(z--);
+
+        // this.derriere.setDepth(z--);
+        // this.doubleDerriere.setDepth(z--);
 
         //derrière
     }
@@ -617,7 +620,7 @@ class Niveau1 extends Tableau
     {
         super.update();
         // le fond se déplace moins vite que la caméra pour donner un effet paralax
-        this.sky.tilePositionX = this.cameras.main.scrollX * 0.1;
+        // this.sky.tilePositionX = this.cameras.main.scrollX * 0.1;
         this.sky.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         //le second plan se déplace moins vite pour accentuer l'effet
@@ -638,7 +641,12 @@ class Niveau1 extends Tableau
             this.player.emit(MyEvents.AIGLE);
         }
 
+        this.player.light.x = this.player.x;
+        this.player.light.y = this.player.y;
+
         this.optimizeDisplay();
+
+
     }
 
 }
