@@ -53,9 +53,18 @@ class Markus extends ObjetEnnemi
 
         if(this.isAlive)
         {
-            if (this.scene.player.x > this.x - 50 && this.scene.player.x < this.x + 500)
+            if (this.scene.player.x > this.x - 100 && this.scene.player.x < this.x + 500)
             {
                 this.anims.play('markus');
+                if(this.anims.isPlaying)
+                {
+                    if(this.anims.getFrameName() === "0")
+                    {
+                        console.log('coucou');
+                    }
+                    console.log(this.anims.getFrameName());
+                }
+
             }
             else
             {
