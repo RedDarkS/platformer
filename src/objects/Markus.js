@@ -1,7 +1,5 @@
 class Markus extends ObjetEnnemi
 {
-    //TODO IA et autre
-
     /**
      *
      * @param {Tableau} scene
@@ -10,68 +8,87 @@ class Markus extends ObjetEnnemi
      */
     constructor(scene, x, y)
     {
-        super(scene, x, y, "Ennemi1");
+        super(scene, x, y, "markus_animes");
 
-        //pas de gravité
-        this.body.allowGravity=false;
+        this.body.allowGravity=true;
+        this.setCollideWorldBounds(true);
 
-        //gestion de la taille
-        this.setDisplaySize(50,70);
+        this.setDisplaySize(1024,300);
+        this.setOrigin(0,0);
 
-        //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width,this.body.height);
-        this.setOffset(0,0);
+        this.displayWidth = this.body.width/1.9;
+        this.displayHeight = this.body.height/1.7;
 
-        //définir les propriété que l'on va utiliser dans notre animation
+        this.setBodySize(this.body.width/8,this.body.height/2);
+        this.setOffset(0,150);
 
-        // X
-        this.originalX=x;
-        this.minX=x;
-        this.maxX=x+320;
+        scene.time.addEvent({ delay: 1000, callback: this.test, callbackScope: this, loop: true });
 
-        // Y
-        this.originalY=y;
-        this.minY=y-35;
-        this.maxY=y+50;
+        scene.time.addEvent({ delay: 8000, callback: this.mort, callbackScope: this, loop: true });
 
-        // on applique les propriété du début de l'animation
-        this.x=this.minX;
-        this.y=this.minY;
-        this.alpha=0;
+        this.dir = 1;
+        this.isAlive = true;
+        this.scene = scene;
+
+        this.anims.create(
+            {
+                key: 'markus',
+                frames: this.anims.generateFrameNumbers('markus_animes', { start: 0, end: 16}),
+                frameRate: 12,
+                // repeat: -1
+            });
+        this.anims.create({
+            key: 'stance',
+            frames: [ { key: 'markus_animes', frame: 0 } ],
+            frameRate: 12
+        });
+
         let me=this;
-
-        //on fait apparaitre notre objet avec un petit delay, puis on lance l'animation
-        //ceci a pour effet de décaler les animations pour ce même objet
-        scene.tweens.add({
-            targets:this,
-            duration:200,
-            delay:Math.random()*2000,
-            alpha:{
-                startDelay:Math.random()*5000,
-                from:0,
-                to:1,
-            },
-            onComplete: function () {
-                me.start();
-            }
-        })
-
     }
 
-    start(){
-        this.scene.tweens.add({
-            targets: this,
-            //horizontale
-            x: {
-                from: this.minX,
-                to:this.maxX,
-                duration: 2500,
-                ease: 'linear',
-                yoyo: -1,
-                repeat:-1,
-                flipX:true,
-            },
-        });
+    test()
+    {
+        this.vivant();
+        this.pos();
+
+        if(this.isAlive)
+        {
+            if (this.scene.player.x > this.x - 50 && this.scene.player.x < this.x + 500)
+            {
+                this.anims.play('markus');
+            }
+            else
+            {
+                this.anims.play('stance');
+            }
+        }
+    }
+
+    vivant()
+    {
+        if (this.body.touching.up && this.isAlive)
+        {
+            this.isAlive = false;
+        }
+    }
+
+    mort()
+    {
+        if(this.isAlive===false)
+        {
+            this.isAlive=true;
+        }
+    }
+
+    pos(){
+        if (this.x < this.scene.player.x)
+        {
+            this.dir = 1;
+        }
+        else if (this.x > this.scene.player.x)
+        {
+            this.dir = -1;
+        }
     }
 
 }

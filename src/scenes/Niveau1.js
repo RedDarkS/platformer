@@ -5,8 +5,6 @@ class Niveau1 extends Tableau
         super.preload();
 
         //d'autres trucs pour le décors
-        this.load.image('secondPlan', 'assets/second-plan.png');
-        this.load.image('dernierPlan', 'assets/dernier-plan.png');
         this.load.image('sky-2', 'assets/sky-2.jpg');
 
         this.load.image('star', 'assets/Coffre.png');
@@ -183,6 +181,24 @@ class Niveau1 extends Tableau
             this.monstersContainer.add(monster);
 
             this.physics.add.overlap(this.player, monster, this.hitMonster);
+        });
+
+        //Markus
+
+        this.markusContainer = this.add.container();
+        this.markusObjects = this.map.getObjectLayer('boss')['objects'];
+
+        this.markusObjects.forEach(markusObjects =>
+        {
+            let markus = new Markus(
+                this,
+                markusObjects.x,
+                markusObjects.y - 96
+            );
+            this.markusContainer.add(markus);
+            this.physics.add.collider(markus, this.platforms);
+
+            this.physics.add.overlap(this.player, markus, this.hitMonster);
         });
 
         //Pic
@@ -528,6 +544,7 @@ class Niveau1 extends Tableau
         this.platforms.setDepth(z--);
 
         this.monstersContainer.setDepth(z--);
+        this.markusContainer.setDepth(z--);
 
         this.stars.setDepth(z--);
         this.starsFxContainer.setDepth(z--);
