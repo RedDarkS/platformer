@@ -9389,14 +9389,14 @@
                 {
                  "gid":221,
                  "height":32,
-                 "id":3464,
+                 "id":3465,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1344,
-                 "y":5056
+                 "x":34720,
+                 "y":5696
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -10740,15 +10740,15 @@
          "objects":[
                 {
                  "height":0,
-                 "id":3207,
+                 "id":3466,
                  "name":"Player",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":800,
-                 "y":5056
+                 "x":34528,
+                 "y":5248
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -10958,6 +10958,24 @@
                  "width":0,
                  "x":32864,
                  "y":4928
+                }, 
+                {
+                 "height":0,
+                 "id":3467,
+                 "name":"ckp11",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"checkPoint",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":34528,
+                 "y":5312
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -11862,6 +11880,24 @@
                  "width":0,
                  "x":35264,
                  "y":5472
+                }, 
+                {
+                 "height":0,
+                 "id":3468,
+                 "name":"ext",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"amb",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":34528,
+                 "y":5280
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -11870,7 +11906,7 @@
          "y":0
         }],
  "nextlayerid":23,
- "nextobjectid":3465,
+ "nextobjectid":3469,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.2",

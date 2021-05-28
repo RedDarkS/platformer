@@ -48,6 +48,15 @@ window.MyEvents = {
      */
     STOP : "stop",
 
+    /**
+     * Indique que l'on cour plus
+     *
+     * @name MyEvent.MARKUS
+     * @type{String}
+     * @const
+     */
+    MARKUS : "markus",
+
     //Particules
 
     /**

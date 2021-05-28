@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="3465">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="3469">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -3711,7 +3711,7 @@
   <object id="3460" gid="217" x="34368" y="5632" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="6" name="boss">
-  <object id="3464" gid="221" x="1344" y="5056" width="32" height="32"/>
+  <object id="3465" gid="221" x="34720" y="5696" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="archer"/>
  <objectgroup id="7" name="chevalier">
@@ -3827,7 +3827,7 @@
   <object id="3201" gid="194" x="30528" y="5824" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="4" name="point">
-  <object id="3207" name="Player" x="800" y="5056">
+  <object id="3466" name="Player" x="34528" y="5248">
    <point/>
   </object>
  </objectgroup>
@@ -3895,6 +3895,12 @@
   <object id="3409" name="ckp10" x="32864" y="4928">
    <properties>
     <property name="checkPoint" type="int" value="10"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="3467" name="ckp11" x="34528" y="5312">
+   <properties>
+    <property name="checkPoint" type="int" value="11"/>
    </properties>
    <point/>
   </object>
@@ -4193,6 +4199,12 @@
   <object id="3440" name="int" x="35264" y="5472">
    <properties>
     <property name="amb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="3468" name="ext" x="34528" y="5280">
+   <properties>
+    <property name="amb" type="int" value="1"/>
    </properties>
    <point/>
   </object>
