@@ -301,6 +301,7 @@ class Tableau extends Phaser.Scene
 
     recharger()
     {
+        localStorage.setItem('cP', null);
         this.scene.restart();
     }
 }
