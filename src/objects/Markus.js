@@ -33,7 +33,7 @@ class Markus extends ObjetEnnemi
         this.anims.create(
             {
                 key: 'markus',
-                frames: this.anims.generateFrameNumbers('markus_animes', { start: 0, end: 16}),
+                frames: this.anims.generateFrameNumbers('markus_animes', { start: 0, end: 17}),
                 frameRate: 8,
                 // repeat: -1
             });
@@ -47,49 +47,52 @@ class Markus extends ObjetEnnemi
 
         this.on(MyEvents.MARKUS, function()
         {
-            if(this.anims.isPlaying !== true)
+            if(me.scene.player.isDead !== true)
             {
-                me.anims.play('markus');
-                me.body.width *= 1.5;
-                me.setOffset(50,150);
-
-                setTimeout(function()
+                if(this.anims.isPlaying !== true)
                 {
-                    me.setOffset(100,150);
-                },300);
+                    me.anims.play('markus');
+                    me.body.width *= 1.5;
+                    me.setOffset(50,150);
 
-                setTimeout(function()
-                {
-                    me.setOffset(150,150);
-                },450);
+                    setTimeout(function()
+                    {
+                        me.setOffset(100,150);
+                    },300);
 
-                setTimeout(function()
-                {
-                    me.setOffset(200,150);
-                },600);
+                    setTimeout(function()
+                    {
+                        me.setOffset(150,150);
+                    },450);
 
-                setTimeout(function()
-                {
-                    me.setOffset(400,150);
-                },750);
+                    setTimeout(function()
+                    {
+                        me.setOffset(200,150);
+                    },600);
 
-                setTimeout(function()
-                {
-                    me.setOffset(600,150);
-                },900);
+                    setTimeout(function()
+                    {
+                        me.setOffset(400,150);
+                    },750);
 
-                setTimeout(function()
-                {
-                    me.setOffset(800,150);
-                },1600);
+                    setTimeout(function()
+                    {
+                        me.setOffset(600,150);
+                    },900);
 
-                setTimeout(function()
-                {
-                    me.x += 440;
-                    me.setOffset(30, 150);
-                    me.body.width /= 1.5;
-                    me.anims.play('stance');
-                },1950);
+                    setTimeout(function()
+                    {
+                        me.setOffset(800,150);
+                    },1600);
+
+                    setTimeout(function()
+                    {
+                        me.x += 440;
+                        me.setOffset(30, 150);
+                        me.body.width /= 1.5;
+                        me.anims.play('stance');
+                    },1990);
+                }
             }
         });
     }
@@ -102,7 +105,7 @@ class Markus extends ObjetEnnemi
 
         if(this.isAlive)
         {
-            if (this.scene.player.x > this.x - 100 && this.scene.player.x < this.x + 600 && this.scene.player.y > this.y - 100)
+            if (this.scene.player.x > this.x - 100 && this.scene.player.x < this.x + 650 && this.scene.player.y > this.y - 100)
             {
                 this.emit(MyEvents.MARKUS);
             }

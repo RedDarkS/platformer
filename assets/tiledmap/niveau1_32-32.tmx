@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="3499">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="3500">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -3852,7 +3852,7 @@
   <object id="3201" gid="194" x="30528" y="5824" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="4" name="point">
-  <object id="3497" name="Player" x="800" y="5056">
+  <object id="3499" name="Player" x="34528" y="5248">
    <point/>
   </object>
  </objectgroup>
