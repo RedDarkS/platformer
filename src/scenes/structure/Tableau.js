@@ -22,7 +22,6 @@ class Tableau extends Phaser.Scene
         //SPRITES
         this.load.image('star', 'assets/coeur.png');
         this.load.image('blood', 'assets/blood.png');
-        this.load.image('rect', 'assets/skin_rec.png');
 
         //SPRITES ENTITES
         this.load.spritesheet('player_animes','assets/animes.png', {frameWidth: 400, frameHeight: 345});
@@ -300,7 +299,8 @@ class Tableau extends Phaser.Scene
         game.scene.start(tableau);
     }
 
-    recharger(){
+    recharger()
+    {
         this.scene.restart();
     }
 }

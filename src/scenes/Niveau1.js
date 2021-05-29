@@ -7,7 +7,6 @@ class Niveau1 extends Tableau
         //d'autres trucs pour le décors
         this.load.image('sky-2', 'assets/sky-2.jpg');
 
-        this.load.image('star', 'assets/Coffre.png');
         this.load.image('pixel', 'assets/pixel.png');
         this.load.image('particD', 'assets/part_course_droite.png');
         this.load.image('particG', 'assets/part_course_gauche.png');
@@ -18,7 +17,6 @@ class Niveau1 extends Tableau
         this.load.image('priseG', 'assets/prise_gauche.png');
 
         this.load.image('tiles', ['assets/tileSheet_32-32.png','assets/NormalMap.png']);
-        // this.load.image('tiles', 'assets/tileSheet_32-32.png');
         this.load.tilemapTiledJSON('map', 'assets/tiledmap/niveau1_32-32.json');
     }
 
@@ -337,7 +335,7 @@ class Niveau1 extends Tableau
                 ici.player.setPosition(this.playerPos.x, this.playerPos.y - 64);
             }
 
-            // ckp.setVisible(false);
+            ckp.setVisible(false);
         })
 
         //Cam
@@ -470,6 +468,88 @@ class Niveau1 extends Tableau
             });
         });
 
+        //Fuite
+
+        this.tpContainer = this.physics.add.group({
+            allowGravity: false,
+            immovable: true,
+            bounceY: 0
+        });
+        this.tpObject = this.map.getObjectLayer('tp')['objects'];
+
+        this.tpObject.forEach(tpObject =>
+        {
+            let tp = new ObjetPhysique(
+                this,
+                tpObject.x,
+                tpObject.y,
+                'pixel'
+            );
+            this.tpContainer.add(tp);
+
+            this.physics.add.overlap(this.player, tp, function()
+            {
+                ici.cameras.main.shake(100, 0.07, true);
+                ici.cameras.main.fadeOut(1, 0, 0, 0);
+                ici.player.setPosition(36,2976);
+                ici.cameras.main.fadeIn(700, 0, 0, 0);
+            });
+
+            // tp.setVisible(false);
+        });
+
+        //New game
+
+        this.starsFxContainer = this.add.container();
+        this.starsFxContainer.x = 16;
+        this.starsFxContainer.y = -16;
+
+        this.NGContainer = this.physics.add.group({
+            allowGravity: false,
+            immovable: false,
+            bounceY: 0
+        });
+        this.NGObjects = this.map.getObjectLayer('new game')['objects'];
+
+        this.NGObjects.forEach(NGObjects =>
+        {
+            let ng = new Collectible(
+                ici,
+                NGObjects.x,
+                NGObjects.y,
+                'star'
+            ).setOrigin(0, 1);
+
+            this.physics.add.overlap(this.player, ng, function()
+            {
+                setTimeout(function()
+                {
+                    ng.pick();
+                    ici.collect.play(ici.aigleConfig);
+                },20);
+            });
+
+            ng.once(MyEvents.ACTIVE, function()
+            {
+                ng.halo.destroy();
+                ng.flameche.on = false;
+                ng.disableBody(true, true);
+                setTimeout(function()
+                {
+                    ng.emmiter.on = false;
+                },300);
+
+                setTimeout(function()
+                {
+                    ici.recharger();
+                },200);
+
+            });
+
+            this.starList.push(ng);
+            this.NGContainer.add(ng);
+        });
+
         this.initProfondeur();
     }
 
@@ -547,6 +627,7 @@ class Niveau1 extends Tableau
         this.markusContainer.setDepth(z--);
 
         this.stars.setDepth(z--);
+        this.NGContainer.setDepth(z--);
         this.starsFxContainer.setDepth(z--);
 
         this.torchesContainer.setDepth(z--);
