@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="3519">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="3520">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -2927,11 +2927,11 @@
 </data>
  </layer>
  <objectgroup id="15" name="rectangles" visible="0">
-  <object id="1899" name="rect1" x="3360" y="4192" width="4608" height="1120"/>
+  <object id="1899" name="rect1" x="3360" y="4192" width="4608" height="1408"/>
   <object id="1902" name="rect2" x="7808" y="1504" width="9504" height="4384"/>
   <object id="1903" name="rect3" x="16896" y="220" width="4288" height="5664"/>
   <object id="1904" name="rect4" x="22912" y="224" width="13056" height="5664"/>
-  <object id="1905" name="rect" x="0" y="4192" width="4064" height="1120"/>
+  <object id="1905" name="rect" x="0" y="4192" width="4064" height="1408"/>
   <object id="3410" name="rect3" x="21088" y="224" width="1888" height="5664"/>
   <object id="3502" name="Credits" x="0" y="1024" width="3856" height="2032"/>
  </objectgroup>
@@ -3870,7 +3870,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="3" name="ckps">
+ <objectgroup id="3" name="ckps" opacity="0.97">
   <object id="252" name="Start" x="480" y="5184">
    <properties>
     <property name="checkPoint" type="int" value="0"/>
@@ -3940,6 +3940,12 @@
   <object id="3467" name="ckp11" x="34528" y="5312">
    <properties>
     <property name="checkPoint" type="int" value="11"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="3519" name="ckp12" x="128" y="3008">
+   <properties>
+    <property name="checkPoint" type="int" value="12"/>
    </properties>
    <point/>
   </object>

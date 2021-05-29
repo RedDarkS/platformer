@@ -76,7 +76,7 @@
          "name":"rectangles",
          "objects":[
                 {
-                 "height":1120,
+                 "height":1408,
                  "id":1899,
                  "name":"rect1",
                  "rotation":0,
@@ -120,7 +120,7 @@
                  "y":224
                 }, 
                 {
-                 "height":1120,
+                 "height":1408,
                  "id":1905,
                  "name":"rect",
                  "rotation":0,
@@ -11417,8 +11417,26 @@
                  "width":0,
                  "x":34528,
                  "y":5312
+                }, 
+                {
+                 "height":0,
+                 "id":3519,
+                 "name":"ckp12",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"checkPoint",
+                         "type":"int",
+                         "value":12
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":128,
+                 "y":3008
                 }],
-         "opacity":1,
+         "opacity":0.97,
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -12383,7 +12401,7 @@
          "y":0
         }],
  "nextlayerid":25,
- "nextobjectid":3519,
+ "nextobjectid":3520,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.3",
