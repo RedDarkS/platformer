@@ -54,7 +54,7 @@ class Torche extends Phaser.Physics.Arcade.Sprite
                 repeat: -1
             });
 
-        this.light = scene.lights.addLight(x, y-10, 150, (0, 0, 0), 0.1);
+        this.light = scene.lights.addLight(x, y-10, 200, (0, 0, 0), 0.1);
         this.light.color.r = 11;
         this.light.color.g = 9;
         this.light.color.b = 1;

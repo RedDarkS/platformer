@@ -353,6 +353,7 @@ class Niveau1 extends Tableau
             this.physics.add.overlap(this.player, ckp, function()
             {
                 ckp.savePos();
+                ckp.glow();
             });
 
             this.playerPos = ckp.loadPos();
@@ -622,7 +623,7 @@ class Niveau1 extends Tableau
         this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0).setPipeline('Light2D');
         this.platforms = this.map.createLayer('level', this.tileset, 0, 0).setPipeline('Light2D');
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0).setPipeline('Light2D');
-        this.nature = this.map.createLayer('nature', this.tileset, 0, 0).setPipeline('Light2D');
+        this.nature = this.map.createLayer('nature', this.tileset, 0, 0);//.setPipeline('Light2D');
 
         this.platforms.setCollisionByProperty({collides: true});
         this.physics.add.collider(this.player, this.platforms);
