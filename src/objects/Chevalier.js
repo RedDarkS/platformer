@@ -14,10 +14,10 @@ class Chevalier extends ObjetEnnemi
         this.body.allowGravity=false;
 
         //gestion de la taille
-        this.setDisplaySize(40,100);
+        this.setDisplaySize(40,90);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width,this.body.height -100);
+        this.setBodySize(this.body.width,this.body.height);
         this.setOffset(0,30);
 
         //définir les propriété que l'on va utiliser dans notre animation
