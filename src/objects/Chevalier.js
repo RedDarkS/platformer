@@ -41,10 +41,10 @@ class Chevalier extends ObjetEnnemi
         scene.tweens.add(
             {
             targets:this,
-            duration:500,
-            delay:Math.random()*2000,
+            duration:1,
+            delay:Math.random(),
             alpha:{
-                startDelay:Math.random()*5000,
+                startDelay:Math.random()*10,
                 from:0,
                 to:1,
             },

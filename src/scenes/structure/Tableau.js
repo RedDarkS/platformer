@@ -51,10 +51,9 @@ class Tableau extends Phaser.Scene
     {
         Tableau.current=this;
 
-        this.isMobile=this.game.device.os.android || this.game.device.os.iOS;
+        this.isMobile = this.game.device.os.android || this.game.device.os.iOS;
 
         this.sys.scene.scale.lockOrientation("landscape")
-        // console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
 
         //set up musique
 
@@ -87,14 +86,6 @@ class Tableau extends Phaser.Scene
         }
 
         /**
-         * Le ciel en fond
-         * @type {Phaser.GameObjects.Image}
-         */
-        // this.sky = this.add.image(0, 0, 'sky').setOrigin(0,0);
-        // this.sky.displayWidth = 14*64;
-        // this.sky.setScrollFactor(0,0);
-
-        /**
          * Le joueur
          * @type {Player}
          */
@@ -107,12 +98,98 @@ class Tableau extends Phaser.Scene
         this.blood.displayHeight = 64;
         this.blood.visible = false;
 
+        //pour opitDeplacement
+        // this.arrowRightUnpressed = false;
+        // this.arrowRightPressed = false;
+        // this.arrowLeftUnpressed = false;
+        // this.arrowLeftPressed = false;
+        //
+        //pour jumper
+        // this.keyboardArrowUp = false;
+        // this.arrowUpPressed = false;
+        // // this.jumpStop = false;
+
     }
     update()
     {
         super.update();
         this.player.move();
+
+        // this.optiDeplacement();
+        // this.jumper();
     }
+
+    // optiDeplacement()
+    // {
+    //     if(Tableau.current.arrowLeftUnpressed)
+    //         {
+    //             if(Tableau.current.player.staticY) // Quand le joueur ne saute pas ni ne tombe
+    //             {
+    //                 if(Tableau.current.arrowRightPressed)
+    //                 {
+    //                     Tableau.current.player.directionX = 1;
+    //                     Tableau.current.arrowLeftUnpressed = false;
+    //                 }
+    //                 else
+    //                 {
+    //                     Tableau.current.player.directionX = 0;
+    //                     Tableau.current.arrowLeftUnpressed = false;
+    //                 }
+    //             }
+    //         }
+    //         else if(Tableau.current.arrowRightUnpressed)
+    //         {
+    //             if (Tableau.current.player.staticY)
+    //             {
+    //                 if (Tableau.current.arrowLeftPressed)
+    //                 {
+    //                     Tableau.current.player.directionX = -1;
+    //                     Tableau.current.arrowRightUnpressed = false;
+    //                 }
+    //                 else
+    //                 {
+    //                     Tableau.current.player.directionX = 0;
+    //                     Tableau.current.arrowRightUnpressed = false;
+    //                 }
+    //             }
+    //         }
+    //
+    //         if (!Tableau.current.arrowLeftPressed && !Tableau.current.arrowRightPressed && Tableau.current.player.staticY)
+    //         {
+    //             Tableau.current.player.directionX = 0;
+    //         }
+    // }
+    //
+    // jumper()
+    // {
+    //     if(this.arrowUpPressed && !this.player.isDead)
+    //     {
+    //         if(this.firstJump)
+    //         {
+    //             this.player.directionY = -1;
+    //             // this.jumpStop = false;
+    //             this.firstJump = false;
+    //         }
+    //         else
+    //         {
+    //             this.player.directionY = 0;
+    //         }
+    //
+    //         if(!this.keyboardArrowUp)
+    //         {
+    //             this.time.addEvent
+    //             ({
+    //                 delay: 200,
+    //                 callback: ()=>
+    //                 {
+    //                     this.arrowUpPressed = false;
+    //                 },
+    //                 loop: false
+    //             })
+    //         }
+    //
+    //     }
+    // }
 
     /**
      *
@@ -167,10 +244,6 @@ class Tableau extends Phaser.Scene
                 }
             }
         }
-        // if(totalActive === 0)
-        // {
-        //     this.win();
-        // }
     }
 
     hitPic ()
@@ -260,9 +333,9 @@ class Tableau extends Phaser.Scene
     {
         this.player.stop();
         this.scene.stop();
+        localStorage.setItem('cP', null);
     }
 
-    //TODO condition de victoire
     /**
      * Quand on a gagné
      */
@@ -278,6 +351,7 @@ class Tableau extends Phaser.Scene
     {
         let ceSeraLaSuivante = false;
         let nextScene = null;
+        localStorage.setItem('cP', null);
 
         if(Tableau.current)
         {

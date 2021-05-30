@@ -18,16 +18,21 @@
             {
                 case "d":
                     Tableau.current.player.directionX=1;
+                    // Tableau.current.arrowRightPressed = true;
                     break;
                 case "ArrowRight":
-                    Tableau.current.player.directionX=1;
+                    Tableau.current.player.directionX = 1;
+                    // Tableau.current.arrowRightPressed = true;
                     break;
+
 
                 case "q":
                     Tableau.current.player.directionX=-1;
+                    // Tableau.current.arrowLeftPressed = true;
                     break;
                 case "ArrowLeft":
-                    Tableau.current.player.directionX=-1;
+                    Tableau.current.player.directionX = -1;
+                    // Tableau.current.arrowLeftPressed = true;
                     break;
 
                 case "z":
@@ -44,10 +49,10 @@
                     localStorage.setItem('cP', null);
                     break;
 
-                case "r":
-                    Tableau.current.recharger();
-                    Tableau.current.recharging.play(Tableau.current.aigleConfig);
-                    break;
+                // case "r":
+                //     Tableau.current.recharger();
+                //     Tableau.current.recharging.play(Tableau.current.aigleConfig);
+                //     break;
             }
         });
         scene.input.keyboard.on('keyup', function(kevent)

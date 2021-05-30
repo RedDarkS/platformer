@@ -6,10 +6,11 @@
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Chevalier.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Chevalier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Torche.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Torche.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/checkPoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoint.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Ui.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +174,7 @@
       <workItem from="1622222368068" duration="1281000" />
       <workItem from="1622285445095" duration="8546000" />
       <workItem from="1622360881931" duration="3042000" />
-      <workItem from="1622365334094" duration="11365000" />
+      <workItem from="1622365334094" duration="16528000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

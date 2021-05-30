@@ -762,7 +762,7 @@ class Niveau1 extends Tableau
             this.variaLight(this.torcheList[i].light);
         }
 
-        if(this.player.x > 22912 && this.player.x < 23168 && this.player.y > 1184)
+        if(this.player.x > 22880 && this.player.x < 23168 && this.player.y < 1184)
         {
             this.player.emit(MyEvents.AIGLE);
         }

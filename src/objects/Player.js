@@ -48,6 +48,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this._isEsc = false;
         this._isDead = false;
         this._isRunning = false;
+        this.staticY = false;
 
         this.anims.create(
             {
@@ -113,7 +114,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         switch (true)
         {
-
             case this._directionY < 0 && this.isEsc :
                 this.setVelocityY(-300);
                 this.anims.play('escalade', true);
@@ -168,6 +168,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
             default:
                 this.setVelocityX(0);
+                this.staticY = true;
 
                 this.anims.play('turn', true);
                 this.isRunning = false;
