@@ -288,7 +288,7 @@ class Niveau1 extends Tableau
                 }
                 setTimeout(function()
                 {
-                        planche.fall();
+                    planche.fall(ici.player);
                     },750);
             });
         });

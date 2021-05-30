@@ -126,7 +126,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityX(-400);
 
                 this.anims.play('right', true);
-                this.isRunning = true;
+                this.isRunning = this.body.touching.down;
 
                 this.setFlipX(true);
                 this.emit(MyEvents.COURG);
@@ -136,7 +136,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityX(400);
 
                 this.anims.play('right', true);
-                this.isRunning = true;
+                this.isRunning = this.body.touching.down;
 
                 this.setFlipX(false);
                 this.emit(MyEvents.COURD);

@@ -1,5 +1,12 @@
 class Planche extends Phaser.Physics.Arcade.Sprite
 {
+    get isFalling() {
+        return this._isFalling;
+    }
+
+    set isFalling(value) {
+        this._isFalling = value;
+    }
     get isActive()
     {
         return this._isActive;
@@ -43,6 +50,7 @@ class Planche extends Phaser.Physics.Arcade.Sprite
 
         this.scene = scene;
         this._isActive = false;
+        this._isFalling = false;
 
         scene.starsFxContainer = scene.add.container();
         scene.starsFxContainer.x = 0;
@@ -71,29 +79,36 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         scene.starsFxContainer.add(parti);
     }
 
-    fall()
+    fall(player)
     {
         let ici = this;
 
-        this.body.allowGravity = true;
-        this.liliter.resume();
-        this.liliter.setVisible(true);
-
-        setTimeout(function()
+        if(player.isEsc !== true)
         {
-            ici.liliter.pause();
-            ici.liliter.setVisible(false);
-        }, 2000)
+            this._isFalling = true;
 
-        setTimeout(function()
-        {
-            ici.replace()
-        }, 5000)
+            this.body.allowGravity = true;
+            this.liliter.resume();
+            this.liliter.setVisible(true);
+
+            setTimeout(function()
+            {
+                ici.liliter.pause();
+                ici.liliter.setVisible(false);
+            }, 2000)
+
+            setTimeout(function()
+            {
+                ici.replace()
+            }, 5000)
+        }
     }
 
     replace()
     {
         this.body.allowGravity = false;
+        this._isFalling = false;
+
         this.x = this.startX;
         this.y = this.startY;
         this.setVelocityX(0);
