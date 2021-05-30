@@ -9,11 +9,22 @@ class Ui extends Phaser.Scene
     preload()
     {
         this.load.image('ui/full-screen-icon', 'assets/ui/full-screen.png');
+        this.load.image('star', 'assets/coeur.png');
     }
 
     create ()
     {
         // console.log("create Ui")
+
+        this.star = this.add.image(50, 35 , 'star');
+
+        this.halo = this.add.pointlight(50, 35, (30, 144, 255), 50, 0.1, 0.1);
+        this.halo.color.r = 30;
+        this.halo.color.g = 144;
+        this.halo.color.b = 255;
+
+        this.star.setDepth(1);
+        this.halo.setDepth(0);
 
         this.completion=0;
         /**
@@ -21,7 +32,7 @@ class Ui extends Phaser.Scene
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._completionText = this.add.text(16, 16, '', {
+        this._completionText = this.add.text(65, 20, '', {
             font:'32px "Comic Sans MS"',
             fill: '#fff'
         });
@@ -101,7 +112,7 @@ class Ui extends Phaser.Scene
     gagne(points)
     {
         this.completion+=points;
-        // this._completionText.setText('Completion : ' + this.completion);
+        this._completionText.setText(' ' + this.completion);
     }
 
     update(){

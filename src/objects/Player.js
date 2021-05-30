@@ -1,5 +1,12 @@
 class Player extends Phaser.Physics.Arcade.Sprite
 {
+    get isRunning() {
+        return this._isRunning;
+    }
+
+    set isRunning(value) {
+        this._isRunning = value;
+    }
     get isDead() {
         return this._isDead;
     }
@@ -37,8 +44,10 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.light.color.g = 2;
         this.light.color.b = 2;
 
+        this.scene = scene;
         this._isEsc = false;
         this._isDead = false;
+        this._isRunning = false;
 
         this.anims.create(
             {
@@ -117,6 +126,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityX(-400);
 
                 this.anims.play('right', true);
+                this.isRunning = true;
 
                 this.setFlipX(true);
                 this.emit(MyEvents.COURG);
@@ -126,6 +136,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityX(400);
 
                 this.anims.play('right', true);
+                this.isRunning = true;
 
                 this.setFlipX(false);
                 this.emit(MyEvents.COURD);
@@ -133,19 +144,28 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
             case this._directionX > 0 && this._directionY > 0 : // va vers en bas à droite
                 this.setVelocityY(-550);
+
                 this.anims.play('turn', true);
+                this.isRunning = false;
+
                 this.emit(MyEvents.STOP);
                 break;
 
             case this._directionX === 0 && this._directionY === 0 : // ne bouge pas
                 this.setVelocityX(0);
+
                 this.anims.play('turn', true);
+                this.isRunning = false;
+
                 this.emit(MyEvents.STOP);
                 break;
 
             default:
                 this.setVelocityX(0);
+
                 this.anims.play('turn', true);
+                this.isRunning = false;
+
                 this.emit(MyEvents.STOP);
         }
 

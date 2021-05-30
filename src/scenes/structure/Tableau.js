@@ -42,6 +42,7 @@ class Tableau extends Phaser.Scene
         this.load.audio('planche', 'assets/son/fast-creaking-floorboard.wav');
         this.load.audio('brisable', 'assets/son/wood-plank-break.wav');
         this.load.audio('recharging', 'assets/son/player-recharging.wav');
+        this.load.audio('run', 'assets/son/run.wav');
     }
 
     create()
@@ -61,14 +62,24 @@ class Tableau extends Phaser.Scene
         this.planche = this.sound.add('planche');
         this.brisable = this.sound.add('brisable');
         this.recharging = this.sound.add('recharging');
+        this.run = this.sound.add('run');
 
         this.aigleConfig = {
             mute : false,
-            volume : 0.5,
+            volume : 0.4,
             rate : 1,
             detune : 0,
             seek : 0,
             loop : false,
+            delay : 0
+        }
+        this.runConfig = {
+            mute : false,
+            volume : 0.05,
+            rate : 1,
+            detune : 0,
+            seek : 0,
+            loop : true,
             delay : 0
         }
 
@@ -135,31 +146,29 @@ class Tableau extends Phaser.Scene
         })
     }
 
-    // ramasserEtoile (player, star)
-    // {
-    //     star.disableBody(true, true);
-    //
-    //     star.emit(MyEvents.ACTIVE);
-    //
-    //     ui.gagne(0.5);
-    //
-    //     //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
-    //     let totalActive = 0;
-    //     for(let child of this.children.getChildren())
-    //     {
-    //         if(child.texture && child.texture.key === "star")
-    //         {
-    //             if(child.active)
-    //             {
-    //                 totalActive++;
-    //             }
-    //         }
-    //     }
-    //     // if(totalActive === 0)
-    //     // {
-    //     //     this.win();
-    //     // }
-    // }
+    ramasserEtoile (player, star)
+    {
+        star.disableBody(true, true);
+
+        ui.gagne(1);
+
+        //va lister tous les objets de la scène pour trouver les étoies et vérifier si elles sont actives
+        let totalActive = 0;
+        for(let child of this.children.getChildren())
+        {
+            if(child.texture && child.texture.key === "star")
+            {
+                if(child.active)
+                {
+                    totalActive++;
+                }
+            }
+        }
+        // if(totalActive === 0)
+        // {
+        //     this.win();
+        // }
+    }
 
     hitPic ()
     {
@@ -179,8 +188,6 @@ class Tableau extends Phaser.Scene
                 // et si le bas du player est plus haut que le monstre
                 && player.getBounds().bottom < monster.getBounds().top + 30
             ) {
-                ui.gagne();
-
                 me.mortEnnemy.play(me.aigleConfig);
 
                 monster.isDead = true; //ok le monstre est mort

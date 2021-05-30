@@ -30,9 +30,30 @@ class Niveau1 extends Tableau
         //     ici.jump.play();
         // });
 
-        // this.player.once(MyEvents.GRIMPE, function(){
-        //
-        // });
+        this.player.on(MyEvents.COURD, function()
+        {
+            if(ici.run.isPlaying !== true && ici.player.isRunning)
+            {
+                ici.run.play(ici.runConfig);
+            }
+        });
+
+        this.player.on(MyEvents.COURG, function()
+        {
+            if(ici.run.isPlaying !== true && ici.player.isRunning)
+            {
+                ici.run.play(ici.runConfig);
+            }
+        });
+
+        this.player.on(MyEvents.STOP, function()
+        {
+            ici.player.isRunning = false;
+            if(ici.run.isPlaying === true)
+            {
+                ici.run.pause();
+            }
+        });
 
         this.player.once(MyEvents.AIGLE, function()
         {
@@ -154,6 +175,8 @@ class Niveau1 extends Tableau
 
             star.once(MyEvents.ACTIVE, function()
             {
+                ici.ramasserEtoile(ici.player, star);
+
                 star.halo.destroy();
                 star.flameche.on = false;
                 star.disableBody(true, true);
@@ -296,7 +319,7 @@ class Niveau1 extends Tableau
             {
                 if(ici.brisable.isPlaying !== true)
                 {
-                    ici.brisable.play();
+                    ici.brisable.play(ici.aigleConfig);
                 }
                 bri.break();
             });
@@ -734,7 +757,7 @@ class Niveau1 extends Tableau
             this.variaLight(this.torcheList[i].light);
         }
 
-        if(this.player.x > 22912 && this.player.y > 1152)
+        if(this.player.x > 22912 && this.player.x < 23168 && this.player.y > 1184)
         {
             this.player.emit(MyEvents.AIGLE);
         }
