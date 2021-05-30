@@ -43,6 +43,7 @@ class Tableau extends Phaser.Scene
         this.load.audio('brisable', 'assets/son/wood-plank-break.wav');
         this.load.audio('recharging', 'assets/son/player-recharging.wav');
         this.load.audio('run', 'assets/son/run.wav');
+        this.load.audio('sword', 'assets/son/sword-blade-attack.wav');
     }
 
     create()
@@ -63,6 +64,7 @@ class Tableau extends Phaser.Scene
         this.brisable = this.sound.add('brisable');
         this.recharging = this.sound.add('recharging');
         this.run = this.sound.add('run');
+        this.sword = this.sound.add('sword');
 
         this.aigleConfig = {
             mute : false,
@@ -79,7 +81,7 @@ class Tableau extends Phaser.Scene
             rate : 1,
             detune : 0,
             seek : 0,
-            loop : true,
+            loop : false,
             delay : 0
         }
 
@@ -97,7 +99,7 @@ class Tableau extends Phaser.Scene
          */
         this.player=new Player(this,10,(448*2)-128);
 
-        this.player.setMaxVelocity(600, 600);
+        this.player.setMaxVelocity(600, 800);
 
         this.blood = this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
         this.blood.displayWidth = 64;
@@ -172,7 +174,9 @@ class Tableau extends Phaser.Scene
 
     hitPic ()
     {
-        // this.physics.pause();
+        Tableau.current.run.pause();
+
+        Tableau.current.player.isDead = true;
         Tableau.current.cameras.main.fadeOut(2000,0,0,0);
         Tableau.current.player.setTint(0xff0000);
         Tableau.current.scene.restart()
@@ -181,6 +185,9 @@ class Tableau extends Phaser.Scene
     hitMonster(player, monster)
     {
         let me=this;
+
+        Tableau.current.run.pause();
+
         if (monster.isDead !== true) { //si notre monstre n'est pas déjà mort
             if (
                 // si le player descend
@@ -198,6 +205,7 @@ class Tableau extends Phaser.Scene
             }
             else
             {
+                Tableau.current.run.pause();
                 // this.playerDie();
                 if(Tableau.current.player.isDead === false)
                 {
@@ -209,7 +217,7 @@ class Tableau extends Phaser.Scene
                         //à la fin de la petite anim, on relance le jeu
                         me.blood.visible = false;
                         me.player.anims.play('turn');
-                        Tableau.current.player.isDead = false;
+                        // Tableau.current.player.isDead = false;
                         me.scene.restart();
                     })
                 }
@@ -309,6 +317,7 @@ class Tableau extends Phaser.Scene
     recharger()
     {
         localStorage.setItem('cP', null);
+        Tableau.current.run.pause();
         this.scene.restart();
     }
 }

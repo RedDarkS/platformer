@@ -129,7 +129,10 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.isRunning = this.body.touching.down;
 
                 this.setFlipX(true);
-                this.emit(MyEvents.COURG);
+                if(this.isDead !== true)
+                {
+                    this.emit(MyEvents.COURG);
+                }
                 break;
 
             case this._directionX > 0 : // va vers la droite et n'est pas bloqué à droite
@@ -139,7 +142,10 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.isRunning = this.body.touching.down;
 
                 this.setFlipX(false);
-                this.emit(MyEvents.COURD);
+                if(this.isDead !== true)
+                {
+                    this.emit(MyEvents.COURD);
+                }
                 break;
 
             case this._directionX > 0 && this._directionY > 0 : // va vers en bas à droite

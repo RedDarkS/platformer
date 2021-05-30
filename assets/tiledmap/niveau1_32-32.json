@@ -9621,8 +9621,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":33088,
-                 "y":5088
+                 "x":32992,
+                 "y":5152
                 }, 
                 {
                  "gid":217,
@@ -9633,8 +9633,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":33184,
-                 "y":5248
+                 "x":32992,
+                 "y":5408
                 }, 
                 {
                  "gid":219,
@@ -11493,15 +11493,15 @@
          "objects":[
                 {
                  "height":0,
-                 "id":3518,
+                 "id":3553,
                  "name":"Player",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":416,
-                 "y":5120
+                 "x":31008,
+                 "y":4896
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -12713,7 +12713,7 @@
          "y":0
         }],
  "nextlayerid":25,
- "nextobjectid":3553,
+ "nextobjectid":3554,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.3",

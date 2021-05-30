@@ -17,7 +17,7 @@ class Markus extends ObjetEnnemi
         this.setOrigin(0,0);
 
         this.displayWidth = this.body.width/1.9;
-        this.displayHeight = this.body.height/1.7;
+        this.displayHeight = this.body.height/1.5;
 
         this.setBodySize(this.body.width/10,this.body.height/2);
         this.setOffset(30,150);
@@ -47,7 +47,7 @@ class Markus extends ObjetEnnemi
 
         this.on(MyEvents.MARKUS, function()
         {
-            if(me.scene.player.isDead !== true)
+            if(Tableau.current.player.isDead !== true)
             {
                 if(this.anims.isPlaying !== true)
                 {
@@ -58,6 +58,8 @@ class Markus extends ObjetEnnemi
                     setTimeout(function()
                     {
                         me.setOffset(100,150);
+                        Tableau.current.sword.play(Tableau.current.aigleConfig);
+
                     },300);
 
                     setTimeout(function()
@@ -78,11 +80,13 @@ class Markus extends ObjetEnnemi
                     setTimeout(function()
                     {
                         me.setOffset(600,150);
+                        Tableau.current.sword.play(Tableau.current.aigleConfig);
                     },900);
 
                     setTimeout(function()
                     {
                         me.setOffset(800,150);
+                        Tableau.current.sword.play(Tableau.current.aigleConfig);
                     },1600);
 
                     setTimeout(function()

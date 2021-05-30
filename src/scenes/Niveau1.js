@@ -26,13 +26,13 @@ class Niveau1 extends Tableau
 
         let ici = this;
 
-        // this.player.on(MyEvents.SAUTE, function(){
-        //     ici.jump.play();
+        // this.player.on(MyEvents.MARKUS, function(){
+        //
         // });
 
         this.player.on(MyEvents.COURD, function()
         {
-            if(ici.run.isPlaying !== true && ici.player.isRunning)
+            if(ici.run.isPlaying !== true && ici.player.isDead !== true)
             {
                 ici.run.play(ici.runConfig);
             }
@@ -40,7 +40,7 @@ class Niveau1 extends Tableau
 
         this.player.on(MyEvents.COURG, function()
         {
-            if(ici.run.isPlaying !== true && ici.player.isRunning)
+            if(ici.run.isPlaying !== true && ici.player.isDead !== true)
             {
                 ici.run.play(ici.runConfig);
             }
