@@ -14,11 +14,11 @@ class Chevalier extends ObjetEnnemi
         this.body.allowGravity=false;
 
         //gestion de la taille
-        this.setDisplaySize(50,70);
+        this.setDisplaySize(40,100);
 
         //on réduit un peu la zone de hit
-        this.setBodySize(this.body.width,this.body.height);
-        this.setOffset(0,0);
+        this.setBodySize(this.body.width,this.body.height -100);
+        this.setOffset(0,30);
 
         //définir les propriété que l'on va utiliser dans notre animation
 
@@ -41,7 +41,7 @@ class Chevalier extends ObjetEnnemi
         scene.tweens.add(
             {
             targets:this,
-            duration:200,
+            duration:500,
             delay:Math.random()*2000,
             alpha:{
                 startDelay:Math.random()*5000,

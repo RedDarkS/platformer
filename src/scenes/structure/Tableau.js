@@ -22,13 +22,14 @@ class Tableau extends Phaser.Scene
         //SPRITES
         this.load.image('star', 'assets/coeur.png');
         this.load.image('blood', 'assets/blood.png');
+        this.load.image('checkpoint', 'assets/checkpoint.png');
 
         //SPRITES ENTITES
         this.load.spritesheet('player_animes','assets/animes.png', {frameWidth: 400, frameHeight: 345});
         this.load.spritesheet('markus_animes','assets/anime Markus.png', {frameWidth: 1064, frameHeight: 300});
 
         this.load.spritesheet('torche', 'assets/torche-sheet.png', {frameHeight : 64, frameWidth : 64});
-        this.load.image('Ennemi1', 'assets/ennemi1.png');
+        this.load.image('Ennemi1', 'assets/chevalier.png');
         this.load.image('pic', 'assets/pic.png');
 
         //des petits sons pour le lol

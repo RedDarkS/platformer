@@ -6,6 +6,12 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
         this.scene=scene;
         scene.add.existing(this);
         scene.physics.add.existing(this);
+
+        this.setDisplaySize(32,64);
+
+        this.setBodySize(this.body.width,this.body.height);
+        this.setOffset(0,0);
+
         this.valuePos = value;
         this.body.allowGravity=false;
     }

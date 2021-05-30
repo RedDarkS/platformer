@@ -198,7 +198,11 @@ class Niveau1 extends Tableau
 
         this.MonstersObjects.forEach(monsterObject =>
         {
-            let monster = new Chevalier(this, monsterObject.x, monsterObject.y);
+            let monster = new Chevalier(
+                this,
+                monsterObject.x,
+                monsterObject.y-5
+            );
             this.monstersContainer.add(monster);
 
             this.physics.add.overlap(this.player, monster, this.hitMonster);
@@ -342,8 +346,8 @@ class Niveau1 extends Tableau
             let ckp = new checkPoint(
                 this,
                 checkPointsObject.x,
-                checkPointsObject.y - 8,
-                'pixel',
+                checkPointsObject.y - 32,
+                'checkpoint',
                 checkPointsObject.properties[0].value
             );
             this.physics.add.overlap(this.player, ckp, function()
@@ -358,7 +362,7 @@ class Niveau1 extends Tableau
                 ici.player.setPosition(this.playerPos.x, this.playerPos.y - 64);
             }
 
-            ckp.setVisible(false);
+            // ckp.setVisible(false);
         })
 
         //Cam
