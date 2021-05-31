@@ -109,10 +109,20 @@ class Ui extends Phaser.Scene
         btFs.y=this.sys.canvas.height;
     }
 
+    reset()
+    {
+        this.completion = 0;
+        this._completionText.setText(' ' + this.completion + ' /100');
+    }
+
     gagne(points)
     {
         this.completion+=points;
-        this._completionText.setText(' ' + this.completion);
+        if(this.completion < 0)
+        {
+            this.completion = 0;
+        }
+        this._completionText.setText(' ' + this.completion + ' /100');
     }
 
     update(){

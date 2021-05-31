@@ -5,6 +5,14 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
         this.load.image('pixel', 'assets/pixel.png');
     }
 
+    get place() {
+        return this._place;
+    }
+
+    set place(value) {
+        this._place = value;
+    }
+
     get isActive()
     {
         return this._isActive;
@@ -39,9 +47,9 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
         this._isActive = value;
     }
 
-    constructor(scene, x, y, image)
+    constructor(scene, x, y, image, place)
     {
-        super(scene, x, y, image)
+        super(scene, x, y, image);
         scene.add.existing(this);
 
         scene.physics.add.existing(this);
@@ -51,6 +59,7 @@ class Collectible extends Phaser.Physics.Arcade.Sprite
 
         this.scene = scene;
         this._isActive = true;
+        this._place = place;
 
         this.starsFxContainer = scene.add.container();
         this.starsFxContainer.x = 16;

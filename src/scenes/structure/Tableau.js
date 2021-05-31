@@ -292,6 +292,7 @@ class Tableau extends Phaser.Scene
                         me.blood.visible = false;
                         me.player.anims.play('turn');
                         // Tableau.current.player.isDead = false;
+                        ui.gagne(-10);
                         me.scene.restart();
                     })
                 }
@@ -392,6 +393,7 @@ class Tableau extends Phaser.Scene
     recharger()
     {
         localStorage.setItem('cP', null);
+        ui.reset();
         Tableau.current.run.pause();
         this.scene.restart();
     }

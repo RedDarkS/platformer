@@ -69,7 +69,7 @@ class Niveau1 extends Tableau
         this.physics.world.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
-
+        this.cameras.main.setRoundPixels(true);
         this.cameras.main.setZoom(0.75);
 
         //ambiance atmosphérique
@@ -90,12 +90,12 @@ class Niveau1 extends Tableau
 
         var emmiterPlayerD = part.createEmitter({
             frequency: 50,
-            lifespan: 300,
+            lifespan: 500,
             quantity: 1,
             angle: { min: -20, max: 10 },
             speed: 2,
             scale: { start: 0.2, end: 0.05 },
-            alpha: { start: 0.05, end: 0.00001},
+            alpha: { start: 0.5, end: 0.1},
             blendMode: 'ADD',
         });
 
@@ -103,12 +103,12 @@ class Niveau1 extends Tableau
 
         var emmiterPlayerG = part2.createEmitter({
             frequency: 50,
-            lifespan: 300,
+            lifespan: 500,
             quantity: 1,
             angle: { min: -20, max: 10 },
             speed: 2,
             scale: { start: 0.2, end: 0.05 },
-            alpha: { start: 0.05, end: 0.00001},
+            alpha: { start: 0.5, end: 0.1},
             blendMode: 'ADD',
         });
 
@@ -161,7 +161,8 @@ class Niveau1 extends Tableau
                 ici,
                 starObject.x,
                 starObject.y,
-                'star'
+                'star',
+                starObject.properties[0].value
             ).setOrigin(0, 1);
 
             this.physics.add.overlap(this.player, star, function()
@@ -548,6 +549,8 @@ class Niveau1 extends Tableau
                 'star'
             ).setOrigin(0, 1);
 
+            // ng.setTint(0x996600);
+
             this.physics.add.overlap(this.player, ng, function()
             {
                 setTimeout(function()
@@ -740,6 +743,18 @@ class Niveau1 extends Tableau
             }
         });
 
+        this.starList.forEach(star =>
+        {
+            if (localStorage.getItem('cP') > star.place)
+            {
+                star.halo.destroy();
+                star.flameche.on = false;
+                star.disableBody(true, true);
+                star.emmiter.on = false;
+            }
+        });
+
+
     }
 
     update()
@@ -752,10 +767,6 @@ class Niveau1 extends Tableau
         //le second plan se déplace moins vite pour accentuer l'effet
         this.derriere.tilePositionX = this.cameras.main.scrollX * 0.15;
         this.derriere.tilePositionY = this.cameras.main.scrollY * 0.1;
-
-        //le premier plan se déplace moins vite pour accentuer l'effet
-        // this.plafond.tilePositionX = this.cameras.main.scrollX * 0.2;
-        // this.plafond.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         for (let i = 0; i < this.torcheList.length; i++)
         {
@@ -771,7 +782,6 @@ class Niveau1 extends Tableau
         this.player.light.y = this.player.y;
 
         this.optimizeDisplay();
-
 
     }
 
