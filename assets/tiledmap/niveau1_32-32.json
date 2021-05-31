@@ -12219,7 +12219,7 @@
          "objects":[
                 {
                  "height":0,
-                 "id":3572,
+                 "id":3578,
                  "name":"Player",
                  "point":true,
                  "rotation":0,
@@ -13439,10 +13439,10 @@
          "y":0
         }],
  "nextlayerid":25,
- "nextobjectid":3577,
+ "nextobjectid":3579,
  "orientation":"orthogonal",
  "renderorder":"left-up",
- "tiledversion":"1.4.2",
+ "tiledversion":"1.4.3",
  "tileheight":32,
  "tilesets":[
         {
