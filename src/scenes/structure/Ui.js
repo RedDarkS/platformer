@@ -10,6 +10,9 @@ class Ui extends Phaser.Scene
     {
         this.load.image('ui/full-screen-icon', 'assets/ui/full-screen.png');
         this.load.image('star', 'assets/coeur.png');
+        this.load.image('up', 'assets/ui/arrowUp.png');
+        this.load.image('left', 'assets/ui/arrowLeft.png');
+        this.load.image('right', 'assets/ui/arrowRight.png');
     }
 
     create ()
@@ -33,6 +36,11 @@ class Ui extends Phaser.Scene
          * @private
          */
         this._completionText = this.add.text(65, 18, '', {
+            font:'32px "Comic Sans MS"',
+            fill: '#fff'
+        });
+
+        this._newGame = this.add.text(750, 12, 'New Game', {
             font:'32px "Comic Sans MS"',
             fill: '#fff'
         });

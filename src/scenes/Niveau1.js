@@ -514,6 +514,28 @@ class Niveau1 extends Tableau
                 tpObject.y,
                 'pixel'
             );
+
+            // let emmit = new Phaser.Geom.Rectangle(tpObject.x, tpObject.y - 120, 5, 190);
+            //
+            // let parti = ici.add.particles("pixel");
+            // this.mimiter = parti.createEmitter({
+            //     frequency: 100,
+            //     lifespan: 500,
+            //     quantity: 5,
+            //     gravityX: -50,
+            //     gravityY: 0,
+            //     x: {min: -64, max: 64},
+            //     y: {min: -64, max: 64},
+            //     tint: [0x6e3300],
+            //     rotate: {min: 0, max: 360},
+            //     scale: {start: 0.1, end: 0.3},
+            //     alpha: {start: 1, end: 0},
+            //     emitZone: { type: 'random', source: emmit },
+            //     blendMode: Phaser.BlendModes.ADD,
+            //     speed: 30
+            // });
+            //
+            // this.mimiter.startFollow(tp);
             this.tpContainer.add(tp);
 
             this.physics.add.overlap(this.player, tp, function()
@@ -572,7 +594,7 @@ class Niveau1 extends Tableau
 
                 setTimeout(function()
                 {
-                    ici.recharger();
+                    ici.newGame();
                 },200);
 
             });
@@ -753,8 +775,6 @@ class Niveau1 extends Tableau
                 star.emmiter.on = false;
             }
         });
-
-
     }
 
     update()

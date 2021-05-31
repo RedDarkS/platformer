@@ -4,8 +4,7 @@ https://RedDarkS.github.io/platformer/
 
 - To advance in the game, use the keys : 'ArrowRight' or 'D'.
 - You can jump with the key : 'ArrowUp' or 'Z' or 'Space'.
-- And you can dodge with the key : 'Shift'. (doesn't word)
-- Press 'R' to reload the level at the last checkpoint.
+- Press 'R' for a newGame.
 
 TODO list :
 

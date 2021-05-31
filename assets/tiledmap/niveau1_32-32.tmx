@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="3571">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="3572">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -4209,11 +4209,6 @@
     <property name="place" type="int" value="2"/>
    </properties>
   </object>
-  <object id="3569" gid="217" x="35936" y="5792" width="32" height="32">
-   <properties>
-    <property name="place" type="int" value="11"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup id="6" name="boss">
   <object id="3465" gid="221" x="34720" y="5696" width="32" height="32"/>
@@ -4365,7 +4360,7 @@
   <object id="3552" gid="194" x="32064" y="5792" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="4" name="point">
-  <object id="3570" name="Player" x="416" y="5120">
+  <object id="3571" name="Player" x="34496" y="5248">
    <point/>
   </object>
  </objectgroup>

@@ -49,10 +49,10 @@
                     localStorage.setItem('cP', null);
                     break;
 
-                // case "r":
-                //     Tableau.current.recharger();
-                //     Tableau.current.recharging.play(Tableau.current.aigleConfig);
-                //     break;
+                case "r":
+                    Tableau.current.newGame();
+                    Tableau.current.recharging.play(Tableau.current.aigleConfig);
+                    break;
             }
         });
         scene.input.keyboard.on('keyup', function(kevent)

@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
+      <change afterPath="$PROJECT_DIR$/assets/ui/arrowLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ui/arrowRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ui/arrowUp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/NormalMap.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/NormalMap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tileSheet_32-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tileSheet_32-32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Collectible.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Collectible.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GameKeyboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePadButtons.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/structure/Ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Ui.js" afterDir="false" />
@@ -175,7 +178,7 @@
       <workItem from="1622285445095" duration="8546000" />
       <workItem from="1622360881931" duration="3042000" />
       <workItem from="1622365334094" duration="16832000" />
-      <workItem from="1622445903699" duration="6276000" />
+      <workItem from="1622445903699" duration="11124000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>

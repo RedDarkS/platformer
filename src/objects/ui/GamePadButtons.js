@@ -8,41 +8,51 @@
         super(scene, x, y)
         scene.add.existing(this);
 
-        if(this.scene.sys.game.device.os.desktop !== true && this.scene.sys.game.device.os.linux !== true && this.scene.sys.game.device.os.macOS !== true)
-        {
+        // if(this.scene.sys.game.device.os.desktop !== true && this.scene.sys.game.device.os.linux !== true && this.scene.sys.game.device.os.macOS !== true)
+        // {
             this.size = size;
             let w = this.size/2;
             let pad2 = scene.add.container();
 
             //cercle d'affichage des boutons
-            // let btnUP = scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
-            let btnLEFT = scene.add.circle(-50,0,w/1.5,0xffffff,0.3).setInteractive();
-            let btnRIGHT = scene.add.circle(0,0,w/1.5,0xffffff,0.3).setInteractive();
-            // let btnDOWN = scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
 
-            let btnA = scene.add.circle(0,0,w,0xffffff,0.3).setInteractive();
-            // let btnB = scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
+            let CbtnLEFT = scene.add.circle(-50,0,w/1.5,0xffffff,0.3);
+            let btnLEFT = scene.add.sprite(0, 0, 'left', 0.3).setDisplaySize(22,38).setInteractive();
+            let CbtnRIGHT = scene.add.circle(0,0,w/1.5,0xffffff,0.3);
+            let btnRIGHT = scene.add.sprite(0, 0, 'right', 0.3).setDisplaySize(22,38).setInteractive();
 
-            // this.add(btnUP);
+            let CbtnA = scene.add.circle(0,0,w/1.5,0xffffff,0.3).setInteractive();
+            let btnA = scene.add.sprite(0, 0, 'up', 0.3).setDisplaySize(38,22).setInteractive();
+
+            let btnB = scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
+
+            this.add(CbtnLEFT);
+            this.add(CbtnRIGHT);
+
             this.add(btnLEFT);
             this.add(btnRIGHT);
-            // this.add(btnDOWN);
 
+            this.add(CbtnA);
             this.add(btnA);
-            // this.add(btnB);
+            this.add(btnB);
 
-            // btnUP.x = w*1;
-            btnLEFT.x = w*0;
-            btnRIGHT.x = w*1.8;
+            CbtnLEFT.x = 0;
+            CbtnRIGHT.x = w*1.9;
+            CbtnLEFT.y = w;
+            CbtnRIGHT.y = w;
+
+            btnLEFT.x = 0;
+            btnRIGHT.x = w*1.9;
             btnLEFT.y = w;
             btnRIGHT.y = w;
-            // btnDOWN.x = w;
-            // btnDOWN.y = w*2;
 
+            CbtnA.x = scene.sys.canvas.width * -1 + w * 4;
+            CbtnA.y = w;
             btnA.x = scene.sys.canvas.width * -1 + w * 4;
-            btnA.y = w*1;
-            // btnB.x = scene.sys.canvas.width * -1 + w * 4;
-            // btnB.y = w*0.5;
+            btnA.y = w;
+
+            btnB.x = scene.sys.canvas.width * -1 + w * 19;
+            btnB.y = w*-5;
 
 
             btnLEFT.on('pointerdown',function()
@@ -90,10 +100,10 @@
             {
                 Tableau.current.player.directionY=0;
             });
-            // btnB.on('pointerdown',function()
-            // {
-            //     Tableau.current.player.directionY=-1;
-            // });
+            btnB.on('pointerdown',function()
+            {
+                Tableau.current.newGame();
+            });
             // btnB.on('pointerup',function()
             // {
             //     Tableau.current.player.directionY=-0;
@@ -102,6 +112,6 @@
 
 
 
-    }
+    // }
 
 } 

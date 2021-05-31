@@ -390,7 +390,7 @@ class Tableau extends Phaser.Scene
         game.scene.start(tableau);
     }
 
-    recharger()
+    newGame()
     {
         localStorage.setItem('cP', null);
         ui.reset();

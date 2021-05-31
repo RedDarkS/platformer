@@ -10433,24 +10433,6 @@
                  "width":32,
                  "x":9280,
                  "y":5408
-                }, 
-                {
-                 "gid":217,
-                 "height":32,
-                 "id":3569,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"place",
-                         "type":"int",
-                         "value":11
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":35936,
-                 "y":5792
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -12213,15 +12195,15 @@
          "objects":[
                 {
                  "height":0,
-                 "id":3570,
+                 "id":3571,
                  "name":"Player",
                  "point":true,
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":416,
-                 "y":5120
+                 "x":34496,
+                 "y":5248
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -13433,7 +13415,7 @@
          "y":0
         }],
  "nextlayerid":25,
- "nextobjectid":3571,
+ "nextobjectid":3572,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.4.2",
