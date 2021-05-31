@@ -22,6 +22,29 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
         this.x = x;
         this.y = y;
 
+        let particles = scene.add.particles('pixel');
+        this.emmiter = particles.createEmitter({
+            frequency: 150,
+            lifespan: Phaser.Math.Between(500,1000),
+            quantity: 5,
+            gravityX: 0,
+            gravityY: -50,
+            x: {min: -16, max: 16},
+            y: {min: -16, max: 16},
+            tint: [  0x9ACD32, 0x32CD32, 0x00FF00, 0x7CFC00, 0x008000 ],
+            rotate: { min:0, max:360 },
+            radial: true,
+            scale: { start: 0.2, end: 0.1 },
+            alpha: { start: 1, end: 0 },
+            blendMode: Phaser.BlendModes.ADD,
+            speed: 20
+        });
+
+        this.emmiter.startFollow(this);
+        this.emmiter.pause();
+
+        scene.starsFxContainer.add(particles);
+
         this.compt = 0;
     }
 
@@ -34,6 +57,8 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
             this.halo.color.b = 144;
 
             this.scene.starsFxContainer.add(this.halo);
+
+            this.emmiter.resume();
 
             this.compt ++;
         }

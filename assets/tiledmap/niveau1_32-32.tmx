@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="3572">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="left-up" width="1124" height="188" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="3573">
  <editorsettings>
   <export target="niveau1_32-32.json" format="json"/>
  </editorsettings>
@@ -2941,7 +2941,7 @@
  <objectgroup id="23" name="tp">
   <object id="3510" gid="222" x="35936" y="5792" width="32" height="32"/>
  </objectgroup>
- <objectgroup id="17" name="esc gauche" visible="0">
+ <objectgroup id="17" name="esc gauche">
   <object id="1906" gid="196" x="1888" y="5248" width="32" height="32"/>
   <object id="1907" gid="196" x="1888" y="5216" width="32" height="32"/>
   <object id="1908" gid="196" x="1888" y="5184" width="32" height="32"/>
@@ -3211,7 +3211,7 @@
   <object id="3490" gid="196" x="8864" y="5696" width="32" height="32"/>
   <object id="3491" gid="196" x="8864" y="5664" width="32" height="32"/>
  </objectgroup>
- <objectgroup id="16" name="esc droite" visible="0">
+ <objectgroup id="16" name="esc droite">
   <object id="2232" gid="195" x="17568" y="5792" width="32" height="32"/>
   <object id="2233" gid="195" x="17568" y="5760" width="32" height="32"/>
   <object id="2234" gid="195" x="17568" y="5728" width="32" height="32"/>
@@ -4360,7 +4360,7 @@
   <object id="3552" gid="194" x="32064" y="5792" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="4" name="point">
-  <object id="3571" name="Player" x="34496" y="5248">
+  <object id="3572" name="Player" x="416" y="5120">
    <point/>
   </object>
  </objectgroup>

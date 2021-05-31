@@ -40,11 +40,6 @@ class Ui extends Phaser.Scene
             fill: '#fff'
         });
 
-        this._newGame = this.add.text(750, 12, 'New Game', {
-            font:'32px "Comic Sans MS"',
-            fill: '#fff'
-        });
-
         /**
          * Le champ texte avec la clé du tableau
          * @type {Phaser.GameObjects.Text}

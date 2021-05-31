@@ -514,28 +514,6 @@ class Niveau1 extends Tableau
                 tpObject.y,
                 'pixel'
             );
-
-            // let emmit = new Phaser.Geom.Rectangle(tpObject.x, tpObject.y - 120, 5, 190);
-            //
-            // let parti = ici.add.particles("pixel");
-            // this.mimiter = parti.createEmitter({
-            //     frequency: 100,
-            //     lifespan: 500,
-            //     quantity: 5,
-            //     gravityX: -50,
-            //     gravityY: 0,
-            //     x: {min: -64, max: 64},
-            //     y: {min: -64, max: 64},
-            //     tint: [0x6e3300],
-            //     rotate: {min: 0, max: 360},
-            //     scale: {start: 0.1, end: 0.3},
-            //     alpha: {start: 1, end: 0},
-            //     emitZone: { type: 'random', source: emmit },
-            //     blendMode: Phaser.BlendModes.ADD,
-            //     speed: 30
-            // });
-            //
-            // this.mimiter.startFollow(tp);
             this.tpContainer.add(tp);
 
             this.physics.add.overlap(this.player, tp, function()
@@ -611,33 +589,11 @@ class Niveau1 extends Tableau
      */
     initDecor()
     {
-        //TODO mettre en place le décor final
-
         this.sky = this.add.sprite(-150, -95,  'sky-2');
         this.sky.setOrigin(0, 0);
         this.sky.displayHeight = this.sky.height*0.55;
         this.sky.displayWidth = this.sky.width*0.65;
         this.sky.setScrollFactor(0, 0);
-
-        // this.dernierPlan = this.add.tileSprite(
-        //     -192,
-        //     -128,
-        //     this.sys.canvas.width * 2,
-        //     this.sys.canvas.height * 2,
-        //     'dernierPlan'
-        // );
-        // this.dernierPlan.setOrigin(0, 0);
-        // this.dernierPlan.setScrollFactor(0);
-
-        // this.secondPlan = this.add.tileSprite(
-        //     -192,
-        //     -128,
-        //     this.sys.canvas.width * 2,
-        //     this.sys.canvas.height * 2,
-        //     'secondPlan'
-        // );
-        // this.secondPlan.setScrollFactor(0);
-        // this.secondPlan.setOrigin(0, 0);
 
         //TILED
 
@@ -685,9 +641,6 @@ class Niveau1 extends Tableau
 
         this.torchesContainer.setDepth(z--);
         this.recContainer.setDepth(z--);
-
-        // this.derriere.setDepth(z--);
-        // this.doubleDerriere.setDepth(z--);
 
         //derrière
     }
@@ -802,7 +755,6 @@ class Niveau1 extends Tableau
         this.player.light.y = this.player.y;
 
         this.optimizeDisplay();
-
     }
 
 }

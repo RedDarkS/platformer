@@ -4,6 +4,7 @@ let height=7*64; //448;
 let config = {
     type: Phaser.WEBGL,
     roundPixels : true,
+    autoRound: false,
 
     physics: 
     {
@@ -42,9 +43,7 @@ let config = {
             height: height*1.5
         },
         autoCenter:Phaser.Scale.Center.CENTER_BOTH
-
     },
-    autoRound: false
 };
 
 let game;
