@@ -342,6 +342,8 @@ class Niveau1 extends Tableau
 
         //Les Checkpoints
 
+        this.ckpContainer = this.add.container();
+
         this.checkPointsObjects = this.map.getObjectLayer('ckps')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
             let ckp = new checkPoint(
@@ -681,6 +683,12 @@ class Niveau1 extends Tableau
                             bri.isActive = true;
                         }
                     });
+                    this.ckpContainer.iterate(ckp =>{
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), ckp.getBounds() ))
+                        {
+                            ckp.isActive = true;
+                        }
+                    });
                 }
                 else// le joueur n'est pas en contact avec le rectangle
                 {
@@ -710,6 +718,12 @@ class Niveau1 extends Tableau
                         if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), bri.getBounds() ))
                         {
                             bri.isActive = false;
+                        }
+                    });
+                    this.ckpContainer.iterate(ckp =>{
+                        if (Phaser.Geom.Rectangle.Overlaps(rec.getBounds(), ckp.getBounds() ))
+                        {
+                            ckp.isActive = false;
                         }
                     });
 

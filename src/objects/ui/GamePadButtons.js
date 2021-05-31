@@ -12,7 +12,6 @@
         {
             this.size = size;
             let w = this.size/2;
-            // let pad2 = scene.add.container();
 
             this._newGame = this.add.text(750, 12, 'New Game', {
                 font:'32px "Comic Sans MS"',

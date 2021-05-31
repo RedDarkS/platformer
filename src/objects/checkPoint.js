@@ -1,5 +1,31 @@
 class checkPoint extends Phaser.Physics.Arcade.Sprite
 {
+    get isActive()
+    {
+        return this._isActive;
+    }
+
+    set isActive(value)
+    {
+        if(value === this._isActive)
+        {
+            return;
+        }
+
+        if(value)
+        {
+            this.emmiter.resume();
+            this.emmiter.setVisible(true);
+        }
+        else
+        {
+            this.emmiter.pause();
+            this.emmiter.setVisible(false);
+        }
+
+        this._isActive = value;
+    }
+
     constructor(scene, x, y, image, value)
     {
         super(scene, x, y, image);
@@ -14,6 +40,7 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
 
         this.valuePos = value;
         this.body.allowGravity=false;
+        this._isActive = false;
 
         this.starsFxContainer = scene.add.container();
         this.starsFxContainer.x = 16;
