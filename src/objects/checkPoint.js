@@ -52,7 +52,7 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
         let particles = scene.add.particles('pixel');
         this.emmiter = particles.createEmitter({
             frequency: 150,
-            lifespan: Phaser.Math.Between(500,1000),
+            lifespan: Phaser.Math.Between(800,1000),
             quantity: 5,
             gravityX: 0,
             gravityY: -50,

@@ -526,7 +526,7 @@ class Niveau1 extends Tableau
                 ici.cameras.main.fadeIn(700, 0, 0, 0);
             });
 
-            // tp.setVisible(false);
+            tp.setVisible(false);
         });
 
         //New game
@@ -550,8 +550,6 @@ class Niveau1 extends Tableau
                 NGObjects.y,
                 'star'
             ).setOrigin(0, 1);
-
-            // ng.setTint(0x996600);
 
             this.physics.add.overlap(this.player, ng, function()
             {
