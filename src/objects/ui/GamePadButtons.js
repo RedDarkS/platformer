@@ -8,7 +8,7 @@
         super(scene, x, y)
         scene.add.existing(this);
 
-        if(this.scene.sys.game.device.os.desktop !== true)
+        if(this.scene.sys.game.device.os.desktop !== true && this.scene.sys.game.device.os.linux !== true && this.scene.sys.game.device.os.macOS !== true)
         {
             this.size = size;
             let w = this.size/2;

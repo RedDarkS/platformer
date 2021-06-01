@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre">
-      <change afterPath="$PROJECT_DIR$/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tileSheet_32-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tileSheet_32-32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tiledmap/niveau1_32-32.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/Niveau1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Niveau1.js" afterDir="false" />
-    </list>
+    <list default="true" id="21d6408b-778e-4b52-a9f3-739200a1d5d0" name="Default Changelist" comment="Todo list entre autre" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +169,7 @@
       <workItem from="1622470019077" duration="4849000" />
       <workItem from="1622493923076" duration="1000000" />
       <workItem from="1622495785465" duration="1766000" />
-      <workItem from="1622534078482" duration="2526000" />
+      <workItem from="1622534078482" duration="2570000" />
     </task>
     <task id="LOCAL-00001" summary="Todo list entre autre">
       <created>1618493456704</created>
