@@ -6,6 +6,7 @@ class Niveau1 extends Tableau
 
         //d'autres trucs pour le décors
         this.load.image('sky-2', 'assets/sky-2.jpg');
+        this.load.image('logo', 'assets/logo.png');
 
         this.load.image('pixel', 'assets/pixel.png');
         this.load.image('particD', 'assets/part_course_droite.png');
@@ -29,6 +30,12 @@ class Niveau1 extends Tableau
         // this.player.on(MyEvents.MARKUS, function(){
         //
         // });
+
+        this.logo = this.add.sprite(2980, 2618, 'logo').setOrigin(0,0).setDisplaySize(428,200).setInteractive();
+        this.logo.on('pointerdown',function()
+        {
+
+        });
 
         this.player.on(MyEvents.COURD, function()
         {
@@ -68,7 +75,7 @@ class Niveau1 extends Tableau
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
         this.physics.world.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
 
-        this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 50);
+        this.cameras.main.startFollow(this.player, false, 0.1, 0.2, -200, 64);
         this.cameras.main.setRoundPixels(true);
         this.cameras.main.setZoom(0.75);
 
@@ -620,6 +627,7 @@ class Niveau1 extends Tableau
         this.nature.setDepth(z--);
         this.devant.setDepth(z--);
 
+        this.logo.setDepth(z--);
         this.blood.setDepth(z--);
 
         this.player.setDepth(z--);
