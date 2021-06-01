@@ -40,10 +40,10 @@ class Ui extends Phaser.Scene
             fill: '#fff'
         });
 
-        this.oui = this.add.text(120, 100, '123', {
-            font:'32px "Comic Sans MS"',
-            fill: '#fff'
-        });
+        // this.oui = this.add.text(120, 100, '123', {
+        //     font:'32px "Comic Sans MS"',
+        //     fill: '#fff'
+        // });
 
         /**
          * Le champ texte avec la clé du tableau

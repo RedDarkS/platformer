@@ -10,12 +10,12 @@
         game.input.addPointer();
         game.input.addPointer();
 
-        // if(!this.scene.sys.game.device.os.desktop)
-        // {
+        if(!this.scene.sys.game.device.os.desktop)
+        {
             this.size = size;
             let w = this.size/2;
 
-            this._newGame = this.add.text(750, 12, 'New Game', {
+            this._newGame = scene.add.text(750, 12, 'New Game', {
                 font:'32px "Comic Sans MS"',
                 fill: '#fff'
             });
@@ -69,14 +69,6 @@
             {
                 Tableau.current.player.directionX=1;
             });
-            // btnUP.on('pointerdown',function()
-            // {
-            //     Tableau.current.player.directionY=-1;
-            // });
-            // btnDOWN.on('pointerdown',function()
-            // {
-            //     Tableau.current.player.directionY=1;
-            // });
 
 
 
@@ -88,14 +80,7 @@
             {
                 Tableau.current.player.directionX=0;
             });
-            // btnUP.on('pointerup',function()
-            // {
-            //     Tableau.current.player.directionY=-0;
-            // });
-            // btnDOWN.on('pointerup',function()
-            // {
-            //     Tableau.current.player.directionY=0;
-            // });
+            
 
 
             btnA.on('pointerdown',function()
@@ -110,12 +95,8 @@
             {
                 Tableau.current.newGame();
             });
-            // btnB.on('pointerup',function()
-            // {
-            //     Tableau.current.player.directionY=-0;
-            // });
         }
 
-    // }
+    }
 
 } 
