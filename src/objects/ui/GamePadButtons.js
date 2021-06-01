@@ -7,8 +7,10 @@
     {
         super(scene, x, y)
         scene.add.existing(this);
+        game.input.addPointer();
+        game.input.addPointer();
 
-        if(this.scene.game.device.os.android || this.scene.game.device.os.iOS)
+        if(!this.scene.sys.game.device.os.desktop)
         {
             this.size = size;
             let w = this.size/2;
