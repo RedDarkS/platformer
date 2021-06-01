@@ -8,7 +8,7 @@
         super(scene, x, y)
         scene.add.existing(this);
 
-        if(this.scene.sys.game.device.os.android && this.scene.sys.game.device.os.iOS)
+        if(this.game.device.os.android || this.game.device.os.iOS)
         {
             this.size = size;
             let w = this.size/2;
