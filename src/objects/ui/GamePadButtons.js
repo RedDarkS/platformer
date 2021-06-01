@@ -22,9 +22,9 @@
 
             //cercle d'affichage des boutons
 
-            let CbtnLEFT = scene.add.circle(-50,0,w/1.5,0xffffff,0.3);
+            let CbtnLEFT = scene.add.circle(-50,0,w/1.5,0xffffff,0.3).setInteractive();
             let btnLEFT = scene.add.sprite(0, 0, 'left', 0.3).setDisplaySize(22,38).setInteractive();
-            let CbtnRIGHT = scene.add.circle(0,0,w/1.5,0xffffff,0.3);
+            let CbtnRIGHT = scene.add.circle(0,0,w/1.5,0xffffff,0.3).setInteractive();
             let btnRIGHT = scene.add.sprite(0, 0, 'right', 0.3).setDisplaySize(22,38).setInteractive();
 
             let CbtnA = scene.add.circle(0,0,w/1.5,0xffffff,0.3).setInteractive();
@@ -69,6 +69,14 @@
             {
                 Tableau.current.player.directionX=1;
             });
+            CbtnLEFT.on('pointerdown',function()
+            {
+                Tableau.current.player.directionX=-1;
+            });
+            CbtnRIGHT.on('pointerdown',function()
+            {
+                Tableau.current.player.directionX=1;
+            });
 
 
 
@@ -80,7 +88,15 @@
             {
                 Tableau.current.player.directionX=0;
             });
-            
+            CbtnLEFT.on('pointerup',function()
+            {
+                Tableau.current.player.directionX=0;
+            });
+            CbtnRIGHT.on('pointerup',function()
+            {
+                Tableau.current.player.directionX=0;
+            });
+
 
 
             btnA.on('pointerdown',function()
