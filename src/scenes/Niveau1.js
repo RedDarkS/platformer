@@ -392,10 +392,10 @@ class Niveau1 extends Tableau
                 eventC.change();
             });
             eventC.once(MyEvents.EXCENTREE, function(){
-                ici.cameras.main.setFollowOffset(-200,50);
+                ici.cameras.main.setFollowOffset(-200,64);
             });
             eventC.once(MyEvents.CENTREE, function(){
-                ici.cameras.main.setFollowOffset(0,50);
+                ici.cameras.main.setFollowOffset(0,64);
             });
 
             eventC.setVisible(false);
@@ -756,10 +756,6 @@ class Niveau1 extends Tableau
         // le fond se déplace moins vite que la caméra pour donner un effet paralax
         // this.sky.tilePositionX = this.cameras.main.scrollX * 0.1;
         this.sky.tilePositionY = this.cameras.main.scrollY * 0.1;
-
-        //le second plan se déplace moins vite pour accentuer l'effet
-        this.derriere.tilePositionX = this.cameras.main.scrollX * 0.15;
-        this.derriere.tilePositionY = this.cameras.main.scrollY * 0.1;
 
         for (let i = 0; i < this.torcheList.length; i++)
         {
