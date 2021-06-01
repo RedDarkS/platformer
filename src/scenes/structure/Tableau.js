@@ -18,7 +18,6 @@ class Tableau extends Phaser.Scene
      */
     preload()
     {
-        //TODO import des différents sprites
         //SPRITES
         this.load.image('star', 'assets/coeur.png');
         this.load.image('blood', 'assets/blood.png');
@@ -33,8 +32,6 @@ class Tableau extends Phaser.Scene
         this.load.image('pic', 'assets/pic.png');
 
         //des petits sons pour le lol
-
-        //TODO import et gestion des sons
 
         this.load.audio('aigle', 'assets/son/cri-aigle-royal.wav');
         this.load.audio('feu', 'assets/son/sf_feu_cheminee.mp3');

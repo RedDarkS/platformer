@@ -1,7 +1,5 @@
 window.MyEvents = {
 
-    //TODO constante pour les différents events
-
     // Actions
     /**
      * Indique que le player a commencé un saut

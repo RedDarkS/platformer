@@ -24,7 +24,6 @@ let config = {
     ],
     width: width,
     height: height,
-    // pixelArt : true,
     scale: 
     {
         mode: Phaser.Scale.FIT,

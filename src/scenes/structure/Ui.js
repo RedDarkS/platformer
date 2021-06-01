@@ -35,7 +35,7 @@ class Ui extends Phaser.Scene
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._completionText = this.add.text(65, 18, '', {
+        this._completionText = this.add.text(65, 18, '12345', {
             font:'32px "Comic Sans MS"',
             fill: '#fff'
         });
