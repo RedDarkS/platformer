@@ -67,7 +67,6 @@ class Brisable extends Phaser.Physics.Arcade.Sprite
         });
 
         this.mimiter.startFollow(this);
-        // this.mimiter.pause();
 
         scene.starsFxContainer.add(parti);
     }

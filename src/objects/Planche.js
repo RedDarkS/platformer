@@ -113,6 +113,5 @@ class Planche extends Phaser.Physics.Arcade.Sprite
         this.y = this.startY;
         this.setVelocityX(0);
         this.setVelocityY(0);
-        // console.log("reset");
     }
 }

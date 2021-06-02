@@ -28,10 +28,5 @@ class EventCam extends Phaser.Physics.Arcade.Sprite
         {
             this.emit(MyEvents.CENTREE);
         }
-        /*
-        var cam = Tableau.current.cameras.main;
-        cam.pan(500, 500, 2000, 'Power2');
-        cam.zoomTo(4, 3000);
-         */
     }
 }

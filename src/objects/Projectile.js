@@ -5,7 +5,6 @@ class Projectile extends ObjetEnnemi
         super(scene, x, y, "projo");
 
         this.body.allowGravity=false;
-        //this.setVelocityX(160);
         this.body.setSize(15,20);
 
         this.originalX=x;

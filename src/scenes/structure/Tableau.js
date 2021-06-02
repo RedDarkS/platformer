@@ -102,12 +102,8 @@ class Tableau extends Phaser.Scene
         this.arrowRightPressed = false;
         this.arrowLeftPressed = false;
 
-        console.log(this.arrowRightUnpressed);
-        console.log(this.arrowLeftUnpressed);
-        console.log(this.arrowRightPressed);
-        console.log(this.arrowLeftPressed);
-
     }
+
     update()
     {
         super.update();
@@ -246,7 +242,7 @@ class Tableau extends Phaser.Scene
             else
             {
                 Tableau.current.run.pause();
-                // this.playerDie();
+
                 if(Tableau.current.player.isDead === false)
                 {
                     Tableau.current.player.isDead = true;
@@ -257,7 +253,6 @@ class Tableau extends Phaser.Scene
                         //à la fin de la petite anim, on relance le jeu
                         me.blood.visible = false;
                         me.player.anims.play('turn');
-                        // Tableau.current.player.isDead = false;
                         ui.gagne(-10);
                         me.scene.restart();
                     })

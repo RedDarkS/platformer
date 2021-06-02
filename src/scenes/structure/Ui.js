@@ -17,8 +17,6 @@ class Ui extends Phaser.Scene
 
     create ()
     {
-        // console.log("create Ui")
-
         this.star = this.add.image(50, 35 , 'star');
 
         this.halo = this.add.pointlight(50, 35, (30, 144, 255), 50, 0.1, 0.1);
@@ -40,41 +38,6 @@ class Ui extends Phaser.Scene
             fill: '#fff'
         });
 
-        // this.oui = this.add.text(120, 100, '123', {
-        //     font:'32px "Comic Sans MS"',
-        //     fill: '#fff'
-        // });
-
-        /**
-         * Le champ texte avec la clé du tableau
-         * @type {Phaser.GameObjects.Text}
-         * @private
-         */
-        // this._tableauText = this.add.text(this.sys.canvas.width-16, 16, '...', {
-        //     font:'32px "Comic Sans MS"',
-        //     align: 'right',
-        //     fill: '#fff'
-        // })
-
-        /**
-         * Le champ texte avec la classe du tableau
-         * @type {Phaser.GameObjects.Text}
-         * @private
-         */
-        // this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, '...', {
-        //     font:'24px "Comic Sans MS"',
-        //     align: 'right',
-        //     fill: '#fff',
-        // }).setAlpha(0.5)
-
-        // this._tableauText.originX=1;
-        // this._tableauTextClass.originX=1;
-
-        // this._tableauText.setInteractive();
-        // this._tableauText.on('pointerdown', function () {
-        //     Tableau.suivant();
-        // })
-
         //met l'ui au dessus du tableau
         this.scene.bringToTop();
         //lance le tableau
@@ -87,12 +50,6 @@ class Ui extends Phaser.Scene
             me.gagne(0)
         },100)
 
-
-        //let pad=new GamePad(this,0,0);
-
-        //boutons
-        // let pad=new GamePadButtons(this,0,0);
-
         //joystick
         let pad=new GamePadButtons(this,0,0);
 
@@ -102,11 +59,15 @@ class Ui extends Phaser.Scene
 
         let btFs=this.add.image(0,0,'ui/full-screen-icon');
         btFs.setInteractive();
-        btFs.on('pointerup', function () {
+        btFs.on('pointerup', function ()
+        {
 
-            if (this.scale.isFullscreen){
+            if (this.scale.isFullscreen)
+            {
                 this.scale.stopFullscreen();
-            }else{
+            }
+            else
+            {
                 this.scale.startFullscreen();
             }
 
@@ -131,12 +92,5 @@ class Ui extends Phaser.Scene
             this.completion = 0;
         }
         this._completionText.setText(' ' + this.completion + ' /100');
-    }
-
-    update(){
-        // if(Tableau.current){
-        //     this._tableauText.setText(Tableau.current.scene.key);
-        //     this._tableauTextClass.setText(Tableau.current.constructor.name);
-        // }
     }
 }

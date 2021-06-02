@@ -27,15 +27,7 @@ class Niveau1 extends Tableau
 
         let ici = this;
 
-        // this.player.on(MyEvents.MARKUS, function(){
-        //
-        // });
-
         this.logo = this.add.sprite(2980, 2618, 'logo').setOrigin(0,0).setDisplaySize(428,200).setInteractive();
-        this.logo.on('pointerdown',function()
-        {
-
-        });
 
         this.player.on(MyEvents.COURD, function()
         {
@@ -90,7 +82,6 @@ class Niveau1 extends Tableau
 
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
 
-        // this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "atlas", "misa-front");
         this.player.setPosition(spawnPoint.x, spawnPoint.y);
 
         var part = this.add.particles('particD');
@@ -753,6 +744,7 @@ class Niveau1 extends Tableau
     update()
     {
         super.update();
+
         // le fond se déplace moins vite que la caméra pour donner un effet paralax
         // this.sky.tilePositionX = this.cameras.main.scrollX * 0.1;
         this.sky.tilePositionY = this.cameras.main.scrollY * 0.1;

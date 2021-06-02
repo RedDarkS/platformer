@@ -149,24 +149,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 }
                 break;
 
-            // case this._directionX > 0 && this._directionY > 0 : // va vers en bas à droite
-            //     this.setVelocityY(-550);
-            //
-            //     this.anims.play('turn', true);
-            //     this.isRunning = false;
-            //
-            //     this.emit(MyEvents.STOP);
-            //     break;
-            //
-            // case this._directionX === 0 && this._directionY === 0 : // ne bouge pas
-            //     this.setVelocityX(0);
-            //
-            //     this.anims.play('turn', true);
-            //     this.isRunning = false;
-            //
-            //     this.emit(MyEvents.STOP);
-            //     break;
-
             default:
                 this.setVelocityX(0);
                 this.staticY = true;
@@ -178,7 +160,6 @@ class Player extends Phaser.Physics.Arcade.Sprite
         }
 
         //saut
-        // stockage ||this.body.touching.right
         if(this._directionY < 0)
         {
             if(this.body.blocked.down)
