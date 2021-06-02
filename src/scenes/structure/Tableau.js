@@ -96,15 +96,16 @@ class Tableau extends Phaser.Scene
         this.blood.visible = false;
 
         //pour opitDeplacement
-        // this.arrowRightUnpressed = false;
-        // this.arrowRightPressed = false;
-        // this.arrowLeftUnpressed = false;
-        // this.arrowLeftPressed = false;
-        //
-        //pour jumper
-        // this.keyboardArrowUp = false;
-        // this.arrowUpPressed = false;
-        // // this.jumpStop = false;
+        this.arrowRightUnpressed = false;
+        this.arrowLeftUnpressed = false;
+
+        this.arrowRightPressed = false;
+        this.arrowLeftPressed = false;
+
+        console.log(this.arrowRightUnpressed);
+        console.log(this.arrowLeftUnpressed);
+        console.log(this.arrowRightPressed);
+        console.log(this.arrowLeftPressed);
 
     }
     update()
@@ -112,81 +113,49 @@ class Tableau extends Phaser.Scene
         super.update();
         this.player.move();
 
-        // this.optiDeplacement();
-        // this.jumper();
+        this.optiDeplacement();
     }
 
-    // optiDeplacement()
-    // {
-    //     if(Tableau.current.arrowLeftUnpressed)
-    //         {
-    //             if(Tableau.current.player.staticY) // Quand le joueur ne saute pas ni ne tombe
-    //             {
-    //                 if(Tableau.current.arrowRightPressed)
-    //                 {
-    //                     Tableau.current.player.directionX = 1;
-    //                     Tableau.current.arrowLeftUnpressed = false;
-    //                 }
-    //                 else
-    //                 {
-    //                     Tableau.current.player.directionX = 0;
-    //                     Tableau.current.arrowLeftUnpressed = false;
-    //                 }
-    //             }
-    //         }
-    //         else if(Tableau.current.arrowRightUnpressed)
-    //         {
-    //             if (Tableau.current.player.staticY)
-    //             {
-    //                 if (Tableau.current.arrowLeftPressed)
-    //                 {
-    //                     Tableau.current.player.directionX = -1;
-    //                     Tableau.current.arrowRightUnpressed = false;
-    //                 }
-    //                 else
-    //                 {
-    //                     Tableau.current.player.directionX = 0;
-    //                     Tableau.current.arrowRightUnpressed = false;
-    //                 }
-    //             }
-    //         }
-    //
-    //         if (!Tableau.current.arrowLeftPressed && !Tableau.current.arrowRightPressed && Tableau.current.player.staticY)
-    //         {
-    //             Tableau.current.player.directionX = 0;
-    //         }
-    // }
-    //
-    // jumper()
-    // {
-    //     if(this.arrowUpPressed && !this.player.isDead)
-    //     {
-    //         if(this.firstJump)
-    //         {
-    //             this.player.directionY = -1;
-    //             // this.jumpStop = false;
-    //             this.firstJump = false;
-    //         }
-    //         else
-    //         {
-    //             this.player.directionY = 0;
-    //         }
-    //
-    //         if(!this.keyboardArrowUp)
-    //         {
-    //             this.time.addEvent
-    //             ({
-    //                 delay: 200,
-    //                 callback: ()=>
-    //                 {
-    //                     this.arrowUpPressed = false;
-    //                 },
-    //                 loop: false
-    //             })
-    //         }
-    //
-    //     }
-    // }
+    optiDeplacement()
+    {
+        if(Tableau.current.arrowLeftUnpressed)
+            {
+                if(Tableau.current.player.staticY) // Quand le joueur ne saute pas ni ne tombe
+                {
+                    if(Tableau.current.arrowRightPressed)
+                    {
+                        Tableau.current.player.directionX = 1;
+                        Tableau.current.arrowLeftUnpressed = false;
+                    }
+                    else
+                    {
+                        Tableau.current.player.directionX = 0;
+                        Tableau.current.arrowLeftUnpressed = false;
+                    }
+                }
+            }
+            else if(Tableau.current.arrowRightUnpressed)
+            {
+                if (Tableau.current.player.staticY)
+                {
+                    if (Tableau.current.arrowLeftPressed)
+                    {
+                        Tableau.current.player.directionX = -1;
+                        Tableau.current.arrowRightUnpressed = false;
+                    }
+                    else
+                    {
+                        Tableau.current.player.directionX = 0;
+                        Tableau.current.arrowRightUnpressed = false;
+                    }
+                }
+            }
+
+            if (!Tableau.current.arrowLeftPressed && !Tableau.current.arrowRightPressed && Tableau.current.player.staticY)
+            {
+                Tableau.current.player.directionX = 0;
+            }
+    }
 
     /**
      *

@@ -77,7 +77,8 @@ class checkPoint extends Phaser.Physics.Arcade.Sprite
 
     glow()
     {
-        if(this.compt < 1){
+        if(this.compt < 1)
+        {
             this.halo = this.scene.add.pointlight(this.x - 16, this.y, (30, 255, 144), 75, 0.1, 0.1);
             this.halo.color.r = 30;
             this.halo.color.g = 255;

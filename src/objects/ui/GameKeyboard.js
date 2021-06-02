@@ -17,32 +17,41 @@
             switch (kevent.key)
             {
                 case "d":
-                    Tableau.current.player.directionX=1;
-                    // Tableau.current.arrowRightPressed = true;
+                    Tableau.current.player.directionX = 1;
+
+                    Tableau.current.arrowRightUnpressed = false;
+                    Tableau.current.arrowRightPressed = true;
                     break;
                 case "ArrowRight":
                     Tableau.current.player.directionX = 1;
-                    // Tableau.current.arrowRightPressed = true;
+
+                    Tableau.current.arrowRightUnpressed = false;
+                    Tableau.current.arrowRightPressed = true;
                     break;
 
 
                 case "q":
-                    Tableau.current.player.directionX=-1;
-                    // Tableau.current.arrowLeftPressed = true;
+                    Tableau.current.player.directionX = -1;
+
+                    Tableau.current.arrowLeftPressed = true;
+                    Tableau.current.arrowRightUnpressed = false;
                     break;
                 case "ArrowLeft":
                     Tableau.current.player.directionX = -1;
-                    // Tableau.current.arrowLeftPressed = true;
+
+                    Tableau.current.arrowLeftPressed = true;
+                    Tableau.current.arrowRightUnpressed = false;
                     break;
 
+                    
                 case "z":
-                    Tableau.current.player.directionY=-1;
+                    Tableau.current.player.directionY = -1;
                     break;
                 case " ":
-                    Tableau.current.player.directionY=-1;
+                    Tableau.current.player.directionY = -1;
                     break;
                 case "ArrowUp":
-                    Tableau.current.player.directionY=-1;
+                    Tableau.current.player.directionY = -1;
                     break;
 
                 case "Control":
@@ -60,34 +69,43 @@
             switch (kevent.key)
             {
                 case "d":
-                    Tableau.current.player.directionX=0;
+                    Tableau.current.player.directionX = 0;
+
+                    Tableau.current.arrowRightUnpressed = true;
+                    Tableau.current.arrowRightPressed = false;
                     break;
                 case "ArrowRight":
-                    Tableau.current.player.directionX=0;
+                    Tableau.current.player.directionX = 0;
+
+                    Tableau.current.arrowRightUnpressed = true;
+                    Tableau.current.arrowRightPressed = false;
                     break;
 
                 case "q":
-                    Tableau.current.player.directionX=0;
+                    Tableau.current.player.directionX = 0;
+
+                    Tableau.current.arrowLeftUnpressed = true;
+                    Tableau.current.arrowLeftPressed = false;
                     break;
                 case "ArrowLeft":
-                    Tableau.current.player.directionX=0;
+                    Tableau.current.player.directionX = 0;
+
+                    Tableau.current.arrowLeftUnpressed = true;
+                    Tableau.current.arrowLeftPressed = false;
                     break;
 
                 case "z":
-                    Tableau.current.player.directionY=0;
+                    Tableau.current.player.directionY = 0;
                     break;
                 case " ":
-                    Tableau.current.player.directionY=0;
+                    Tableau.current.player.directionY = 0;
                     break;
                 case "ArrowUp":
-                    Tableau.current.player.directionY=0;
+                    Tableau.current.player.directionY = 0;
                     break;
             }
         });
 
-
-
     }
-
 
 } 

@@ -116,6 +116,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         {
             case this._directionY < 0 && this.isEsc :
                 this.setVelocityY(-300);
+
                 this.anims.play('escalade', true);
 
                 this.emit(MyEvents.GRIMPE);
@@ -148,23 +149,23 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 }
                 break;
 
-            case this._directionX > 0 && this._directionY > 0 : // va vers en bas à droite
-                this.setVelocityY(-550);
-
-                this.anims.play('turn', true);
-                this.isRunning = false;
-
-                this.emit(MyEvents.STOP);
-                break;
-
-            case this._directionX === 0 && this._directionY === 0 : // ne bouge pas
-                this.setVelocityX(0);
-
-                this.anims.play('turn', true);
-                this.isRunning = false;
-
-                this.emit(MyEvents.STOP);
-                break;
+            // case this._directionX > 0 && this._directionY > 0 : // va vers en bas à droite
+            //     this.setVelocityY(-550);
+            //
+            //     this.anims.play('turn', true);
+            //     this.isRunning = false;
+            //
+            //     this.emit(MyEvents.STOP);
+            //     break;
+            //
+            // case this._directionX === 0 && this._directionY === 0 : // ne bouge pas
+            //     this.setVelocityX(0);
+            //
+            //     this.anims.play('turn', true);
+            //     this.isRunning = false;
+            //
+            //     this.emit(MyEvents.STOP);
+            //     break;
 
             default:
                 this.setVelocityX(0);
@@ -185,34 +186,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityY(-550);
                 this.emit(MyEvents.SAUTE);
             }
-            // else
-            // {
-            //     if(this.directionX > 0)
-            //     {
-            //         this.anims.play('turn', true);
-            //         this.setFlipX(false);
-            //     }
-            //     else
-            //     {
-            //         this.anims.play('turn', true);
-            //         this.setFlipX(true);
-            //     }
-            //
-            // }
         }
     }
-    //
-    // roulade()
-    // {
-    //     setTimeout(function(){
-    //         console.log("no body");
-    //         this.invul = true;
-    //     },1);
-    //
-    //     setTimeout(function(){
-    //         console.log("body");
-    //         this.invul = false;
-    //     },1000);
-    // }
 
 }
