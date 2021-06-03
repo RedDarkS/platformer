@@ -20,6 +20,7 @@ class Tableau extends Phaser.Scene
     {
         //SPRITES
         this.load.image('star', 'assets/coeur.png');
+        this.load.image('newGame', 'assets/newGame.png');
         this.load.image('blood', 'assets/blood.png');
         this.load.image('checkpoint', 'assets/checkpoint.png');
 

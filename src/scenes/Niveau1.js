@@ -546,7 +546,7 @@ class Niveau1 extends Tableau
                 ici,
                 NGObjects.x,
                 NGObjects.y,
-                'star'
+                'newGame'
             ).setOrigin(0, 1);
 
             this.physics.add.overlap(this.player, ng, function()
